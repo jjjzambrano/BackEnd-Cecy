@@ -1,15 +1,13 @@
 package cecy.cecy_backend.cecy_certificados.certificados_generados;
 
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
 import cecy.cecy_backend.cecy_certificados.certificados.Certificados;
 import cecy.cecy_backend.cecy_certificados.codigos.Codigos;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 
@@ -28,4 +26,3 @@ public class CertificadosGenerados {
     @JoinColumn(name = "code_id", referencedColumnName = "id")
     private Codigos codigos;
 }
-

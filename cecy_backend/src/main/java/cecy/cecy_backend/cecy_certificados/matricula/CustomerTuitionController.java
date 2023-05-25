@@ -29,4 +29,3 @@ public class CustomerTuitionController {
         return customerTuition.findTuitionByIdDto(id);
     }
 }
-

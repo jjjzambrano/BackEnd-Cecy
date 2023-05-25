@@ -10,4 +10,3 @@ public class CustomerDTOCourse {
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
 }
-

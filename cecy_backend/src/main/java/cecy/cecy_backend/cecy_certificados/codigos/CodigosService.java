@@ -24,4 +24,3 @@ public class CodigosService {
         return entityRepository.findAll();
     }
 }
-
