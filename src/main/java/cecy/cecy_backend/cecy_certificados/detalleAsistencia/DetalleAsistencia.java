@@ -7,7 +7,7 @@ import java.util.List;
 
 
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
-import cecy.cecy_backend.cecy_certificados.matriculas.Matriculas;
+import cecy.cecy_backend.cecy_certificados.estudiantes.Estudiantes;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,6 +32,6 @@ public class DetalleAsistencia {
     // matricula o estudiantes
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "detalle_asistencia_id")
-    private List<Matriculas> matriculas = new ArrayList<>();
+    private List<Estudiantes> estudiantes = new ArrayList<>();
 
 }
