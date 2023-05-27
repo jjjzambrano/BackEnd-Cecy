@@ -28,6 +28,11 @@ public class CatalogosController {
         return catalogosService.findById(id);
     }
 
+    @GetMapping("/findByDescripcion/{term}/")
+    public Catalogos findByDescripcion(@PathVariable String term) {
+        return catalogosService.findByDescripcion(term);
+    }
+
     @PostMapping("/")
     public Catalogos save(@RequestBody Catalogos entity){
         return catalogosService.save(entity);

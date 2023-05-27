@@ -20,5 +20,9 @@ public class CatalogosService {
     public Catalogos findById(Long id) {
         return catalogosRepository.findById(id).orElse(new Catalogos());
     }
+
+    public Catalogos findByDescripcion(String term) {
+        return catalogosRepository.findByDescripcion(term);
+    }
     
 }

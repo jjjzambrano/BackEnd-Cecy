@@ -12,32 +12,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import cecy.cecy_backend.cecy_certificados.catalogos.CatalogosService;
 
 @RestController
 @RequestMapping("api/estudiantes")
-@CrossOrigin({"*"})
+@CrossOrigin({ "*" })
 
 public class EstudiantesController {
-    @Autowired EstudiantesService estudiantesService;
+    @Autowired
+    EstudiantesService estudiantesService;
+    @Autowired
+    CatalogosService catalogosService;
 
     @GetMapping("/")
-    public List<Estudiantes> findAll(){
+    public List<Estudiantes> findAll() {
         return estudiantesService.findAll();
     }
 
     @GetMapping("/{id}/")
-    public Estudiantes findById(@PathVariable Long id){
+    public Estudiantes findById(@PathVariable Long id) {
         return estudiantesService.findById(id);
     }
 
     @PostMapping("/")
-    public Estudiantes save(@RequestBody Estudiantes entity){
+    public Estudiantes save(@RequestBody Estudiantes entity) {
+        entity.setGenero(catalogosService.findByDescripcion(entity.getGenero().getDescripcion()));
+        entity.setTipoEstudiante(catalogosService.findByDescripcion(entity.getTipoEstudiante().getDescripcion()));
+        entity.setNivelInstruccion(catalogosService.findByDescripcion(entity.getNivelInstruccion().getDescripcion()));
+        entity.setSituacionEconomica(catalogosService.findByDescripcion(entity.getSituacionEconomica().getDescripcion()));
         return estudiantesService.save(entity);
     }
 
     @PutMapping("/{id}/")
-    public Estudiantes update(@RequestBody Estudiantes entity){
+    public Estudiantes update(@RequestBody Estudiantes entity) {
         return estudiantesService.save(entity);
     }
-    
+
 }
