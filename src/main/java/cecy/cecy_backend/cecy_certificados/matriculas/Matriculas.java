@@ -14,6 +14,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 
@@ -36,14 +37,12 @@ public class Matriculas {
     private List<Observaciones> observaciones = new ArrayList<>();
 
     // con observaciones - rechazado - aceptado
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "matriculas_id")
-    private List<Catalogos> estadoMatricula = new ArrayList<>();
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private Catalogos estadoMatricula;
 
     // aprobado - reprobado
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "matriculas_id")
-    private List<Catalogos> estadoCurso = new ArrayList<>();
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private Catalogos estadoCurso;
 
     // asistencias
 

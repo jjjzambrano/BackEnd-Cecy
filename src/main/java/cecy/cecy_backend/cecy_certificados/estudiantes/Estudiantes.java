@@ -13,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 
@@ -35,25 +36,20 @@ public class Estudiantes {
     private String numeroCelular;
     private String numeroConvencional;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "estudiantes_id")
-    private List<Catalogos> genero = new ArrayList<>();
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private Catalogos genero ;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "estudiantes_id")
-    private List<Catalogos> tipoEstudiante = new ArrayList<>();
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private Catalogos tipoEstudiante ;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "estudiantes_id")
-    private List<Catalogos> etnia = new ArrayList<>();
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private Catalogos etnia ;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "estudiantes_id")
-    private List<Catalogos> nivelInstruccion = new ArrayList<>();
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private Catalogos nivelInstruccion ;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "estudiantes_id")
-    private List<Catalogos> situacionEconomica = new ArrayList<>();
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private Catalogos situacionEconomica ;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "estudiantes_id")
