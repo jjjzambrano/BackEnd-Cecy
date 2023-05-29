@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import cecy.cecy_backend.cecy_certificados.catalogos.CatalogosService;
+
 @RestController
 @RequestMapping("api/asistencia")
 @CrossOrigin({"*"})
 public class AsistenciaController {
     @Autowired AsistenciaService asistenciaService;
+    @Autowired CatalogosService catalogosService;
     @GetMapping("/")
     public List<Asistencia> findAll(){
         return asistenciaService.findAll();
@@ -29,6 +32,7 @@ public class AsistenciaController {
 
     @PostMapping("/")
     public Asistencia save(@RequestBody Asistencia entity){
+        entity.getDetalleAsistencia().forEach(detalleAsistencia -> detalleAsistencia.setEstado(catalogosService.findFirstByDescription((detalleAsistencia.getEstado().getDescripcion()))));
         return asistenciaService.save(entity);
     }
 

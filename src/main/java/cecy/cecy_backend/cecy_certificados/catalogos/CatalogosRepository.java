@@ -8,5 +8,7 @@ public interface CatalogosRepository extends CrudRepository<Catalogos, Long> {
     List<Catalogos> findAll();
 
     Catalogos findByDescripcion(String term);
+
+    Catalogos findFirstByDescripcion(String term);
     
 }

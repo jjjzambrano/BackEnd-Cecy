@@ -7,4 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface MatriculasRepository extends CrudRepository<Matriculas, Long> {
     List<Matriculas> findAll();
     
+    List<Matriculas> findByEstadoMatriculaDescripcion(String tem);
 }
