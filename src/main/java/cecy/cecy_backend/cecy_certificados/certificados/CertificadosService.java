@@ -9,7 +9,9 @@ import java.util.Map;
 import org.springframework.util.ResourceUtils;
 
 import cecy.cecy_backend.cecy_certificados.conexion.Course;
+import cecy.cecy_backend.cecy_certificados.conexion.NodeApiFeignService;
 import cecy.cecy_backend.cecy_certificados.estudiantes.Estudiantes;
+import cecy.cecy_backend.cecy_certificados.estudiantes.EstudiantesService;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -19,9 +21,9 @@ import net.sf.jasperreports.engine.JasperPrint;
 @Service
 public class CertificadosService {
     @Autowired
-    Estudiantes customerPerson;
+    EstudiantesService customerPerson;
     @Autowired
-    Course customerCourse;
+    NodeApiFeignService customerCourse;
     @Autowired
     CertificadosRepository entityRepository;
 
@@ -47,14 +49,14 @@ public class CertificadosService {
         Certificados certificados = findById(id);
         if (certificados.getId() == null)
             return null;
-        Estudiantes persona = customerPerson.findPersonByIdDto(certificados.getUserId());
+        Estudiantes persona = customerPerson.findById(certificados.getUserId());
         reportParameters.put("nombres", persona.getNombres());
         reportParameters.put("apellidos", persona.getApellidos());
         reportParameters.put("rector", persona.getNombres() + " " + persona.getApellidos());
         reportParameters.put("coordinador", persona.getNombres() + " " + persona.getApellidos());
 
-        Course curso = customerCourse.findCourseByIdDto(certificados.getCourseId());
-        reportParameters.put("curso_nombre", curso.getNombre());
+       /*Course curso = customerCourse.getCoursesAll(certificados.getCourseId());
+        reportParameters.put("curso_nombre", curso.getAbbreviation()); */
 
         JasperPrint reportJasperPrint = null;
         try {

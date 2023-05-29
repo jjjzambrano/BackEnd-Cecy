@@ -22,4 +22,9 @@ public class NodeApiFeignController {
     public  List<Course> getCoursesByState(@PathVariable String state){
         return nodeapiFeignService.getCoursesByState(state);
     }
+
+    @GetMapping("/courses/{id}")
+    public List<Course> findById(@PathVariable Long id){
+        return nodeapiFeignService.findById(id);
+    }
 }
