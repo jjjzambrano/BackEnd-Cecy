@@ -4,10 +4,11 @@ package cecy.cecy_backend.cecy_certificados.detalleAsistencia;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import org.hibernate.mapping.ManyToOne;
 
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
 import cecy.cecy_backend.cecy_certificados.estudiantes.Estudiantes;
+import cecy.cecy_backend.cecy_certificados.matriculas.Matriculas;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,14 +25,16 @@ public class DetalleAsistencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    // estado: atrasado - presente - ausente
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "detalle_asistencia_id")
-    private List<Catalogos> estado = new ArrayList<>();
+    // estado: falta_justificada - presente - ausente
+    // @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    // @JoinColumn(name = "detalle_asistencia_id")
+    // private List<Catalogos> estado = new ArrayList<>();
+    @jakarta.persistence.ManyToOne(cascade = CascadeType.ALL)
+    private Catalogos estado;
 
     // matricula o estudiantes
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true)
     @JoinColumn(name = "detalle_asistencia_id")
-    private List<Estudiantes> estudiantes = new ArrayList<>();
+    private List<Matriculas> matriculas = new ArrayList<>();
 
 }

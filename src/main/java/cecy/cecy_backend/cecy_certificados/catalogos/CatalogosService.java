@@ -24,5 +24,9 @@ public class CatalogosService {
     public Catalogos findByDescripcion(String term) {
         return catalogosRepository.findByDescripcion(term);
     }
+
+    public Catalogos findFirstByDescription(String term){
+        return catalogosRepository.findFirstByDescripcion(term);
+    }
     
 }

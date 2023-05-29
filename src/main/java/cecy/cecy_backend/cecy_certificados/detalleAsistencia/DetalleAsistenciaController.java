@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import cecy.cecy_backend.cecy_certificados.catalogos.CatalogosService;
+
 @RestController
 @RequestMapping("api/detalleAsistencia")
 @CrossOrigin({"*"})
 public class DetalleAsistenciaController {
 
     @Autowired DetalleAsistenciaService detalleAsistenciaService;
+    @Autowired CatalogosService catalogosService;
 
     @GetMapping("/")
     public List<DetalleAsistencia> findAll(){
