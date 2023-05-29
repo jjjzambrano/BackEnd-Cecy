@@ -28,6 +28,11 @@ public class MatriculasController {
         return matriculasService.findById(id);
     }
 
+    @GetMapping("/estadoMatricula/{term}/")
+    public List<Matriculas> findByEstadoMatricula(@PathVariable String term) {
+        return matriculasService.findByEstadoMatricula(term);
+    }
+
     @PostMapping("/")
     public Matriculas save(@RequestBody Matriculas entity){
         return matriculasService.save(entity);
