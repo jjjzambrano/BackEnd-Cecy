@@ -24,6 +24,10 @@ public class MatriculasService {
 
     public List<Matriculas> findByEstadoMatricula(String term){
         return matriculasRepository.findByEstadoMatriculaDescripcion(term);
+    }   
+    
+    public List<Matriculas> findByCursoId(int id){
+        return matriculasRepository.findByCursoId(id);
     }
     
 }

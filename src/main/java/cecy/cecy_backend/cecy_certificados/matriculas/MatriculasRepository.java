@@ -8,4 +8,6 @@ public interface MatriculasRepository extends CrudRepository<Matriculas, Long> {
     List<Matriculas> findAll();
     
     List<Matriculas> findByEstadoMatriculaDescripcion(String tem);
+
+    List<Matriculas> findByCursoId(int id);
 }

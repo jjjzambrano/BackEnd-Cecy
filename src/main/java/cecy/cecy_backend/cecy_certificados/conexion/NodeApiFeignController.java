@@ -11,12 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 @CrossOrigin({"*"})
 public class NodeApiFeignController {
     @Autowired NodeApiFeignService nodeapiFeignService;
     @GetMapping("/courses")
     public List<Course> getCoursesAll() {
         return nodeapiFeignService.getCoursesAll();
+    }
+    @GetMapping("/courses/{id}")
+    public Course findById(@PathVariable String id){
+        return nodeapiFeignService.findById(id);
     }
     @GetMapping("/courses/state-course/{state}")
     public  List<Course> getCoursesByState(@PathVariable String state){
