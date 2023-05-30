@@ -6,11 +6,17 @@ import org.hibernate.boot.model.source.internal.hbm.ManyToOneAttributeColumnsAnd
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cecy.cecy_backend.cecy_certificados.catalogos.CatalogosRepository;
+import cecy.cecy_backend.cecy_certificados.catalogos.CatalogosService;
+
 @Service
 public class MatriculasService {
     @Autowired MatriculasRepository matriculasRepository;
+    @Autowired CatalogosRepository catalogosRepository;
 
     public Matriculas save(Matriculas matricula){
+        matricula.setEstadoMatricula(catalogosRepository.findFirstByDescripcion(matricula.getEstadoMatricula().getDescripcion()));
+        matricula.setEstadoCurso(catalogosRepository.findFirstByDescripcion(matricula.getEstadoCurso().getDescripcion()));
         return matriculasRepository.save(matricula);
     }
 

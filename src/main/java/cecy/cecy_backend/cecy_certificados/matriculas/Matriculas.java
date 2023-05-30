@@ -47,11 +47,11 @@ public class Matriculas {
     private List<Observaciones> observaciones = new ArrayList<>();
 
     // con observaciones - rechazado - aceptado
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Catalogos estadoMatricula;
 
     // aprobado - reprobado
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Catalogos estadoCurso;
 
     // asistencias

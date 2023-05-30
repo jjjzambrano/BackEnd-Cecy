@@ -30,7 +30,7 @@ public class CatalogosController {
 
     @GetMapping("/findByDescripcion/{term}/")
     public Catalogos findByDescripcion(@PathVariable String term) {
-        return catalogosService.findByDescripcion(term);
+        return catalogosService.findFirstByDescription(term);
     }
 
     @PostMapping("/")
