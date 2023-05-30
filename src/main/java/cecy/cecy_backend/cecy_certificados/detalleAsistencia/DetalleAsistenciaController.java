@@ -1,4 +1,4 @@
-package cecy.cecy_backend.cecy_certificados.prerequisitos;
+package cecy.cecy_backend.cecy_certificados.detalleAsistencia;
 
 import java.util.List;
 
@@ -13,30 +13,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/prerequisitos")
+@RequestMapping("api/detalleAsistencia")
 @CrossOrigin({"*"})
-public class PrerequisitosController {
+public class DetalleAsistenciaController {
 
-    @Autowired PrerequisitosService prerequisitosService;
+    @Autowired DetalleAsistenciaService detalleAsistenciaService;
 
     @GetMapping("/")
-    public List<Prerequisitos> findAll(){
-        return prerequisitosService.findAll();
+    public List<DetalleAsistencia> findAll(){
+        return detalleAsistenciaService.findAll();
     }
 
     @GetMapping("/{id}/")
-    public Prerequisitos findById(@PathVariable Long id){
-        return prerequisitosService.findById(id);
+    public DetalleAsistencia findById(@PathVariable Long id){
+        return detalleAsistenciaService.findById(id);
     }
 
     @PostMapping("/")
-    public Prerequisitos save(@RequestBody Prerequisitos entity){
-        return prerequisitosService.save(entity);
+    public DetalleAsistencia save(@RequestBody DetalleAsistencia entity){
+        return detalleAsistenciaService.save(entity);
     }
 
     @PutMapping("/{id}/")
-    public Prerequisitos update(@RequestBody Prerequisitos entity){
-        return prerequisitosService.save(entity);
+    public DetalleAsistencia update(@RequestBody DetalleAsistencia entity){
+        return detalleAsistenciaService.save(entity);
     }
     
 }

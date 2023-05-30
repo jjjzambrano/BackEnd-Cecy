@@ -7,31 +7,43 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+<<<<<<< HEAD
+=======
+import org.springframework.web.bind.annotation.PutMapping;
+>>>>>>> main
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/catalogos")
-@CrossOrigin({ "*" })
+@CrossOrigin({"*"})
 public class CatalogosController {
-
-    @Autowired
-    CatalogosService catalogosService;
+    @Autowired CatalogosService catalogosService;
 
     @GetMapping("/")
-    public List<Catalogos> findAll() {
+    public List<Catalogos> findAll(){
         return catalogosService.findAll();
     }
 
     @GetMapping("/{id}/")
-    public Catalogos findById(@PathVariable Long id) {
+    public Catalogos findById(@PathVariable Long id){
         return catalogosService.findById(id);
     }
 
-    @PostMapping("/")
-    public Catalogos save(@RequestBody Catalogos catalogos) {
-        return catalogosService.save(catalogos);
+    @GetMapping("/findByDescripcion/{term}/")
+    public Catalogos findByDescripcion(@PathVariable String term) {
+        return catalogosService.findByDescripcion(term);
     }
-}
 
+    @PostMapping("/")
+    public Catalogos save(@RequestBody Catalogos entity){
+        return catalogosService.save(entity);
+    }
+
+    @PutMapping("/{id}/")
+    public Catalogos update(@RequestBody Catalogos entity){
+        return catalogosService.save(entity);
+    }
+    
+}

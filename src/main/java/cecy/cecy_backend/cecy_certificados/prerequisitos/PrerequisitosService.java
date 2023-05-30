@@ -7,12 +7,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PrerequisitosService {
-    @Autowired
-    PrerequisitosRepository prerequisitosRepository;
 
-    public Prerequisitos save(Prerequisitos entity) {
-        return prerequisitosRepository.save(entity);
-    }
+    @Autowired PrerequisitosRepository prerequisitosRepository;
 
     public List<Prerequisitos> findAll() {
         return prerequisitosRepository.findAll();
@@ -21,4 +17,9 @@ public class PrerequisitosService {
     public Prerequisitos findById(Long id) {
         return prerequisitosRepository.findById(id).orElse(new Prerequisitos());
     }
+
+    public Prerequisitos save(Prerequisitos prerequisitos) {
+        return prerequisitosRepository.save(prerequisitos);
+    }
+    
 }

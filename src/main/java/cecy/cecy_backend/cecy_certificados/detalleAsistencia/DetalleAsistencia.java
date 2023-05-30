@@ -1,14 +1,13 @@
 package cecy.cecy_backend.cecy_certificados.detalleAsistencia;
 
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
-import cecy.cecy_backend.cecy_certificados.observaciones.Observaciones;
+import cecy.cecy_backend.cecy_certificados.estudiantes.Estudiantes;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,18 +24,14 @@ public class DetalleAsistencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    private Date dia;
-
+    // estado: atrasado - presente - ausente
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "detalle_asistencia_id")
     private List<Catalogos> estado = new ArrayList<>();
 
+    // matricula o estudiantes
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "detalle_asistencia_id")
-    private List<Observaciones> observaciones = new ArrayList<>();
+    private List<Estudiantes> estudiantes = new ArrayList<>();
 
-
-
-
-    
 }

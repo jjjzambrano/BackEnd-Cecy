@@ -7,18 +7,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ObservacionesService {
-    @Autowired
-    ObservacionesRepository observacionesRepository;
+    @Autowired ObservacionesRepository observacionesRepository;
 
-    public Observaciones save(Observaciones entity) {
-        return observacionesRepository.save(entity);
+    public Observaciones save(Observaciones observaciones){
+        return observacionesRepository.save(observaciones);
     }
 
-    public List<Observaciones> findAll() {
+    public List<Observaciones> findAll(){
         return observacionesRepository.findAll();
     }
 
-    public Observaciones findById(Long id) {
+    public Observaciones findById(Long id){
         return observacionesRepository.findById(id).orElse(new Observaciones());
     }
+    
 }

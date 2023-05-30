@@ -5,5 +5,8 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 public interface CatalogosRepository extends CrudRepository<Catalogos, Long> {
-    public List<Catalogos> findAll();
+    List<Catalogos> findAll();
+
+    Catalogos findByDescripcion(String term);
+    
 }

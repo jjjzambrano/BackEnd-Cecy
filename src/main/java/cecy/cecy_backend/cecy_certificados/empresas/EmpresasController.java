@@ -7,30 +7,35 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/empresas")
-@CrossOrigin({ "*" })
+@CrossOrigin({"*"})
 public class EmpresasController {
-
-    @Autowired
-    EmpresasService empresasService;
+    @Autowired EmpresasService empresasService;
 
     @GetMapping("/")
-    public List<Empresas> findAll() {
+    public List<Empresas> findAll(){
         return empresasService.findAll();
     }
 
     @GetMapping("/{id}/")
-    public Empresas findById(@PathVariable Long id) {
+    public Empresas findById(@PathVariable Long id){
         return empresasService.findById(id);
     }
 
     @PostMapping("/")
-    public Empresas save(@RequestBody Empresas empresas) {
-        return empresasService.save(empresas);
+    public Empresas save(@RequestBody Empresas entity){
+        return empresasService.save(entity);
     }
+
+    @PutMapping("/{id}/")
+    public Empresas update(@RequestBody Empresas entity){
+        return empresasService.save(entity);
+    }
+    
 }
