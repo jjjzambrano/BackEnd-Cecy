@@ -9,7 +9,10 @@ import java.util.List;
 @FeignClient(name= "nodeApi", url = "http://localhost:3000/api/v1")
 public interface NodeApiFeignService {
     @GetMapping("/courses")
-    List<Course> getCoursesAll();  /*Aqui te trae todos los cursos*/
+    List<Course> getCoursesAll();
+    @GetMapping("/courses/{id}")
+    Course findById(@PathVariable(value = "id") String id);
+  /*Aqui te trae todos los cursos*/
     @GetMapping("/courses/state-course/{state}")
     List<Course> getCoursesByState(@PathVariable("state") String state); /*Aqui busco los cursos por estado (proceso | aprobado)*/
 }
