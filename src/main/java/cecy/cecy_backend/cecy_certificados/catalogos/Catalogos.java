@@ -13,6 +13,6 @@ public class Catalogos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nombre;
-    private String descipcion;
+    private String code;
+    private String value;
 }

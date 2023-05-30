@@ -24,7 +24,7 @@ public class Estudiantes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String dni;
+    private String cedula;
     private Date fechaNacimiento;
     private String nombres;
     private String apellidos;
@@ -37,19 +37,19 @@ public class Estudiantes {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "estudiantes_id")
-    private List<Catalogos> genero = new ArrayList<>();
+    private List<Catalogos> generoId = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "estudiantes_id")
-    private List<Catalogos> tipoEstudiante = new ArrayList<>();
+    private List<Catalogos> tipoPersonaId = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "estudiantes_id")
-    private List<Catalogos> etnia = new ArrayList<>();
+    private List<Catalogos> etniaId = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "estudiantes_id")
-    private List<Catalogos> nivelInstruccion = new ArrayList<>();
+    private List<Catalogos> instruccionId = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "estudiantes_id")
@@ -61,11 +61,11 @@ public class Estudiantes {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "estudiantes_id")
-    private List<Empresas> empresas = new ArrayList<>();
+    private List<Empresas> empresaId = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "estudiantes_id")
-    private List<Matriculas> matriculas = new ArrayList<>();
+    // @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    // @JoinColumn(name = "estudiantes_id")
+    // private List<Matriculas> matriculas = new ArrayList<>();
 
 
 }
