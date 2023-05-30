@@ -36,10 +36,11 @@ public class EstudiantesController {
 
     @PostMapping("/")
     public Estudiantes save(@RequestBody Estudiantes entity) {
-        entity.setGenero(catalogosService.findByDescripcion(entity.getGenero().getDescripcion()));
-        entity.setTipoEstudiante(catalogosService.findByDescripcion(entity.getTipoEstudiante().getDescripcion()));
-        entity.setNivelInstruccion(catalogosService.findByDescripcion(entity.getNivelInstruccion().getDescripcion()));
-        entity.setSituacionEconomica(catalogosService.findByDescripcion(entity.getSituacionEconomica().getDescripcion()));
+        entity.setGenero(catalogosService.findFirstByDescription(entity.getGenero().getDescripcion()));
+        entity.setEtnia(catalogosService.findFirstByDescription(entity.getEtnia().getDescripcion()));
+        entity.setTipoEstudiante(catalogosService.findFirstByDescription(entity.getTipoEstudiante().getDescripcion()));
+        entity.setNivelInstruccion(catalogosService.findFirstByDescription(entity.getNivelInstruccion().getDescripcion()));
+        entity.setSituacionEconomica(catalogosService.findFirstByDescription(entity.getSituacionEconomica().getDescripcion()));
         return estudiantesService.save(entity);
     }
 
