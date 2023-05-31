@@ -65,8 +65,8 @@ public class Estudiantes {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "estudiantes_id")
-    private List<Empresas> empresaId = new ArrayList<>();
-
+    private Empresas empresaId;
+    
     @OneToMany(mappedBy = "estudiantes", cascade = CascadeType.ALL, orphanRemoval = true)
     // @JsonManagedReference
     // @JoinTable(name = "estudiantes_matriculas", joinColumns = {@JoinColumn(name="estudiantes_id")}, inverseJoinColumns = {@JoinColumn(name="matriculas_id")})
