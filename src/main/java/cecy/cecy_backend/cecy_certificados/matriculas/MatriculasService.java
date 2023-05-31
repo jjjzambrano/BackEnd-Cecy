@@ -17,6 +17,7 @@ public class MatriculasService {
     public Matriculas save(Matriculas matricula){
         matricula.setEstadoMatricula(catalogosRepository.findFirstByDescripcion(matricula.getEstadoMatricula().getDescripcion()));
         matricula.setEstadoCurso(catalogosRepository.findFirstByDescripcion(matricula.getEstadoCurso().getDescripcion()));
+        matricula.getEstudiantes().setMatriculas(null);
         return matriculasRepository.save(matricula);
     }
 
