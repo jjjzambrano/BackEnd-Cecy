@@ -55,8 +55,8 @@ public class CertificadosService {
         reportParameters.put("rector", persona.getNombres() + " " + persona.getApellidos());
         reportParameters.put("coordinador", persona.getNombres() + " " + persona.getApellidos());
 
-       /*Course curso = customerCourse.getCoursesAll(certificados.getCourseId());
-        reportParameters.put("curso_nombre", curso.getAbbreviation()); */
+       Course curso = customerCourse.findById(certificados.getCourseId());
+        reportParameters.put("curso_nombre", curso.getAbbreviation());
 
         JasperPrint reportJasperPrint = null;
         try {
