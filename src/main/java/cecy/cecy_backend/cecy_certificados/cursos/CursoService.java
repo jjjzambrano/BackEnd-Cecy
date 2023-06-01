@@ -25,6 +25,12 @@ public class CursoService {
         return cursoRepository.findById(id).orElse(new Curso());
     }
 
+    /*Agregar nueva informacion en sus campos nuevos*/
+
+    public Curso create(Curso curso) {
+        return  cursoRepository.save(curso);
+    }
+
     /*Actualizar el curso*/
     public Curso updateById(Curso curso){
         return cursoRepository.save(curso);

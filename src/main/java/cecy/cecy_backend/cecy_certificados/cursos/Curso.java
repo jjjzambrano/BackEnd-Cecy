@@ -54,4 +54,19 @@ public class Curso {
     @Column(name = "speciality_id")
     private Integer specialityId;
 
+    /*PUEDEN AGREGAR SUS RELACIONES Y CAMPOS A ESTE MODELO MAPEADO DIRECTO ALA TABLA courses*/
+    /*----------------------------------------------------------------*/
+
+    /*INICIO DATOS DE PRUEBA PUEDEN BORRARLO SI NO LO VEN NECESARIO*/
+    @Column(name = "matricula_id")
+    private Integer matriculaId;
+
+    @Column(name = "estudiantes_id")
+    private Integer estudiantesId;
+
+    @Column(name = "notas_id")
+    private Integer notasId;
+
+    /*FIN DATOS DE PRUEBA*/
+
 }

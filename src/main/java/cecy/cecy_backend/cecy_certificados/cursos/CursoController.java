@@ -19,6 +19,11 @@ public class CursoController {
         return cursoService.findById(id);
     }
 
+    @PostMapping("/")
+    public Curso saveCurso(@RequestBody Curso curso){
+        return cursoService.create(curso);
+    }
+
     @PutMapping("/{id}")
     public Curso updateCourse(@RequestBody Curso curso){
          return cursoService.updateById(curso);

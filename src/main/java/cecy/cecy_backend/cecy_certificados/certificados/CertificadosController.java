@@ -23,7 +23,7 @@ import org.springframework.http.ResponseEntity;
 @RequestMapping("api/certificado")
 @CrossOrigin({"*"})
 public class CertificadosController {
-    @Autowired CertificadosService certificadosService;
+   /* @Autowired CertificadosService certificadosService;
 
     @GetMapping("/")
     public List<Certificados> findAll(){
@@ -62,5 +62,5 @@ public class CertificadosController {
 		// create the report in PDF format
 		return new ResponseEntity<byte[]>(JasperExportManager.exportReportToPdf(certificados), headers, HttpStatus.OK);
 
-	}
+	}*/
 }
