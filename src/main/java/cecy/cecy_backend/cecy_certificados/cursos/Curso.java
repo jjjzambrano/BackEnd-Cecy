@@ -1,6 +1,19 @@
 package cecy.cecy_backend.cecy_certificados.cursos;
 
-import jakarta.persistence.*;
+import java.util.List;
+
+import javax.persistence.GenerationType;
+
+import org.hibernate.annotations.CascadeType;
+
+import cecy.cecy_backend.cecy_certificados.matriculas.Matriculas;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
@@ -8,8 +21,8 @@ import lombok.Data;
 @Table(name = "courses")
 public class Curso {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    private Long id;
 
     private String abbreviation;
     private Long targetGroups;
@@ -53,5 +66,9 @@ public class Curso {
 
     @Column(name = "speciality_id")
     private Integer specialityId;
+
+    @OneToMany(cascade = jakarta.persistence.CascadeType.ALL)
+    @JoinColumn(name = "courses_id")
+    private List<Matriculas> matriculas;
 
 }

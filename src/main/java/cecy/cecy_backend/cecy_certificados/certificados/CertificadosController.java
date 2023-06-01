@@ -23,44 +23,44 @@ import org.springframework.http.ResponseEntity;
 @RequestMapping("api/certificado")
 @CrossOrigin({"*"})
 public class CertificadosController {
-    @Autowired CertificadosService certificadosService;
+    // @Autowired CertificadosService certificadosService;
 
-    @GetMapping("/")
-    public List<Certificados> findAll(){
-        return certificadosService.findAll();
-    }
+    // @GetMapping("/")
+    // public List<Certificados> findAll(){
+    //     return certificadosService.findAll();
+    // }
 
-    @GetMapping("/{id}/")
-    public Certificados findById(@PathVariable Long id){
-        return certificadosService.findById(id);
-    }
+    // @GetMapping("/{id}/")
+    // public Certificados findById(@PathVariable Long id){
+    //     return certificadosService.findById(id);
+    // }
 
-    @PostMapping("/")
-    public Certificados save(@RequestBody Certificados entity){
-        return certificadosService.save(entity);
-    }
+    // @PostMapping("/")
+    // public Certificados save(@RequestBody Certificados entity){
+    //     return certificadosService.save(entity);
+    // }
 
-    @PutMapping("/{id}/")
-    public Certificados update(@RequestBody Certificados entity){
-        return certificadosService.save(entity);
-    }
+    // @PutMapping("/{id}/")
+    // public Certificados update(@RequestBody Certificados entity){
+    //     return certificadosService.save(entity);
+    // }
 
-    @DeleteMapping("/{id}/")
-    public void deleteById(@PathVariable Long id){
-        certificadosService.deleteById(id);
-    }
-    @GetMapping("/pdf/{id}/")
-	public ResponseEntity<byte[]> getCertificadosReporte(@PathVariable long id) throws JRException {
+    // @DeleteMapping("/{id}/")
+    // public void deleteById(@PathVariable Long id){
+    //     certificadosService.deleteById(id);
+    // }
+    // @GetMapping("/pdf/{id}/")
+	// public ResponseEntity<byte[]> getCertificadosReporte(@PathVariable long id) throws JRException {
 
-		JasperPrint certificados = certificadosService.getCertificadosReporte(id);
-        if (certificados==null)
-            return new ResponseEntity<byte[]>(null, null, HttpStatus.NOT_FOUND);
-		HttpHeaders headers = new HttpHeaders();
-		// set the PDF format
-		headers.setContentType(MediaType.APPLICATION_PDF);
-		headers.setContentDispositionFormData("filename", "certificado.pdf");
-		// create the report in PDF format
-		return new ResponseEntity<byte[]>(JasperExportManager.exportReportToPdf(certificados), headers, HttpStatus.OK);
+	// 	JasperPrint certificados = certificadosService.getCertificadosReporte(id);
+    //     if (certificados==null)
+    //         return new ResponseEntity<byte[]>(null, null, HttpStatus.NOT_FOUND);
+	// 	HttpHeaders headers = new HttpHeaders();
+	// 	// set the PDF format
+	// 	headers.setContentType(MediaType.APPLICATION_PDF);
+	// 	headers.setContentDispositionFormData("filename", "certificado.pdf");
+	// 	// create the report in PDF format
+	// 	return new ResponseEntity<byte[]>(JasperExportManager.exportReportToPdf(certificados), headers, HttpStatus.OK);
 
-	}
+	// }
 }
