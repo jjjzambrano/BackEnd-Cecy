@@ -1,10 +1,10 @@
-package cecy.cecy_backend.cecy_certificados.conexion;
+package cecy.cecy_backend.cecy_certificados.cursos.conexion;
 
 import lombok.Data;
 
 @Data
-public class Modality {
-    private int id;
+public class Especialidad {
+    private Integer id;
     private String createdAt;
     private String updatedAt;
     private String deletedAt;

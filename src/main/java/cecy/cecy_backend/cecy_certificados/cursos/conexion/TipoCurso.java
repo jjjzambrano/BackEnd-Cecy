@@ -1,10 +1,10 @@
-package cecy.cecy_backend.cecy_certificados.conexion;
+package cecy.cecy_backend.cecy_certificados.cursos.conexion;
 
 import lombok.Data;
 
 @Data
-public class EntityCertification {
-    private String id;
+public class TipoCurso {
+    private Integer id;
     private String createdAt;
     private String updatedAt;
     private String deletedAt;

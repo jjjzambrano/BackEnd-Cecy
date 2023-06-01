@@ -43,9 +43,9 @@ public class CertificadosService {
         return entityRepository.findAll();
     }
 
-    public JasperPrint getCertificadosReporte(Long id) {
+    public JasperPrint getCertificadosReporte(Long id) {*/
 
-        Map<String, Object> reportParameters = new HashMap<String, Object>();
+/*        Map<String, Object> reportParameters = new HashMap<String, Object>();
         Certificados certificados = findById(id);
         if (certificados.getId() == null)
             return null;
@@ -53,7 +53,7 @@ public class CertificadosService {
         reportParameters.put("nombres", persona.getNombres());
         reportParameters.put("apellidos", persona.getApellidos());
         reportParameters.put("rector", persona.getNombres() + " " + persona.getApellidos());
-        reportParameters.put("coordinador", persona.getNombres() + " " + persona.getApellidos());
+        reportParameters.put("coordinador", persona.getNombres() + " " + persona.getApellidos());*/
 
        Course curso = customerCourse.findById(certificados.getCourseId());
         reportParameters.put("curso_nombre", curso.getAbbreviation());
@@ -69,6 +69,6 @@ public class CertificadosService {
         } catch (FileNotFoundException | JRException e) {
             e.printStackTrace();
         }
-        return reportJasperPrint;
-    }
+        return reportJasperPrint;*/
+/*    }*/
 }

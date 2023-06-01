@@ -1,17 +1,17 @@
-package cecy.cecy_backend.cecy_certificados.conexion;
+package cecy.cecy_backend.cecy_certificados.cursos.conexion;
 
 import lombok.Data;
 
 @Data
-public class Category {
-    private String id;
+public class Categoria {
+    private Integer id;
     private String createdAt;
     private String updatedAt;
-    private Object deletedAt;
-    private Object parentId;
+    private String deletedAt;
+    private Integer parentId;
     private String code;
     private String description;
-    private Object icon;
+    private String icon;
     private String name;
     private String type;
 }
