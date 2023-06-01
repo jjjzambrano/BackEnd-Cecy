@@ -2,18 +2,11 @@ package cecy.cecy_backend.cecy_certificados.cursos;
 
 import java.util.List;
 
-import javax.persistence.GenerationType;
-
-import org.hibernate.annotations.CascadeType;
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.databind.JsonNode;
 
 import cecy.cecy_backend.cecy_certificados.matriculas.Matriculas;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -25,20 +18,25 @@ public class Curso {
     private Long id;
 
     private String abbreviation;
-    private Long targetGroups;
-    private Long participantTypes;
+/*    private Integer targetGroups;*/
+    private Integer participantTypes;
     private String summary;
     private String project;
     private String objective;
     private String alignment;
     private String image;
 
-    private Long practiceHours;
-    private Long theoryHours;
-    private Long evaluationMechanisms;
-    private Long learningEnvironments;
-    private Long teachingStrategies;
-    private Long prerequisites;
+    private Integer practiceHours;
+    private Integer theoryHours;
+    private Integer evaluationMechanisms;
+
+   /* @JsonAlias("learningEnvironments")
+    private JsonNode learningEnvironments;*/
+
+/*
+    private Integer teachingStrategies;
+*/
+    /*private Integer prerequisites;*/
 
     @Column(name = "planification_id")
     private Integer planificationId;
@@ -70,5 +68,19 @@ public class Curso {
     @OneToMany(cascade = jakarta.persistence.CascadeType.ALL)
     @JoinColumn(name = "courses_id")
     private List<Matriculas> matriculas;
+    /*PUEDEN AGREGAR SUS RELACIONES Y CAMPOS A ESTE MODELO MAPEADO DIRECTO ALA TABLA courses*/
+    /*----------------------------------------------------------------*/
+
+    /*INICIO DATOS DE PRUEBA PUEDEN BORRARLO SI NO LO VEN NECESARIO*/
+    // @Column(name = "matricula_id")
+    // private Integer matriculaId;
+
+    // @Column(name = "estudiantes_id")
+    // private Integer estudiantesId;
+
+    // @Column(name = "notas_id")
+    // private Integer notasId;
+
+    /*FIN DATOS DE PRUEBA*/
 
 }
