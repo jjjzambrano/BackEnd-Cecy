@@ -7,9 +7,6 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.util.ResourceUtils;
-
-import cecy.cecy_backend.cecy_certificados.cursos.CustomerCourse;
-import cecy.cecy_backend.cecy_certificados.cursos.CustomerDTOCourse;
 import cecy.cecy_backend.cecy_certificados.personas.CustomerDTOPerson;
 import cecy.cecy_backend.cecy_certificados.personas.CustomerPerson;
 import net.sf.jasperreports.engine.JREmptyDataSource;
