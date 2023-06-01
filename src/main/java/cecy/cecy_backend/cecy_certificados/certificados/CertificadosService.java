@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 import org.springframework.util.ResourceUtils;
 
-import cecy.cecy_backend.cecy_certificados.conexion.Course;
-import cecy.cecy_backend.cecy_certificados.conexion.NodeApiFeignService;
+import cecy.cecy_backend.cecy_certificados.cursos.Curso;
+import cecy.cecy_backend.cecy_certificados.cursos.CursoController;
 import cecy.cecy_backend.cecy_certificados.estudiantes.Estudiantes;
 import cecy.cecy_backend.cecy_certificados.estudiantes.EstudiantesService;
 import net.sf.jasperreports.engine.JREmptyDataSource;
@@ -23,7 +23,7 @@ public class CertificadosService {
     @Autowired
     EstudiantesService customerPerson;
     @Autowired
-    NodeApiFeignService customerCourse;
+    CursoController customerCourse;
     @Autowired
     CertificadosRepository entityRepository;
 
@@ -43,9 +43,9 @@ public class CertificadosService {
         return entityRepository.findAll();
     }
 
-    public JasperPrint getCertificadosReporte(Long id) {*/
+    public JasperPrint getCertificadosReporte(Long id) {
 
-/*        Map<String, Object> reportParameters = new HashMap<String, Object>();
+      Map<String, Object> reportParameters = new HashMap<String, Object>();
         Certificados certificados = findById(id);
         if (certificados.getId() == null)
             return null;
@@ -53,9 +53,9 @@ public class CertificadosService {
         reportParameters.put("nombres", persona.getNombres());
         reportParameters.put("apellidos", persona.getApellidos());
         reportParameters.put("rector", persona.getNombres() + " " + persona.getApellidos());
-        reportParameters.put("coordinador", persona.getNombres() + " " + persona.getApellidos());*/
+        reportParameters.put("coordinador", persona.getNombres() + " " + persona.getApellidos());
 
-       Course curso = customerCourse.findById(certificados.getCourseId());
+       Curso curso = customerCourse.findById(certificados.getCourseId());
         reportParameters.put("curso_nombre", curso.getAbbreviation());
 
         JasperPrint reportJasperPrint = null;
@@ -69,6 +69,6 @@ public class CertificadosService {
         } catch (FileNotFoundException | JRException e) {
             e.printStackTrace();
         }
-        return reportJasperPrint;*/
-/*    }*/
+        return reportJasperPrint;
+    }
 }

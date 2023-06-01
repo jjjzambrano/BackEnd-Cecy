@@ -18,7 +18,7 @@ public class Certificados {
     // foreing Key de person
     private long userId;
     // Foreing Key de Curso
-    private String courseId;
+    private long courseId;
     // Foreing Key de Matricula
     private long tuitionId;
     private String estado;
