@@ -7,10 +7,6 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.util.ResourceUtils;
-/*
-import cecy.cecy_backend.cecy_certificados.personas.CustomerDTOPerson;
-*/
-import cecy.cecy_backend.cecy_certificados.personas.CustomerPerson;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -19,7 +15,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 
 @Service
 public class CertificadosService {
-/*    @Autowired
+/*   @Autowired
     CustomerPerson customerPerson;
     @Autowired
     CustomerCourse customerCourse;
