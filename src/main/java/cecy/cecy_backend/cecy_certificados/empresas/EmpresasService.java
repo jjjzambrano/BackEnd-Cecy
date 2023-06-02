@@ -7,18 +7,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmpresasService {
-    @Autowired EmpresasRespository empresasRespository;
+    @Autowired EmpresasRepository empresasRepository;
 
     public Empresas save(Empresas entity) {
-        return empresasRespository.save(entity);
+        return empresasRepository.save(entity);
     }
 
     public List<Empresas> findAll() {
-        return empresasRespository.findAll();
+        return empresasRepository.findAll();
     }
 
     public Empresas findById(Long id) {
-        return empresasRespository.findById(id).orElse(new Empresas());
+        return empresasRepository.findById(id).orElse(new Empresas());
     }
     
 }
