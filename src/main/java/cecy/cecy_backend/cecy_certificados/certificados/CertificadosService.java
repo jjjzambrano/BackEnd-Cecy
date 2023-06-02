@@ -26,21 +26,21 @@ public class CertificadosService {
     @Autowired
     CertificadosRepository entityRepository;
 
-    public Certificados save(Certificados entity) {
-        return entityRepository.save(entity);
-    }
+    // public Certificados save(Certificados entity) {
+    //     return entityRepository.save(entity);
+    // }
 
-    public Certificados findById(Long id) {
-        return entityRepository.findById(id).orElse(new Certificados());
-    }
+    // public Certificados findById(Long id) {
+    //     return entityRepository.findById(id).orElse(new Certificados());
+    // }
 
-    public void deleteById(Long id) {
-        entityRepository.deleteById(id);
-    }
+    // public void deleteById(Long id) {
+    //     entityRepository.deleteById(id);
+    // }
 
-    public List<Certificados> findAll() {
-        return entityRepository.findAll();
-    }
+    // public List<Certificados> findAll() {
+    //     return entityRepository.findAll();
+    // }
 
     public JasperPrint getCertificadosReporte(Long id) {*/
 
