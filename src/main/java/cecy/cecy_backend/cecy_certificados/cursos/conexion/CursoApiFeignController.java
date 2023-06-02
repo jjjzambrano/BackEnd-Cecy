@@ -23,4 +23,9 @@ public class CursoApiFeignController {
     public  List<Course> getCoursesByState(@PathVariable String state){
         return cursoApiFeignService.getCoursesByState(state);
     }
+
+    @GetMapping("/planifications-courses/{id}") // Se necesita en el certificado NO TOQUE
+    public Planificacion getPlanificacion(@PathVariable Integer id){
+        return cursoApiFeignService.getPlanificationId(id);
+    }
 }
