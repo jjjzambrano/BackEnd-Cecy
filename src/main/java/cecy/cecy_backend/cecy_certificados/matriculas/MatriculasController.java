@@ -50,5 +50,8 @@ public class MatriculasController {
     public Matriculas update(@RequestBody Matriculas entity){
         return matriculasService.save(entity);
     }
-    
+    @GetMapping("/estadoCurso/{term}/")
+    public List<Matriculas> findByEstadoCurso(@PathVariable String term) {
+        return matriculasService.findByEstadoCurso(term);
+    }
 }
