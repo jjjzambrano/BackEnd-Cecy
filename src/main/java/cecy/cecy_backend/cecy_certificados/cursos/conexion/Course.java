@@ -8,7 +8,8 @@ public class Course {
     private Integer id;
 
     private String abbreviation;
-    private Long targetGroups;
+    /*private GruposDestinados targetGroups;*/
+
     private Long participantTypes;
     private String summary;
     private String project;
@@ -18,10 +19,11 @@ public class Course {
 
     private Long practiceHours;
     private Long theoryHours;
-    private Long evaluationMechanisms;
-    private Long learningEnvironments;
-    private Long teachingStrategies;
-    private Long prerequisites;
+    /*private Long evaluationMechanisms;*//*ESTE CAMPO ES DE TIPO ARRAY*/
+    /*private Long learningEnvironments;*/
+    /*private Long teachingStrategies;*/ /*ESTE CAMPO ES DE TIPO ARRAY*/
+    /*private Long prerequisites;*/  /*ESTE CAMPO ES DE TIPO ARRAY*/
+
 
     private Integer planificationId;
     private Planificacion planification;

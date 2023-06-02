@@ -35,10 +35,10 @@ public class MatriculasController {
     public List<Matriculas> findByEstadoMatricula(@PathVariable String term) {
         return matriculasService.findByEstadoMatricula(term);
     }
-    @GetMapping("/cursoId/{id}/")
-    public List<Matriculas> findByCursoId(@PathVariable int id) {
-        return matriculasService.findByCursoId(id);
-    }
+    // @GetMapping("/cursoId/{id}/")
+    // public List<Matriculas> findByCursoId(@PathVariable int id) {
+    //     return matriculasService.findByCursoId(id);
+    // }
 
     @PostMapping("/")
     public Matriculas save(@RequestBody Matriculas entity){
@@ -50,5 +50,8 @@ public class MatriculasController {
     public Matriculas update(@RequestBody Matriculas entity){
         return matriculasService.save(entity);
     }
-    
+    @GetMapping("/estadoCurso/{term}/")
+    public List<Matriculas> findByEstadoCurso(@PathVariable String term) {
+        return matriculasService.findByEstadoCurso(term);
+    }
 }

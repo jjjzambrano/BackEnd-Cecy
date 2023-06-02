@@ -16,11 +16,11 @@ public class Certificados {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     // foreing Key de person
-    private Long userId;
+    private long userId;
     // Foreing Key de Curso
-    private Long courseId;
+    private long courseId;
     // Foreing Key de Matricula
-    private Long tuitionId;
+    private long tuitionId;
     private String estado;
     private LocalDate fecha;
 }
