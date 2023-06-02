@@ -43,32 +43,32 @@ public class CertificadosService {
     //     return entityRepository.findAll();
     // }
 
-    public JasperPrint getCertificadosReporte(Long id) {
+    // public JasperPrint getCertificadosReporte(Long id) {
 
-      Map<String, Object> reportParameters = new HashMap<String, Object>();
-        Certificados certificados = findById(id);
-        if (certificados.getId() == null)
-            return null;
-        Estudiantes persona = customerPerson.findById(certificados.getUserId());
-        reportParameters.put("nombres", persona.getNombres());
-        reportParameters.put("apellidos", persona.getApellidos());
-        reportParameters.put("rector", persona.getNombres() + " " + persona.getApellidos());
-        reportParameters.put("coordinador", persona.getNombres() + " " + persona.getApellidos());
+    //   Map<String, Object> reportParameters = new HashMap<String, Object>();
+    //     Certificados certificados = findById(id);
+    //     if (certificados.getId() == null)
+    //         return null;
+    //     Estudiantes persona = customerPerson.findById(certificados.getUserId());
+    //     reportParameters.put("nombres", persona.getNombres());
+    //     reportParameters.put("apellidos", persona.getApellidos());
+    //     reportParameters.put("rector", persona.getNombres() + " " + persona.getApellidos());
+    //     reportParameters.put("coordinador", persona.getNombres() + " " + persona.getApellidos());
 
-       Curso curso = customerCourse.findById(certificados.getCourseId());
-        reportParameters.put("curso_nombre", curso.getAbbreviation());
+    //    Curso curso = customerCourse.findById(certificados.getCourseId());
+    //     reportParameters.put("curso_nombre", curso.getAbbreviation());
 
-        JasperPrint reportJasperPrint = null;
-        try {
-            reportJasperPrint = JasperFillManager.fillReport(
-                    JasperCompileManager.compileReport(
-                            ResourceUtils.getFile("classpath:jrxml/Certificado.jrxml")
-                                    .getAbsolutePath()) // path of the jasper report
-                    , reportParameters // dynamic parameters
-                    , new JREmptyDataSource());
-        } catch (FileNotFoundException | JRException e) {
-            e.printStackTrace();
-        }
-        return reportJasperPrint;
-    }
+    //     JasperPrint reportJasperPrint = null;
+    //     try {
+    //         reportJasperPrint = JasperFillManager.fillReport(
+    //                 JasperCompileManager.compileReport(
+    //                         ResourceUtils.getFile("classpath:jrxml/Certificado.jrxml")
+    //                                 .getAbsolutePath()) // path of the jasper report
+    //                 , reportParameters // dynamic parameters
+    //                 , new JREmptyDataSource());
+    //     } catch (FileNotFoundException | JRException e) {
+    //         e.printStackTrace();
+    //     }
+    //     return reportJasperPrint;
+    // }
 }
