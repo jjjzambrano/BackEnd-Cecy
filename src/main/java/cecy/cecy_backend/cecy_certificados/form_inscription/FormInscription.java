@@ -3,6 +3,7 @@ package cecy.cecy_backend.cecy_certificados.form_inscription;
 import java.util.List;
 
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
+import cecy.cecy_backend.cecy_certificados.conexion.Course;
 import cecy.cecy_backend.cecy_certificados.observaciones.Observaciones;
 import cecy.cecy_backend.cecy_certificados.prerequisitos.Prerequisitos;
 import jakarta.persistence.CascadeType;
@@ -25,14 +26,13 @@ public class FormInscription {
     private String institutionContact;
 
     // foreign key api_person
-    private Long userId;
+    private Integer userId;
 
     // foreign key courses
     private Long courseId;
 
-    private Long otherCourses;
+    private String otherCourses;
 
-    private Integer personCecy;
     @OneToOne()
     @JoinColumn(name = "state_id", referencedColumnName = "id")
     private Catalogos state;
