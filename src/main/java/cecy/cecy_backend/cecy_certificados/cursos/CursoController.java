@@ -7,7 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/cursos")
-@CrossOrigin({"*"})
+@CrossOrigin
 public class CursoController {
     @Autowired CursoService cursoService;
 

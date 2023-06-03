@@ -1,11 +1,7 @@
 package cecy.cecy_backend.cecy_certificados.cursos;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.JsonNode;
-
-import cecy.cecy_backend.cecy_certificados.matriculas.Matriculas;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,8 +10,8 @@ import lombok.Data;
 @Table(name = "courses")
 public class Curso {
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     private String abbreviation;
 /*    private Integer targetGroups;*/
@@ -65,21 +61,18 @@ public class Curso {
     @Column(name = "speciality_id")
     private Integer specialityId;
 
-    @OneToMany(cascade = jakarta.persistence.CascadeType.ALL)
-    @JoinColumn(name = "courses_id")
-    private List<Matriculas> matriculas;
     /*PUEDEN AGREGAR SUS RELACIONES Y CAMPOS A ESTE MODELO MAPEADO DIRECTO ALA TABLA courses*/
     /*----------------------------------------------------------------*/
 
     /*INICIO DATOS DE PRUEBA PUEDEN BORRARLO SI NO LO VEN NECESARIO*/
-    // @Column(name = "matricula_id")
-    // private Integer matriculaId;
+    @Column(name = "matricula_id")
+    private Integer matriculaId;
 
-    // @Column(name = "estudiantes_id")
-    // private Integer estudiantesId;
+    @Column(name = "estudiantes_id")
+    private Integer estudiantesId;
 
-    // @Column(name = "notas_id")
-    // private Integer notasId;
+    @Column(name = "notas_id")
+    private Integer notasId;
 
     /*FIN DATOS DE PRUEBA*/
 
