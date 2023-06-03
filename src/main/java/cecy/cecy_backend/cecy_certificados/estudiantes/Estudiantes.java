@@ -33,7 +33,7 @@ public class Estudiantes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String dni;
+    private String cedula;
     private Date fechaNacimiento;
     private String nombres;
     private String apellidos;
@@ -44,30 +44,29 @@ public class Estudiantes {
     private String numeroCelular;
     private String numeroConvencional;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     private Catalogos genero ;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     private Catalogos tipoEstudiante ;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     private Catalogos etnia ;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     private Catalogos nivelInstruccion ;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     private Catalogos situacionEconomica ;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "estudiantes_id")
     private List<Prerequisitos> preRequisitos = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "estudiantes_id")
-    private List<Empresas> empresas = new ArrayList<>();
-
-    @OneToMany(mappedBy = "estudiantes", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToOne()
+    private Empresas empresaId;
+    
+    @OneToMany(mappedBy = "estudiantes", cascade = CascadeType.ALL , orphanRemoval = true)
     // @JsonManagedReference
     // @JoinTable(name = "estudiantes_matriculas", joinColumns = {@JoinColumn(name="estudiantes_id")}, inverseJoinColumns = {@JoinColumn(name="matriculas_id")})
     private List<Matriculas> matriculas = new ArrayList<>();

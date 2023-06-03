@@ -1,6 +1,6 @@
 package cecy.cecy_backend.cecy_certificados.prerequisitos;
 
-
+import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,4 +17,5 @@ class Prerequisitos {
     private Long id;
     private String nombre;
     private String urlArchivo;
+    private Date fechaSubida;
 }
