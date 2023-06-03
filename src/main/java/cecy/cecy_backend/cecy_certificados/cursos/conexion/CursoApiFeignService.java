@@ -12,8 +12,7 @@ public interface CursoApiFeignService {
     List<Course> getCoursesAll();  /*Aqui te trae todos los cursos*/
 
     @GetMapping("courses/{id}")
-    List<Course> getCourseById(@PathVariable("id") Integer id);
-
+    Course getCourseById(@PathVariable("id") Integer id);
 
     @GetMapping("/courses/state-course/{state}")
     List<Course> getCoursesByState(@PathVariable("state") String state); /*Aqui busco los cursos por estado (proceso | aprobado)*/

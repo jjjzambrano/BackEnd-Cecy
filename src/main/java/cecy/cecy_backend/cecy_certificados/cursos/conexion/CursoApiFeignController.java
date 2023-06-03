@@ -21,8 +21,8 @@ public class CursoApiFeignController {
     }
 
     @GetMapping("/courses/{id}")
-    public List<Course> getCourseId(@PathVariable("id") Integer id) {
-        return  cursoApiFeignService.getCourseById(id);
+    public Course getCourseId(@PathVariable Integer id) {
+        return cursoApiFeignService.getCourseById(id);
     }
     @GetMapping("/courses/state-course/{state}")
     public  List<Course> getCoursesByState(@PathVariable String state){
