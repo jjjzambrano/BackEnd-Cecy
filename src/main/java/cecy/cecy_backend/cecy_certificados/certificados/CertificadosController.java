@@ -63,3 +63,4 @@ public class CertificadosController {
 		return new ResponseEntity<byte[]>(JasperExportManager.exportReportToPdf(certificados), headers, HttpStatus.OK);
 
 	}
+}
