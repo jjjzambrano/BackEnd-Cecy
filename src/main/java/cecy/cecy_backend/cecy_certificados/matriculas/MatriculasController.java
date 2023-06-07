@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cecy.cecy_backend.cecy_certificados.catalogos.CatalogosService;
+import cecy.cecy_backend.cecy_certificados.form_inscription.FormInscriptionService;
 
 @RestController
 @RequestMapping("api/matriculas")
@@ -21,6 +22,7 @@ public class MatriculasController {
 
     @Autowired MatriculasService matriculasService;
     @Autowired CatalogosService catalogosService;
+    @Autowired FormInscriptionService formInscriptionService;
     @GetMapping("/")
     public List<Matriculas> findAll(){
         return matriculasService.findAll();
@@ -42,7 +44,7 @@ public class MatriculasController {
 
     @PostMapping("/")
     public Matriculas save(@RequestBody Matriculas entity){
-
+        // formInscriptionService.save(entity.getFormInscription());
         return matriculasService.save(entity);
     }
 

@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import cecy.cecy_backend.cecy_certificados.asistencia.Asistencia;
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
 import cecy.cecy_backend.cecy_certificados.estudiantes.Estudiantes;
+import cecy.cecy_backend.cecy_certificados.form_inscription.FormInscription;
 import cecy.cecy_backend.cecy_certificados.observaciones.Observaciones;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -23,6 +24,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 
@@ -57,8 +59,11 @@ public class Matriculas {
     // asistencias
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "matriculas_id")
     private List<Asistencia> asistencias = new ArrayList<>();
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "form_inscription_id", referencedColumnName = "id")
+    private FormInscription formInscription;
 
     // estudiante
     @ManyToOne(fetch = FetchType.LAZY)

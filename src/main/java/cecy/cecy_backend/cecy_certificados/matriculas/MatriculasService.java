@@ -18,6 +18,8 @@ public class MatriculasService {
         matricula.setEstadoMatricula(catalogosRepository.findFirstByDescripcion(matricula.getEstadoMatricula().getDescripcion()));
         matricula.setEstadoCurso(catalogosRepository.findFirstByDescripcion(matricula.getEstadoCurso().getDescripcion()));
         matricula.getEstudiantes().setMatriculas(null);
+        matricula.getFormInscription().setPublicity(catalogosRepository.findFirstByDescripcion(matricula.getFormInscription().getPublicity().getDescripcion()));
+        matricula.getFormInscription().setState(catalogosRepository.findFirstByDescripcion(matricula.getFormInscription().getState().getDescripcion()));
         return matriculasRepository.save(matricula);
     }
 
