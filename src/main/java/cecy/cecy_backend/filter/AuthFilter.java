@@ -36,10 +36,10 @@ public class AuthFilter implements Filter {
         ResponseEntity<String> httpResponse;
         String authHeader = httpRequest.getHeader("Authorization");
 
-        // if (authHeader==null){
-        //     ((HttpServletResponse) response).setStatus(HttpStatus.FORBIDDEN.value());
-        //     return;
-        // }
+        if (authHeader==null){
+            ((HttpServletResponse) response).setStatus(HttpStatus.FORBIDDEN.value());
+            return;
+        }
 
         String endpoint = httpRequest.getRequestURI();
         String method = httpRequest.getMethod();
@@ -52,20 +52,20 @@ public class AuthFilter implements Filter {
             }
             
         }else{
-            // try {
-            //     String[] parts = endpoint.split("/");
-            //     if (esVariable(parts[parts.length-1])){
-            //         parts[parts.length-1] = "{id}";
-            //     }
-            //     endpoint = String.join("/", parts)+"/";
-            //     httpResponse = userClient.hasAuthority(authHeader, method+":"+endpoint);
-            //     if (httpResponse.getStatusCode() == HttpStatus.OK){
+            try {
+                String[] parts = endpoint.split("/");
+                if (esVariable(parts[parts.length-1])){
+                    parts[parts.length-1] = "{id}";
+                }
+                endpoint = String.join("/", parts)+"/";
+                httpResponse = userClient.hasAuthority(authHeader, method+":"+endpoint);
+                if (httpResponse.getStatusCode() == HttpStatus.OK){
                     chain.doFilter(request, response);
-            //     }
-            // }catch (FeignException exception){
-            //     logger.error(exception.getLocalizedMessage());
-            //     ((HttpServletResponse) response).setStatus(HttpStatus.FORBIDDEN.value());
-            // }
+                }
+            }catch (FeignException exception){
+                logger.error(exception.getLocalizedMessage());
+                ((HttpServletResponse) response).setStatus(HttpStatus.FORBIDDEN.value());
+            }
         }
     }
 
