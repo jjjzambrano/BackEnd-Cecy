@@ -14,17 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/catalogos")
-@CrossOrigin({"*"})
+@CrossOrigin({ "*" })
 public class CatalogosController {
-    @Autowired CatalogosService catalogosService;
+    @Autowired
+    CatalogosService catalogosService;
 
     @GetMapping("/")
-    public List<Catalogos> findAll(){
+    public List<Catalogos> findAll() {
         return catalogosService.findAll();
     }
 
     @GetMapping("/{id}/")
-    public Catalogos findById(@PathVariable Long id){
+    public Catalogos findById(@PathVariable Long id) {
         return catalogosService.findById(id);
     }
 
@@ -33,14 +34,19 @@ public class CatalogosController {
         return catalogosService.findFirstByDescription(term);
     }
 
+    @GetMapping("/findByNombre/{term}/")
+    public List<Catalogos> findByNombre(@PathVariable String term) {
+        return catalogosService.findByNombre(term);
+    }
+
     @PostMapping("/")
-    public Catalogos save(@RequestBody Catalogos entity){
+    public Catalogos save(@RequestBody Catalogos entity) {
         return catalogosService.save(entity);
     }
 
     @PutMapping("/{id}/")
-    public Catalogos update(@RequestBody Catalogos entity){
+    public Catalogos update(@RequestBody Catalogos entity) {
         return catalogosService.save(entity);
     }
-    
+
 }

@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CatalogosService {
-    @Autowired CatalogosRepository catalogosRepository;
+    @Autowired
+    CatalogosRepository catalogosRepository;
 
     public Catalogos save(Catalogos entity) {
         return catalogosRepository.save(entity);
@@ -25,8 +26,12 @@ public class CatalogosService {
         return catalogosRepository.findByDescripcion(term);
     }
 
-    public Catalogos findFirstByDescription(String term){
+    public Catalogos findFirstByDescription(String term) {
         return catalogosRepository.findFirstByDescripcion(term);
     }
-    
+
+    public List<Catalogos> findByNombre(String term) {
+        return catalogosRepository.findByNombre(term);
+    }
+
 }

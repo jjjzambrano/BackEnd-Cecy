@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import cecy.cecy_backend.cecy_certificados.asistencia.Asistencia;
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
 import cecy.cecy_backend.cecy_certificados.estudiantes.Estudiantes;
+import cecy.cecy_backend.cecy_certificados.form_inscription.FormInscription;
 import cecy.cecy_backend.cecy_certificados.observaciones.Observaciones;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -23,9 +24,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
-
-
 
 @Data
 @Entity
@@ -41,7 +41,6 @@ public class Matriculas {
     private Float promedio;
     private Float porcentajeAsistencia;
 
-    
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "matriculas_id")
     private List<Observaciones> observaciones = new ArrayList<>();
@@ -63,9 +62,13 @@ public class Matriculas {
     // estudiante
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "estudiantes_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 
     // @JsonBackReference
-    // @JsonProperty(access  = JsonProperty.Access.READ_ONLY)
+    // @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     Estudiantes estudiantes;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "form_inscription_id", referencedColumnName = "id")
+    FormInscription formInscription;
 }
