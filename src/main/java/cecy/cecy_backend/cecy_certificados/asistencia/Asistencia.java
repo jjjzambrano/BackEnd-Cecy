@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import cecy.cecy_backend.cecy_certificados.detalleAsistencia.DetalleAsistencia;
+import cecy.cecy_backend.cecy_certificados.observaciones.Observaciones;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,4 +29,8 @@ public class Asistencia {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "asistencia_id")
     private List<DetalleAsistencia> detalleAsistencia;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "asistencia_id")
+    private List<Observaciones> observaciones;
 }

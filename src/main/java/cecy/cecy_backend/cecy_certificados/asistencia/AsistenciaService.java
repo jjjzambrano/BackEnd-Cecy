@@ -13,6 +13,9 @@ public class AsistenciaService {
     public List<Asistencia> findAll(){
         return asistenciaRepository.findAll();
     }
+    public List<Asistencia> findByCursoId(Integer id){
+        return asistenciaRepository.findByCursoId(id);
+    }
 
     public Asistencia findById(Long id){
         return asistenciaRepository.findById(id).orElse(new Asistencia());
