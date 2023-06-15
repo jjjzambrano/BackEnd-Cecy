@@ -1,6 +1,5 @@
 package cecy.cecy_backend.cecy_certificados.detalleAsistencia;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +8,7 @@ import org.hibernate.mapping.ManyToOne;
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
 import cecy.cecy_backend.cecy_certificados.estudiantes.Estudiantes;
 import cecy.cecy_backend.cecy_certificados.matriculas.Matriculas;
+import cecy.cecy_backend.cecy_certificados.observaciones.Observaciones;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +24,7 @@ public class DetalleAsistencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     // estado: falta_justificada - presente - ausente
     // @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     // @JoinColumn(name = "detalle_asistencia_id")
@@ -33,7 +33,7 @@ public class DetalleAsistencia {
     private Catalogos estado;
 
     // matricula o estudiantes
-    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true)
+    @OneToMany( orphanRemoval = true)
     @JoinColumn(name = "detalle_asistencia_id")
     private List<Matriculas> matriculas = new ArrayList<>();
 

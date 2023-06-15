@@ -19,6 +19,11 @@ public class CursoApiFeignController {
     public List<Course> getCoursesAll() {
         return cursoApiFeignService.getCoursesAll();
     }
+
+    @GetMapping("/courses/{id}")
+    public Course getCourseId(@PathVariable Integer id) {
+        return cursoApiFeignService.getCourseById(id);
+    }
     @GetMapping("/courses/state-course/{state}")
     public  List<Course> getCoursesByState(@PathVariable String state){
         return cursoApiFeignService.getCoursesByState(state);

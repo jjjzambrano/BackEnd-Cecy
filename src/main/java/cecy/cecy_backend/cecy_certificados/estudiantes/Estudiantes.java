@@ -1,4 +1,5 @@
 package cecy.cecy_backend.cecy_certificados.estudiantes;
+
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +25,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 
-
-
 @Data
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Matriculas.class)
@@ -33,44 +32,44 @@ public class Estudiantes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String dni;
+    private String cedula;
     private Date fechaNacimiento;
     private String nombres;
     private String apellidos;
     private String email;
-    private Boolean discapacidad; 
+    private Boolean discapacidad;
     private String detallesDiscapacidad;
     private String direccion;
     private String numeroCelular;
     private String numeroConvencional;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Catalogos genero ;
+    private Catalogos genero;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Catalogos tipoEstudiante ;
+    @ManyToOne()
+    private Catalogos tipoEstudiante;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Catalogos etnia ;
+    @ManyToOne()
+    private Catalogos etnia;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Catalogos nivelInstruccion ;
+    @ManyToOne()
+    private Catalogos nivelInstruccion;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Catalogos situacionEconomica ;
+    @ManyToOne()
+    private Catalogos situacionEconomica;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "estudiantes_id")
     private List<Prerequisitos> preRequisitos = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "estudiantes_id")
-    private List<Empresas> empresas = new ArrayList<>();
+    @ManyToOne()
+    private Empresas empresaId;
 
     @OneToMany(mappedBy = "estudiantes", cascade = CascadeType.ALL, orphanRemoval = true)
     // @JsonManagedReference
-    // @JoinTable(name = "estudiantes_matriculas", joinColumns = {@JoinColumn(name="estudiantes_id")}, inverseJoinColumns = {@JoinColumn(name="matriculas_id")})
+    // @JoinTable(name = "estudiantes_matriculas", joinColumns =
+    // {@JoinColumn(name="estudiantes_id")}, inverseJoinColumns =
+    // {@JoinColumn(name="matriculas_id")})
     private List<Matriculas> matriculas = new ArrayList<>();
-
 
 }

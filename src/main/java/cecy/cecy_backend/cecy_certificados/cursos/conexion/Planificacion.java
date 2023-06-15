@@ -12,8 +12,15 @@ public class Planificacion {
     private String finishDate;
     private String state;
     private Boolean free;
-    private int careerId;
-    private int roleId;
-    private int userId;
+
+    private Integer careerId;
+    private Carrera career;
+
+    private Integer roleId;
+    private Rol role;
+
+    private Integer userId;
+    private Usuario user;
+
     private String createdAt;
 }
