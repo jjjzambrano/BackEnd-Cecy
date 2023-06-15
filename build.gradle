@@ -30,6 +30,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     implementation 'net.sf.jasperreports:jasperreports:6.20.0'
+    implementation group: 'org.apache.poi', name: 'poi', version: '5.2.3'
     implementation 'org.hibernate:hibernate-core:6.2.0.CR3'
     implementation 'org.hibernate:hibernate-entitymanager:6.0.0.Alpha7'
     compileOnly 'org.projectlombok:lombok'
