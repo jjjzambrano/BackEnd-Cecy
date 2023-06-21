@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporte" pageWidth="1050" pageHeight="595" orientation="Landscape" columnWidth="1010" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="822b0aaa-6288-421a-94bf-1b97efeea5cd">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<subDataset name="Dataset1" uuid="2cb844df-f5da-4250-a77b-34749eafa3ea">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<parameter name="nombre_instituto" class="java.lang.String"/>
+	<parameter name="nombre_curso" class="java.lang.String"/>
+	<parameter name="area_curso" class="java.lang.String"/>
+	<parameter name="docente" class="java.lang.String"/>
+	<parameter name="fecha_inicio" class="java.lang.String"/>
+	<parameter name="fecha_fin" class="java.lang.String"/>
+	<parameter name="estudiantes_apro" class="java.lang.Integer"/>
+	<parameter name="estudiantes_repro" class="java.lang.Integer"/>
+	<parameter name="total" class="java.lang.Integer"/>
+	<parameter name="listaReporte" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="218" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="80" y="10" width="340" height="46" forecolor="#FFFFFF" backcolor="#215967" uuid="5836cf72-5b56-4b60-9759-0bfba73367dc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN DE ACREDITACIÓN Y FORTALECIMIENTO DE LA OFERTA 
+FORMULARIO DE ASIGNACIÓN DE CÓDIGOS A ESTUDIANES 
+- CAPACITACIÓN CONTINUA  -   Formulario  f1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="92" width="128" height="18" uuid="ec9a4f0e-c9a8-4ba6-ae74-5452b81300fc"/>
+				<box>
+					<pen lineColor="#FFFFFF"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[Identificación del Curso:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="42" y="116" width="148" height="13" forecolor="#FFFFFF" backcolor="#215967" uuid="e02f8570-1bb7-45ed-adf4-7e895c480c3c"/>
+				<text><![CDATA[NOMBRE DEL INSTITUTO ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="42" y="129" width="148" height="13" forecolor="#FFFFFF" backcolor="#215967" uuid="3849f3f1-aec1-4f82-97e2-8e9ba6ec26b6"/>
+				<text><![CDATA[NOMBRE DEL CURSO ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="42" y="142" width="148" height="13" forecolor="#FFFFFF" backcolor="#215967" uuid="b902d4cd-e72e-42c6-a397-740ab0ae597d"/>
+				<text><![CDATA[ÁREA DEL CURSO ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="42" y="155" width="148" height="13" forecolor="#FFFFFF" backcolor="#215967" uuid="8b051d27-8e34-42fe-9bf0-80812de16499"/>
+				<text><![CDATA[DOCENTE ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="42" y="168" width="148" height="13" forecolor="#FFFFFF" backcolor="#215967" uuid="4625e184-84d2-432b-8a2a-1ffe8dfbbf5d"/>
+				<text><![CDATA[FECHA DE INICIO ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="42" y="181" width="148" height="13" forecolor="#FFFFFF" backcolor="#215967" uuid="a2c365a5-f8d6-42a4-9fe9-6eddf9b7eb31"/>
+				<text><![CDATA[FECHA DE FIN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="480" y="116" width="140" height="13" forecolor="#FFFFFF" backcolor="#215967" uuid="45d1f93c-8547-4de2-8280-b96ad8f05faf"/>
+				<text><![CDATA[Estudiantes que Aprobaron ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="480" y="129" width="140" height="13" forecolor="#FFFFFF" backcolor="#215967" uuid="494fbae9-32b9-4cfc-9ec4-a19ec22de311"/>
+				<text><![CDATA[Estudiantes que Reprobaron ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="480" y="142" width="140" height="13" forecolor="#FFFFFF" backcolor="#215967" uuid="7a60fadd-4d87-4592-97c0-1e799b2ae880"/>
+				<text><![CDATA[Total ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="620" y="103" width="82" height="13" forecolor="#FFFFFF" backcolor="#215967" uuid="d1891f23-33e4-4181-a014-6604d0c55ad6"/>
+				<text><![CDATA[Número ]]></text>
+			</staticText>
+			<image onErrorType="Icon">
+				<reportElement x="410" y="116" width="50" height="50" uuid="52f6409c-7812-4999-b84c-858088fa9bec"/>
+				<imageExpression><![CDATA["classpath:jrxml/yavirac_reporte.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="190" y="116" width="140" height="13" uuid="6424fd43-55f0-485c-934d-4eafe948e977"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{nombre_instituto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="129" width="140" height="13" uuid="ab6845f5-4c17-41e7-9be6-7a30c2ae835a"/>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{nombre_curso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="142" width="140" height="13" uuid="22591d96-0b9d-4941-bce8-38d915b35104"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{area_curso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="155" width="140" height="13" uuid="ccf292d6-33eb-4706-8580-19587bb629a8"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{docente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="168" width="140" height="13" uuid="347b4989-4b3c-40a0-b519-f3ff4b65da3f"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{fecha_inicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="181" width="140" height="13" uuid="f7a29668-fba2-4aa4-9fde-09132f62063e"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{fecha_fin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="620" y="116" width="100" height="13" uuid="4e682c70-396e-412f-abf0-3c8a7d33a3d6"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{estudiantes_apro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="620" y="129" width="100" height="13" uuid="3825091d-180e-4477-bc1d-a1a8c3ce8c82"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{estudiantes_repro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="620" y="142" width="100" height="13" uuid="b4b439d3-fb9d-4c79-be27-58a263c7dd63"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="87" splitType="Stretch">
+			<subreport>
+				<reportElement isPrintRepeatedValues="false" x="2" y="39" width="999" height="30" uuid="c4027142-b4f9-4bd0-a469-95e8201e48d4"/>
+				<dataSourceExpression><![CDATA[$P{listaReporte}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["classpath:jrxml/reporteLista.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="8" width="30" height="30" forecolor="#FCFCFC" backcolor="#215967" uuid="b2476656-c581-47f4-ac35-88c4d58b2fcb"/>
+				<box>
+					<pen lineWidth="3.0" lineStyle="Solid"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="266" y="8" width="110" height="30" forecolor="#FCFCFC" backcolor="#215967" uuid="78ccf964-0468-4283-a710-88e4e4cdd30d"/>
+				<box>
+					<pen lineWidth="3.0" lineStyle="Solid"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número de Cédula ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="376" y="8" width="90" height="30" forecolor="#FCFCFC" backcolor="#215967" uuid="d4d1825e-d1d0-465d-86b1-61576448caab"/>
+				<box>
+					<pen lineWidth="3.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Autodefinición ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="466" y="8" width="139" height="30" forecolor="#FCFCFC" backcolor="#215967" uuid="4811e947-8147-4b7e-bc93-560f5098698a"/>
+				<box>
+					<pen lineWidth="3.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Posee alguna Discapacidad ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="32" y="8" width="106" height="30" forecolor="#FCFCFC" backcolor="#215967" uuid="97c52de9-5b4c-43b5-a9c0-cb5b44231dfd"/>
+				<box>
+					<pen lineWidth="3.0" lineStyle="Solid"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombres ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="138" y="8" width="128" height="30" forecolor="#FCFCFC" backcolor="#215967" uuid="15f4ea7b-e382-4b32-a83c-ba9842edb301"/>
+				<box>
+					<pen lineWidth="3.0" lineStyle="Solid"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="605" y="8" width="64" height="30" forecolor="#FCFCFC" backcolor="#215967" uuid="6acd3553-82ec-412e-b8d0-eae9629678ea"/>
+				<box>
+					<pen lineWidth="3.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Género ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="669" y="8" width="62" height="30" forecolor="#FCFCFC" backcolor="#215967" uuid="18feb283-f775-4957-b9f6-45e2cc4dcf65"/>
+				<box>
+					<pen lineWidth="3.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Edad ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="731" y="8" width="158" height="30" forecolor="#FCFCFC" backcolor="#215967" uuid="d7aad737-1eb3-4dc6-b061-2cd4c0e49adb"/>
+				<box>
+					<pen lineWidth="3.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Correo Electrónico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="889" y="8" width="113" height="30" forecolor="#FCFCFC" backcolor="#215967" uuid="d85ff5d5-262e-4607-908b-6e25a827999d"/>
+				<box>
+					<pen lineWidth="3.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código ]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
