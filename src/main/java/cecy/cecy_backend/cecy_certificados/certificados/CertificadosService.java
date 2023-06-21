@@ -8,6 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 import org.springframework.util.ResourceUtils;
 
+import cecy.cecy_backend.cecy_certificados.codigos.Codigos;
+import cecy.cecy_backend.cecy_certificados.codigos.CodigosRepository;
+import cecy.cecy_backend.cecy_certificados.codigos.CodigosService;
 import cecy.cecy_backend.cecy_certificados.cursos.Curso;
 import cecy.cecy_backend.cecy_certificados.cursos.CursoController;
 import cecy.cecy_backend.cecy_certificados.cursos.CursoService;
@@ -31,6 +34,8 @@ public class CertificadosService {
     CertificadosRepository entityRepository;
     @Autowired
     CursoApiFeignService planificationService;
+    @Autowired
+    CodigosService codigosService;
 
     public Certificados save(Certificados entity) {
         return entityRepository.save(entity);
@@ -48,19 +53,18 @@ public class CertificadosService {
         return entityRepository.findAll();
     }
 
-    public JasperPrint getCertificadosReporte(Long id) {
-
+   public JasperPrint getCertificados(Long id) {
       Map<String, Object> reportParameters = new HashMap<String, Object>();
-        Certificados certificados = findById(id);
-        if (certificados.getId() == null)
+        Codigos codigos = codigosService.findById(id);
+        if (codigos.getId() == null)
             return null;
-        Estudiantes persona = customerPerson.findById(certificados.getUserId());
+        Estudiantes persona = customerPerson.findById(codigos.getMatriculas().getEstudiantes().getId());
         reportParameters.put("nombres", persona.getNombres());
         reportParameters.put("apellidos", persona.getApellidos());
         reportParameters.put("rector", "Ivan Borja");
         reportParameters.put("coordinador", "Tatiana Vizcaino");
 
-       Curso curso = customerCourse.findById(certificados.getCourseId());
+       Curso curso = customerCourse.findById(codigos.getMatriculas().getCursoId());
        Planificacion planificacion =   planificationService.getPlanificationId(curso.getPlanificationId());
         reportParameters.put("curso_nombre", planificacion.getName());
 

@@ -50,9 +50,9 @@ public class CertificadosController {
         certificadosService.deleteById(id);
     }
     @GetMapping("/pdf/{id}/")
-	public ResponseEntity<byte[]> getCertificadosReporte(@PathVariable long id) throws JRException {
+	public ResponseEntity<byte[]> getCertificados(@PathVariable long id) throws JRException {
 
-		JasperPrint certificados = certificadosService.getCertificadosReporte(id);
+		JasperPrint certificados = certificadosService.getCertificados(id);
         if (certificados==null)
             return new ResponseEntity<byte[]>(null, null, HttpStatus.NOT_FOUND);
 		HttpHeaders headers = new HttpHeaders();
