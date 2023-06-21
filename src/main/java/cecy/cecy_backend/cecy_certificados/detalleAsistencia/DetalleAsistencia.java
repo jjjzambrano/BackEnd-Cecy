@@ -33,7 +33,7 @@ public class DetalleAsistencia {
     private Catalogos estado;
 
     // matricula o estudiantes
-    @OneToMany( orphanRemoval = true)
+    @OneToMany(orphanRemoval = true)
     @JoinColumn(name = "detalle_asistencia_id")
     private List<Matriculas> matriculas = new ArrayList<>();
 
