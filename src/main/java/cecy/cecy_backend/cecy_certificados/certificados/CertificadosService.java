@@ -52,23 +52,29 @@ public class CertificadosService {
         return entityRepository.findAll();
     }
 
-   public JasperPrint getCertificados(Long id) {
-      Map<String, Object> reportParameters = new HashMap<String, Object>();
+    public JasperPrint getCertificados(Long id) {
+        Map<String, Object> reportParameters = new HashMap<String, Object>();
         Codigos codigos = codigosService.findById(id);
-       for(RolCertificadoPersona personas: codigos.getCertificado().getTipoCertificado().getRoles()){
-        if(personas.getRol().getName().equals("Rector")){
-            reportParameters.put("rector", personas.getNombres()+ " " + personas.getApellidos() );
+        if (codigos.getCertificado() == null) {
+            return null;
         }
-       if(personas.getRol().getName().equals("Coordinador Cecy")){
-        reportParameters.put("coordinador", personas.getNombres()+ " " + personas.getApellidos() );
-       }
-       };
+        for (RolCertificadoPersona personas : codigos.getCertificado().getTipoCertificado().getRoles()) {
+            if (personas == null) {
+                return null;
+            }
+            if (personas.getRol().getName().equals("Rector")) {
+                reportParameters.put("rector", personas.getNombres() + " " + personas.getApellidos());
+            }
+            if (personas.getRol().getName().equals("Coordinador Cecy")) {
+                reportParameters.put("coordinador", personas.getNombres() + " " + personas.getApellidos());
+            }
+        }
         if (codigos.getId() == null)
             return null;
         Estudiantes persona = customerPerson.findById(codigos.getMatriculas().getEstudiantes().getId());
-        reportParameters.put("nombres_completos", persona.getNombres()+ " " + persona.getApellidos());
-       Curso curso = customerCourse.findById(codigos.getMatriculas().getCursoId());
-       Planificacion planificacion =   planificationService.getPlanificationId(curso.getPlanificationId());
+        reportParameters.put("nombres_completos", persona.getNombres() + " " + persona.getApellidos());
+        Curso curso = customerCourse.findById(codigos.getMatriculas().getCursoId());
+        Planificacion planificacion = planificationService.getPlanificationId(curso.getPlanificationId());
         reportParameters.put("curso_nombre", planificacion.getName());
 
         JasperPrint reportJasperPrint = null;
