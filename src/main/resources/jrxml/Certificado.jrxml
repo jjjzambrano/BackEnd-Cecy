@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Certificado" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d415f77e-c807-4aaa-9e36-67df0fdc90d4">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Certificado" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d415f77e-c807-4aaa-9e36-67df0fdc90d4">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="inch"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="inch"/>
 	<parameter name="curso_nombre" class="java.lang.String"/>
-	<parameter name="nombres" class="java.lang.String"/>
+	<parameter name="nombres_completos" class="java.lang.String"/>
 	<parameter name="apellidos" class="java.lang.String"/>
 	<parameter name="coordinador" class="java.lang.String"/>
 	<parameter name="rector" class="java.lang.String"/>
@@ -13,124 +22,61 @@
 	<background>
 		<band splitType="Stretch"/>
 	</background>
-	<title>
-		<band height="101" splitType="Stretch">
-			<staticText>
-				<reportElement x="250" y="13" width="260" height="58" forecolor="#FF6600" uuid="5cf0e0fd-b1f5-4dec-88a4-89530d185fb8"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="29" isBold="true"/>
-				</textElement>
-				<text><![CDATA[CERTIFICADO]]></text>
-			</staticText>
-			<image onErrorType="Icon">
-				<reportElement x="50" y="10" width="90" height="80" uuid="e2fd3ea4-b091-48bf-acf3-112f51903ed8"/>
-				<imageExpression><![CDATA["classpath:jrxml/Cecy.png"]]></imageExpression>
-			</image>
-			<image onErrorType="Icon">
-				<reportElement x="660" y="10" width="79" height="79" uuid="654033c9-a1a7-45a9-ab31-4ca222904696"/>
-				<imageExpression><![CDATA["classpath:jrxml/Yavirac.png"]]></imageExpression>
-			</image>
-		</band>
-	</title>
 	<pageHeader>
-		<band height="369" splitType="Stretch">
-			<staticText>
-				<reportElement x="298" y="-10" width="166" height="39" forecolor="#FF6600" uuid="74496d67-7f9f-4179-8498-f21847466f3d"/>
-				<textElement>
-					<font size="25" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Se certifica a:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="181" y="108" width="440" height="59" forecolor="#FF6600" uuid="fa9a813d-c2a0-4f4d-9442-193340a9da5a">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="22" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Por haber completado satisfactoriamente]]></text>
-			</staticText>
+		<band height="572" splitType="Stretch">
+			<image hAlign="Center" vAlign="Middle" onErrorType="Icon" evaluationTime="Page">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="-28" y="-20" width="800" height="589" uuid="7e05e202-1742-41b0-b4e0-7ccfa8795637"/>
+				<imageExpression><![CDATA["classpath:jrxml/modeloCecy.png"]]></imageExpression>
+			</image>
 			<textField>
-				<reportElement x="220" y="164" width="340" height="61" forecolor="#080808" uuid="99b5dc8d-ba65-4a76-b0b5-492c8b01ae3e">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="22" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{curso_nombre}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="378" y="60" width="270" height="39" uuid="e54dc4cb-65f0-4c93-8b8c-93ef18bbd4b9">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="22" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{nombres}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="97" y="62" width="270" height="37" uuid="5c254df0-4a41-42aa-a2e4-9a557f47b303">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="22" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{apellidos}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="90" y="230" width="600" height="100" uuid="f4db0edf-6214-4bde-ba26-fb52cbe5ac78"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="22" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Se realizo en la ciudad de Quito, en el 
-Instituto Superior Tecnologico de Turismo y Patrimonio YAVIRAC]]></text>
-			</staticText>
-			<rectangle>
-				<reportElement x="80" y="99" width="579" height="1" forecolor="#382F2F" uuid="39ed20ca-ab0b-4126-826e-b1c383968c5a"/>
-				<graphicElement>
-					<pen lineWidth="1.0"/>
-				</graphicElement>
-			</rectangle>
-		</band>
-	</pageHeader>
-	<pageFooter>
-		<band height="85" splitType="Stretch">
-			<staticText>
-				<reportElement x="551" y="40" width="140" height="30" uuid="d6214974-9798-480b-b9b5-f35137100248"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="19" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Coordinador]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="135" y="40" width="100" height="30" uuid="c9fa8f44-2bdf-40ed-a50c-cd7297b608c4"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="19" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Rector]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="413" y="10" width="400" height="30" uuid="d76de023-ea62-48d9-ad12-e7c35fcfefbe">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
+				<reportElement x="130" y="220" width="490" height="30" uuid="515b4bc0-9335-40b5-a2fa-ebb0fb0ea8af"/>
 				<textElement textAlignment="Center">
-					<font size="20"/>
+					<font size="20" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{coordinador}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{nombres_completos}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="-3" y="10" width="400" height="30" uuid="6172b44d-d0e3-42b1-9c18-8f01c7c1ebc2">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
+				<reportElement x="70" y="390" width="180" height="30" uuid="44b8e2fd-30be-4da0-80b7-fead811e0286"/>
 				<textElement textAlignment="Center">
-					<font size="20"/>
+					<font size="18"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{rector}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="500" y="390" width="180" height="30" uuid="4d0336c7-3199-4b3b-96d7-50d6f1010101"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{coordinador}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="270" width="680" height="78" uuid="4cbd9df6-6023-4bf5-ad7a-7f96ba0208a3"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Por haber aprobado el curso de                                 , efectuado en el Centro Histórico de Quito, con una duración de 40 horas.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="290" y="270" width="150" height="30" uuid="cd558081-a96f-406c-a5cd-283b03aa08fb"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{curso_nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="69" y="422" width="190" height="30" uuid="bdf5b211-f925-4d23-ad78-c7186a2498ca"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Rector IST YAVIRAC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="532" y="421" width="100" height="30" uuid="cee16001-112b-47ae-981c-62a83024f8af"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Coordinador]]></text>
+			</staticText>
 		</band>
-	</pageFooter>
+	</pageHeader>
 </jasperReport>
