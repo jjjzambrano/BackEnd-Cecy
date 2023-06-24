@@ -60,19 +60,19 @@ public class Estudiantes implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role rol;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Catalogos genero;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Catalogos tipoEstudiante;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Catalogos etnia;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Catalogos nivelInstruccion;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Catalogos situacionEconomica;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)

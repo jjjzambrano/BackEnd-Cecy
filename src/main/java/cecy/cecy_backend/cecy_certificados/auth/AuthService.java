@@ -31,6 +31,7 @@ public class AuthService {
         var jwtToken = service.generateToken(request);
         return AuthenticationResponse.builder()
         .token(jwtToken)
+        .cedula(request.getCedula())
         .build();
 
     }
@@ -42,6 +43,7 @@ public class AuthService {
         var jwtToken = service.generateToken(user);
         return AuthenticationResponse.builder()
         .token(jwtToken)
+        .cedula(user.getCedula())
         .build();
     }
     
