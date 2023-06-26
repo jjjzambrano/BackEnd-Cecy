@@ -64,6 +64,9 @@ public class Curso {
     /*PUEDEN AGREGAR SUS RELACIONES Y CAMPOS A ESTE MODELO MAPEADO DIRECTO ALA TABLA courses*/
     /*----------------------------------------------------------------*/
 
+    @Column(name = "status_course")
+    private Boolean statusCourse;
+    
     /*INICIO DATOS DE PRUEBA PUEDEN BORRARLO SI NO LO VEN NECESARIO*/
     @Column(name = "matricula_id")
     private Integer matriculaId;
