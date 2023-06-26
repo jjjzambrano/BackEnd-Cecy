@@ -35,4 +35,8 @@ public class EstudiantesService {
     public Estudiantes findById(Long id) {
         return estudiantesRepository.findById(id).orElse(new Estudiantes());
     }
+
+    public Estudiantes findByCedula(String cedula){
+        return estudiantesRepository.findByCedula(cedula).orElse(null);
+    }
 }

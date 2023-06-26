@@ -34,6 +34,11 @@ public class EstudiantesController {
         return estudiantesService.findById(id);
     }
 
+    @GetMapping("/findByCedula/{cedula}/")
+    public Estudiantes findByCedula(@PathVariable String cedula){
+        return estudiantesService.findByCedula(cedula);
+    }
+
     @PostMapping("/")
     public Estudiantes save(@RequestBody Estudiantes entity) {
         entity.setGenero(catalogosService.findFirstByDescription(entity.getGenero().getDescripcion()));

@@ -16,22 +16,26 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 
 public class SecurityConfig {
-    private final JWTAuthenticationFilter jwtAuthfilter;
-    private final AuthenticationProvider authenticationProvider;
+                private final JWTAuthenticationFilter jwtAuthfilter;
+                private final AuthenticationProvider authenticationProvider;
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf()
-                .disable()
-                .authorizeHttpRequests()
-                .requestMatchers("/api/auth/**", "/api/catalogos/**")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthfilter, UsernamePasswordAuthenticationFilter.class);
-        return http.build();
-    }
+                @Bean
+                public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+                                http.csrf()
+                                                                .disable()
+                                                                .authorizeHttpRequests()
+                                                                .requestMatchers("/api/**", "/api/auth/**"
+                                                                // "/api/catalogos/**", "/api/estudiantes/**"
+                                                                )
+                                                                .permitAll()
+                                                                .anyRequest()
+                                                                .authenticated()
+                                                                .and()
+                                                                .sessionManagement()
+                                                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                                                                .and()
+                                                                .authenticationProvider(authenticationProvider)
+                                                                .addFilterBefore(jwtAuthfilter, UsernamePasswordAuthenticationFilter.class);
+                                return http.build();
+                }
 }
