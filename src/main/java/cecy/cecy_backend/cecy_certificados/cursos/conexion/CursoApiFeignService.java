@@ -22,4 +22,7 @@ public interface CursoApiFeignService {
 
     @GetMapping("/planifications-courses/{id}") // Se necesita en el certificado NO TOQUE
     Planificacion getPlanificationId(@PathVariable("id") Integer id);
+
+    @GetMapping("/courses/find/instructor/{id}")
+    List<Planificacion> getCoursesByInstructor(@PathVariable("id") Integer id);
 }
