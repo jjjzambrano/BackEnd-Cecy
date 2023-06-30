@@ -24,18 +24,18 @@ public class SecurityConfig {
                                 http.csrf()
                                                                 .disable()
                                                                 .authorizeHttpRequests()
-                                                                .requestMatchers("/api/**", "/api/auth/**"
-                                                                // "/api/catalogos/**", "/api/estudiantes/**"
-                                                                )
-                                                                .permitAll()
+//                                                                .requestMatchers("/api/**", "/api/auth/**"
+//                                                                // "/api/catalogos/**", "/api/estudiantes/**"
+//                                                                )
                                                                 .anyRequest()
-                                                                .authenticated()
-                                                                .and()
-                                                                .sessionManagement()
-                                                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                                                                .and()
-                                                                .authenticationProvider(authenticationProvider)
-                                                                .addFilterBefore(jwtAuthfilter, UsernamePasswordAuthenticationFilter.class);
+                                                                .permitAll();
+                                                                //.authenticated()
+                                                                //.and()
+                                                                //.sessionManagement()
+                                                                //.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                                                                //.and()
+                                                                //.authenticationProvider(authenticationProvider)
+                                                                //.addFilterBefore(jwtAuthfilter, UsernamePasswordAuthenticationFilter.class);
                                 return http.build();
                 }
 }

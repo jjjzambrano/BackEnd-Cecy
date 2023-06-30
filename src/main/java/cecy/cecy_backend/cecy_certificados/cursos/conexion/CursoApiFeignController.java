@@ -35,7 +35,7 @@ public class CursoApiFeignController {
     }
 
     @GetMapping("/courses/find/instructor/{id}")
-    public List<Planificacion> getCoursesInstructor(@PathVariable Integer id){
+    public List<DetallePlanificacion> getCoursesInstructor(@PathVariable Integer id){
         return cursoApiFeignService.getCoursesByInstructor(id);
     }
 }
