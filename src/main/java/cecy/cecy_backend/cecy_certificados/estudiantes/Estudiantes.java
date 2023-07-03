@@ -36,12 +36,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Matriculas.class)
-public class Estudiantes implements UserDetails {
+public class Estudiantes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -57,8 +54,8 @@ public class Estudiantes implements UserDetails {
     private String numeroConvencional;
     private String clave;
 
-    @Enumerated(EnumType.STRING)
-    private Role rol;
+    // @Enumerated(EnumType.STRING)
+    // private Role rol;
 
     @ManyToOne(cascade = CascadeType.MERGE)
     private Catalogos genero;
@@ -88,40 +85,5 @@ public class Estudiantes implements UserDetails {
     // {@JoinColumn(name="estudiantes_id")}, inverseJoinColumns =
     // {@JoinColumn(name="matriculas_id")})
     private List<Matriculas> matriculas = new ArrayList<>();
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(rol.name()));
-    }
-
-    @Override
-    public String getPassword() {
-        return clave;
-    }
-
-    @Override
-    public String getUsername() {
-        return cedula;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
 
 }

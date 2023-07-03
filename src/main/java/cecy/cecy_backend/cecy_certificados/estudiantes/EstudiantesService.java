@@ -1,5 +1,4 @@
 
-
 package cecy.cecy_backend.cecy_certificados.estudiantes;
 
 import java.util.List;
@@ -16,15 +15,19 @@ import cecy.cecy_backend.cecy_certificados.catalogos.CatalogosService;
  */
 @Service
 public class EstudiantesService {
-    @Autowired EstudiantesRepository estudiantesRepository;
-    @Autowired CatalogosRepository catalogosRepository;
+    @Autowired
+    EstudiantesRepository estudiantesRepository;
+    @Autowired
+    CatalogosRepository catalogosRepository;
 
     public Estudiantes save(Estudiantes entity) {
         entity.getMatriculas().forEach(matricula -> {
-            matricula.setEstadoMatricula(catalogosRepository.findFirstByDescripcion(matricula.getEstadoMatricula().getDescripcion()) );         
-            matricula.setEstadoCurso(catalogosRepository.findFirstByDescripcion(matricula.getEstadoCurso().getDescripcion()));
+            matricula.setEstadoMatricula(
+                    catalogosRepository.findFirstByDescripcion(matricula.getEstadoMatricula().getDescripcion()));
+            matricula.setEstadoCurso(
+                    catalogosRepository.findFirstByDescripcion(matricula.getEstadoCurso().getDescripcion()));
             // matricula.getEstudiantes().setMatriculas(null);
-    });
+        });
         return estudiantesRepository.save(entity);
     }
 
@@ -36,7 +39,7 @@ public class EstudiantesService {
         return estudiantesRepository.findById(id).orElse(new Estudiantes());
     }
 
-    public Estudiantes findByCedula(String cedula){
-        return estudiantesRepository.findByCedula(cedula).orElse(null);
+    public Estudiantes findByCedula(String cedula) {
+        return estudiantesRepository.findByCedula(cedula);
     }
 }
