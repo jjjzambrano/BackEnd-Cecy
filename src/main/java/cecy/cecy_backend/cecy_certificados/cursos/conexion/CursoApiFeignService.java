@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-
 //@FeignClient(name = "nodeApi", url = "http://cecy_api_js:3000/api/v1")
 @FeignClient(name = "nodeApi", url = "http://localhost:3000/api/v1")
 public interface CursoApiFeignService {
@@ -16,7 +15,7 @@ public interface CursoApiFeignService {
     @GetMapping("courses/{id}")
     Course getCourseById(@PathVariable("id") Integer id);
 
-    @GetMapping("/courses/state-course/{state}")
+    @GetMapping("courses/state-course/{state}")
     List<Course> getCoursesByState(@PathVariable("state") String state); /*
                                                                           * Aqui busco los cursos por estado (proceso |
                                                                           * aprobado)
