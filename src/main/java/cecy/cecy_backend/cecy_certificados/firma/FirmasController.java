@@ -1,4 +1,6 @@
-package cecy.cecy_backend.cecy_certificados.rol_certificado;
+package cecy.cecy_backend.cecy_certificados.firma;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -9,33 +11,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.List;
-
 
 @RestController
-@RequestMapping("api/rol-certificado")
+@RequestMapping("api/firma")
 @CrossOrigin({"*"})
-public class RolCertificadoController {
-    
-    @Autowired RolCertificadoService rolCertificadoService;
+public class FirmasController {
+    @Autowired FirmasService firmasService;
 
     @GetMapping("/")
-    public List<RolCertificado> findAll(){
-        return rolCertificadoService.findAll();
+    public List<Firmas> findAll(){
+        return firmasService.findAll();
     }
 
     @GetMapping("/{id}/")
-    public RolCertificado findById(@PathVariable Long id){
-        return rolCertificadoService.findById(id);
+    public Firmas findById(@PathVariable Long id){
+        return firmasService.findById(id);
     }
 
     @PostMapping("/")
-    public RolCertificado save(@RequestBody RolCertificado entity){
-        return rolCertificadoService.save(entity);
+    public Firmas save(@RequestBody Firmas entity){
+        return firmasService.save(entity);
     }
 
     @DeleteMapping("/{id}/")
     public void deleteById(@PathVariable Long id){
-        rolCertificadoService.deleteById(id);
+        firmasService.deleteById(id);
     }
 }

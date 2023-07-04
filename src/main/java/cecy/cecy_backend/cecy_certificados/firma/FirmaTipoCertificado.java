@@ -1,4 +1,4 @@
-package cecy.cecy_backend.cecy_certificados.rol_certificado;
+package cecy.cecy_backend.cecy_certificados.firma;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,13 +9,11 @@ import lombok.Data;
 
 @Data
 @Entity
-public class RolCertificadoPersona {
+public class FirmaTipoCertificado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-   private String nombres;
-   private String apellidos;
-   private String dni;
+    private String rol;
    @ManyToOne
-   private RolCertificado rol;
+   private Firmas firma;
 }

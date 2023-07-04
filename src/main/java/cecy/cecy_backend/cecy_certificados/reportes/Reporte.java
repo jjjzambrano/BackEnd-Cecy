@@ -23,6 +23,7 @@ public class Reporte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Boolean stateCertificate;
     private LocalDate fechaReporte;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "reporte_id")

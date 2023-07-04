@@ -31,7 +31,7 @@ public class CodigosService {
 
     public Codigos update(Long id, Codigos codigoRequest) {
         Codigos existingCodigos = entityRepository.findById(id).get(); // DB
-        existingCodigos.setCodigo(codigoRequest.getCodigo());
+        //existingCodigos.setCodigo(codigoRequest.getCodigo());
         existingCodigos.setMatriculas(codigoRequest.getMatriculas());
         existingCodigos.setCertificado(codigoRequest.getCertificado());
         if(codigoRequest.getCertificado().getTipoCertificado()== null){
