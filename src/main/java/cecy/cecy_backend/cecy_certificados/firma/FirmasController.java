@@ -37,7 +37,7 @@ public class FirmasController {
     }
 
     @PostMapping("/")
-    public Firmas save(@RequestBody Firmas entity, @RequestParam("file")MultipartFile multipartFile){
+    public Firmas save(@RequestBody Firmas entity){
         return firmasService.save(entity);
     }
 

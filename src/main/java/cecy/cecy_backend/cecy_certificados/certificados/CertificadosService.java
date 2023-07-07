@@ -89,12 +89,16 @@ public class CertificadosService {
                 for (FirmaTipoCertificado participante : codigos.getCertificado().getTipoCertificado().getFirmas()) {
                     if(participanteIndex == 1){
                         reportParameters.put("participante2", participante.getFirma().getNombres() + " " + participante.getFirma().getApellidos());
-                    reportParameters.put("tipo_participante2", participante.getRol());
+                        reportParameters.put("tipo_participante2", participante.getRol());
+                        reportParameters.put("firma2","classpath:images/"+ participante.getFirma().getFirma());
+                        System.out.print("classpath:images/"+ participante.getFirma().getFirma());
                     }
                     if(participanteIndex == 0){
                         participanteIndex = 1;
                         reportParameters.put("participante1", participante.getFirma().getNombres() + " " + participante.getFirma().getApellidos());
                     reportParameters.put("tipo_participante1", participante.getRol());
+                    reportParameters.put("firma1","classpath:images/"+ participante.getFirma().getFirma());
+                    System.out.print("classpath:images/"+ participante.getFirma().getFirma());
                     }
                     
                 }
@@ -149,16 +153,19 @@ public class CertificadosService {
                     if(participanteIndex == 2){
                         reportParameters.put("participante3", participante.getFirma().getNombres() + " " + participante.getFirma().getApellidos());
                         reportParameters.put("tipo_participante3", participante.getRol());
+                        reportParameters.put("firma3","classpath:images/"+ participante.getFirma().getFirma());
                     }
                     if(participanteIndex == 1){
                         participanteIndex = participanteIndex+1;
                         reportParameters.put("participante2", participante.getFirma().getNombres() + " " + participante.getFirma().getApellidos());
                         reportParameters.put("tipo_participante2", participante.getRol());
+                        reportParameters.put("firma2","classpath:images/"+ participante.getFirma().getFirma());
                     }
                     if(participanteIndex == 0){
                         participanteIndex = 1;
                         reportParameters.put("participante1", participante.getFirma().getNombres() + " " + participante.getFirma().getApellidos());
                         reportParameters.put("tipo_participante1", participante.getRol());
+                        reportParameters.put("firma1","classpath:images/"+ participante.getFirma().getFirma());
                     }
                     
                 }
