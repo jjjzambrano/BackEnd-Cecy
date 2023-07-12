@@ -75,8 +75,8 @@ public class ReporteService {
         }
         
         
-        reportParameters.put("estudiantes_apro", aprobado);
-        reportParameters.put("estudiantes_repro", reprobado);
+        reportParameters.put("apro", aprobado);
+        reportParameters.put("repro", reprobado);
         reportParameters.put("total", aprobado+reprobado);
         Curso curso = cursoService.findById(cursoId);
         Course course = planificationService.getCourseById(cursoId.intValue());
