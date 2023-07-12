@@ -25,9 +25,11 @@
 	<parameter name="fecha_curso" class="java.lang.String"/>
 	<parameter name="hora_curso" class="java.lang.String"/>
 	<parameter name="fecha_certificado" class="java.lang.String"/>
+	<parameter name="Qr" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
+	<field name="Qr" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -148,6 +150,12 @@
 				<reportElement x="-7" y="477" width="27" height="17" uuid="787e4fdd-2e18-40e4-9e36-bb93054cc20f"/>
 				<text><![CDATA[Quito,]]></text>
 			</staticText>
+			<componentElement>
+				<reportElement x="547" y="-5" width="115" height="83" uuid="f5bf25f8-2967-4e4e-bfa2-7879a3275e1c"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA[$P{Qr}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
 		</band>
 	</pageHeader>
 </jasperReport>

@@ -98,6 +98,16 @@ public class CertificadosService {
                         reportParameters.put("participante1", participante.getFirma().getNombres() + " " + participante.getFirma().getApellidos());
                     reportParameters.put("tipo_participante1", participante.getRol());
                     reportParameters.put("firma1","classpath:images/"+ participante.getFirma().getFirma());
+                    try {
+                        SimpleDateFormat simpleDateFormartStart = new SimpleDateFormat(patternStart,locale);
+                       String fechaInicio = simpleDateFormartStart.format(fromUser.parse(planificacion.getStartDate()));
+                        SimpleDateFormat simpleDateFormartFinish = new SimpleDateFormat(patternFinish, locale);
+                    String fechaFin = simpleDateFormartFinish.format(fromUser.parse(planificacion.getFinishDate()));
+                    reportParameters.put("Qr","Nombre Estudiante "+ persona.getNombres()+ " Nombre del Curso "+ planificacion.getName() +" Registro Senescyt No "+ codigos.getCodigo()+ " Nombre del Representante Legal"+participante.getFirma().getNombres()+" Fecha del Curso "+" del " + fechaInicio + " al "+ fechaFin);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                  ;
                     System.out.print("classpath:images/"+ participante.getFirma().getFirma());
                     }
                     
@@ -117,6 +127,9 @@ public class CertificadosService {
 
                 reportParameters.put("fecha_certificado", onlyDay + " de "+ onlyMonth+ " de "+ onlyYear);
                 reportParameters.put("codigo", codigos.getCodigo());
+                
+                
+               
                 try {
                     reportJasperPrint = JasperFillManager.fillReport(
                             JasperCompileManager.compileReport(
@@ -165,7 +178,15 @@ public class CertificadosService {
                         participanteIndex = 1;
                         reportParameters.put("participante1", participante.getFirma().getNombres() + " " + participante.getFirma().getApellidos());
                         reportParameters.put("tipo_participante1", participante.getRol());
-                        reportParameters.put("firma1","classpath:images/"+ participante.getFirma().getFirma());
+                        try {
+                            SimpleDateFormat simpleDateFormartStart = new SimpleDateFormat(patternStart,locale);
+                           String fechaInicio = simpleDateFormartStart.format(fromUser.parse(planificacion.getStartDate()));
+                            SimpleDateFormat simpleDateFormartFinish = new SimpleDateFormat(patternFinish, locale);
+                        String fechaFin = simpleDateFormartFinish.format(fromUser.parse(planificacion.getFinishDate()));
+                        reportParameters.put("Qr","Nombre Estudiante "+ persona.getNombres()+ " Nombre del Curso "+ planificacion.getName() +" Registro Senescyt No "+ codigos.getCodigo()+ " Nombre del Representante Legal"+participante.getFirma().getNombres()+" Fecha del Curso "+" del " + fechaInicio + " al "+ fechaFin);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
                     }
                     
                 }

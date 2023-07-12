@@ -11,6 +11,7 @@
 	<property name="com.jaspersoft.studio.unit.rightMargin" value="inch"/>
 	<property name="com.jaspersoft.studio.unit.columnWidth" value="inch"/>
 	<property name="com.jaspersoft.studio.unit.columnSpacing" value="inch"/>
+	<property name="net.sf.jasperreports.print.create.bookmarks" value="true"/>
 	<parameter name="curso_nombre" class="java.lang.String"/>
 	<parameter name="nombres_completos" class="java.lang.String"/>
 	<parameter name="apellidos" class="java.lang.String"/>
@@ -24,9 +25,11 @@
 	<parameter name="fecha_curso" class="java.lang.String"/>
 	<parameter name="hora_curso" class="java.lang.String"/>
 	<parameter name="fecha_certificado" class="java.lang.String"/>
+	<parameter name="Qr" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
+	<field name="Qr" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -120,6 +123,12 @@
 				<reportElement x="21" y="478" width="151" height="15" uuid="99d44851-0bbc-412d-a56d-4ef168999ec7"/>
 				<textFieldExpression><![CDATA[$P{fecha_certificado}]]></textFieldExpression>
 			</textField>
+			<componentElement>
+				<reportElement x="547" y="-5" width="115" height="83" uuid="f5bf25f8-2967-4e4e-bfa2-7879a3275e1c"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA[$P{Qr}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
 		</band>
 	</pageHeader>
 </jasperReport>
