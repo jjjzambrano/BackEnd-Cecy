@@ -28,6 +28,10 @@ public class AsistenciaController {
     @GetMapping("/{id}/")
     public Asistencia findById(@PathVariable Long id){
         return asistenciaService.findById(id);
+    } 
+    @GetMapping("/cursoId/{id}/")
+    public List<Asistencia> findByCursoId(@PathVariable Integer id){
+        return asistenciaService.findByCursoId(id);
     }
 
     @PostMapping("/")

@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface AsistenciaRepository extends CrudRepository<Asistencia, Long> {
     List<Asistencia> findAll();
+    List<Asistencia> findByCursoId(Integer id);
 }
