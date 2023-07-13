@@ -103,7 +103,7 @@ public class CertificadosService {
                        String fechaInicio = simpleDateFormartStart.format(fromUser.parse(planificacion.getStartDate()));
                         SimpleDateFormat simpleDateFormartFinish = new SimpleDateFormat(patternFinish, locale);
                     String fechaFin = simpleDateFormartFinish.format(fromUser.parse(planificacion.getFinishDate()));
-                    reportParameters.put("Qr","Nombre Estudiante "+ persona.getNombres()+ " Nombre del Curso "+ planificacion.getName() +" Registro Senescyt No "+ codigos.getCodigo()+ " Nombre del Representante Legal"+participante.getFirma().getNombres()+" Fecha del Curso "+" del " + fechaInicio + " al "+ fechaFin);
+                    reportParameters.put("Qr","Nombre Estudiante: "+ persona.getNombres() + " " + persona.getApellidos()+" Nombre del Curso: "+ planificacion.getName() +" Registro Senescyt No: "+ codigos.getCodigo()+ " Nombre del Representante Legal: "+participante.getFirma().getNombres()+" Fecha del Curso: "+" del " + fechaInicio + " al "+ fechaFin);
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
@@ -183,7 +183,7 @@ public class CertificadosService {
                            String fechaInicio = simpleDateFormartStart.format(fromUser.parse(planificacion.getStartDate()));
                             SimpleDateFormat simpleDateFormartFinish = new SimpleDateFormat(patternFinish, locale);
                         String fechaFin = simpleDateFormartFinish.format(fromUser.parse(planificacion.getFinishDate()));
-                        reportParameters.put("Qr","Nombre Estudiante "+ persona.getNombres()+ " Nombre del Curso "+ planificacion.getName() +" Registro Senescyt No "+ codigos.getCodigo()+ " Nombre del Representante Legal"+participante.getFirma().getNombres()+" Fecha del Curso "+" del " + fechaInicio + " al "+ fechaFin);
+                        reportParameters.put("Qr","Nombre Estudiante: "+ persona.getNombres()+ " " + persona.getApellidos()+ " Nombre del Curso: "+ planificacion.getName() +" Registro Senescyt No: "+ codigos.getCodigo()+ " Nombre del Representante Legal: "+participante.getFirma().getNombres()+" Fecha del Curso: "+" del " + fechaInicio + " al "+ fechaFin);
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }
