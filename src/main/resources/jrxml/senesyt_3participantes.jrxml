@@ -37,7 +37,7 @@
 		<band height="572" splitType="Stretch">
 			<image hAlign="Center" vAlign="Middle" onErrorType="Icon" evaluationTime="Page">
 				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="-28" y="-20" width="800" height="589" uuid="2f091788-2fc4-4805-ad4f-208877421f1e"/>
-				<imageExpression><![CDATA["classpath:jrxml/modeloCecy.png"]]></imageExpression>
+				<imageExpression><![CDATA["classpath:jrxml/modeloSenesyt.png"]]></imageExpression>
 			</image>
 			<textField>
 				<reportElement x="130" y="220" width="490" height="30" uuid="ef540315-6751-4fd6-81f5-aff90df6f3f8"/>
@@ -132,14 +132,17 @@
 				<textFieldExpression><![CDATA[$P{codigo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="230" y="295" width="219" height="24" uuid="41e91723-815f-49cd-b725-9d509e114a03"/>
+				<reportElement x="230" y="294" width="219" height="24" uuid="41e91723-815f-49cd-b725-9d509e114a03"/>
 				<textElement>
 					<font size="16"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{fecha_curso}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="630" y="297" width="70" height="18" uuid="f12b0378-2cb2-4960-821b-48889590fb72"/>
+				<reportElement x="640" y="296" width="40" height="18" uuid="f12b0378-2cb2-4960-821b-48889590fb72"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{hora_curso}]]></textFieldExpression>
 			</textField>
 			<textField>

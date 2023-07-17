@@ -37,7 +37,7 @@
 		<band height="572" splitType="Stretch">
 			<image hAlign="Center" vAlign="Middle" onErrorType="Icon" evaluationTime="Page">
 				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="-28" y="-20" width="800" height="589" uuid="7e05e202-1742-41b0-b4e0-7ccfa8795637"/>
-				<imageExpression><![CDATA["classpath:jrxml/modeloCecy.png"]]></imageExpression>
+				<imageExpression><![CDATA["classpath:jrxml/modeloSenesyt.png"]]></imageExpression>
 			</image>
 			<textField>
 				<reportElement x="130" y="220" width="490" height="30" uuid="515b4bc0-9335-40b5-a2fa-ebb0fb0ea8af"/>
@@ -87,7 +87,7 @@
 				<textElement>
 					<font size="18"/>
 				</textElement>
-				<text><![CDATA[Por haber aprobado el curso de                                                                  , efectuado en el Centro Histórico de Quito del                                               , con una duración de              horas.]]></text>
+				<text><![CDATA[Por haber aprobado el curso de                                                                  , efectuado en el Centro Histórico de Quito del                                               , con una duración de           horas.]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="249" y="270" width="320" height="24" uuid="6f34c5e3-dfa5-439f-8faa-cd3873d3c9f1"/>
@@ -97,14 +97,17 @@
 				<textFieldExpression><![CDATA[$P{curso_nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="230" y="295" width="219" height="24" uuid="d7bd00f7-e40a-4b8c-bb1a-cdcbc91696fd"/>
+				<reportElement x="230" y="293" width="219" height="24" uuid="d7bd00f7-e40a-4b8c-bb1a-cdcbc91696fd"/>
 				<textElement>
 					<font size="16"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{fecha_curso}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="630" y="297" width="70" height="18" uuid="23dfa740-32d5-4d8d-ab00-2e67c13c2d39"/>
+				<reportElement x="630" y="296" width="50" height="18" uuid="23dfa740-32d5-4d8d-ab00-2e67c13c2d39"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{hora_curso}]]></textFieldExpression>
 			</textField>
 			<staticText>
