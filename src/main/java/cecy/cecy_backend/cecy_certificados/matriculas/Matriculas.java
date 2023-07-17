@@ -56,9 +56,9 @@ public class Matriculas {
 
     // asistencias
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "matriculas_id")
-    private List<Asistencia> asistencias = new ArrayList<>();
+    // @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    // @JoinColumn(name = "matriculas_id")
+    // private List<Asistencia> asistencias = new ArrayList<>();
 
     // estudiante
     @ManyToOne(fetch = FetchType.LAZY)

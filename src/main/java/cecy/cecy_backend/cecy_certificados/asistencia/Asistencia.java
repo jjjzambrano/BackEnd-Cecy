@@ -23,14 +23,14 @@ public class Asistencia {
     private Integer cursoId;
     private String evidenciaFotografica;
     private Date fecha;
-    private Float porcentajeAsistencia;
-    private String observacion;
+    // private Float porcentajeAsistencia;
+    // private String observacion;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "asistencia_id")
-    private List<DetalleAsistencia> detalleAsistencia;
+    // @OneToMany(cascade = CascadeType.ALL)
+    // @JoinColumn(name = "asistencia_id")
+    // private List<DetalleAsistencia> detalleAsistencia;
 
-/*     @OneToMany(cascade = CascadeType.ALL)
+     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "asistencia_id")
-    private List<Observaciones> observaciones; */
+    private List<Observaciones> observaciones; 
 }

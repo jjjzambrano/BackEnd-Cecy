@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  cecy_db:
+    container_name: cecy_db
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=cecy
+  cecy_java_back:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - cecy_db
+    volumes:
+      - .:/cecy_java_backend
