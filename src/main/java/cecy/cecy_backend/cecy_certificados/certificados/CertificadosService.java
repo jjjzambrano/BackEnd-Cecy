@@ -160,7 +160,7 @@ public class CertificadosService {
                     e.printStackTrace();
                 }
 
-                reportParameters.put("hora_curso", Integer.toString(planificacion.getDurationTime()));
+                reportParameters.put("hora", Integer.toString(planificacion.getDurationTime()));
                 int participanteIndex = 0;
                 for (FirmaTipoCertificado participante : codigos.getCertificado().getTipoCertificado().getFirmas()) {
                     if(participanteIndex == 1){
@@ -236,7 +236,7 @@ public class CertificadosService {
                     e.printStackTrace();
                 }
 
-                reportParameters.put("hora_curso", Integer.toString(planificacion.getDurationTime()));
+                reportParameters.put("hora", Integer.toString(planificacion.getDurationTime()));
                 int participanteIndex = 0;
                 for (FirmaTipoCertificado participante : codigos.getCertificado().getTipoCertificado().getFirmas()) {
                     if(participanteIndex == 2){
