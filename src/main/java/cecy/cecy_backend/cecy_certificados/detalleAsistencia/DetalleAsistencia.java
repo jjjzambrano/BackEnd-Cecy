@@ -2,11 +2,7 @@ package cecy.cecy_backend.cecy_certificados.detalleAsistencia;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.hibernate.mapping.ManyToOne;
-
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
-import cecy.cecy_backend.cecy_certificados.estudiantes.Estudiantes;
 import cecy.cecy_backend.cecy_certificados.matriculas.Matriculas;
 import cecy.cecy_backend.cecy_certificados.observaciones.Observaciones;
 import jakarta.persistence.CascadeType;
