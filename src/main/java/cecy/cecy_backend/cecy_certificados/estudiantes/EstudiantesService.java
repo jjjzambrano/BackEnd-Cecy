@@ -19,15 +19,23 @@ public class EstudiantesService {
     EstudiantesRepository estudiantesRepository;
     @Autowired
     CatalogosRepository catalogosRepository;
+    @Autowired
+    CatalogosService catalogosService;
 
     public Estudiantes save(Estudiantes entity) {
-        entity.getMatriculas().forEach(matricula -> {
-            matricula.setEstadoMatricula(
-                    catalogosRepository.findFirstByDescripcion(matricula.getEstadoMatricula().getDescripcion()));
-            matricula.setEstadoCurso(
-                    catalogosRepository.findFirstByDescripcion(matricula.getEstadoCurso().getDescripcion()));
-            // matricula.getEstudiantes().setMatriculas(null);
-        });
+        // entity.getMatriculas().forEach(matricula -> {
+        //     matricula.setEstadoMatricula(
+        //             catalogosRepository.findFirstByDescripcion(matricula.getEstadoMatricula().getDescripcion()));
+        //     matricula.setEstadoCurso(
+        //             catalogosRepository.findFirstByDescripcion(matricula.getEstadoCurso().getDescripcion()));
+        //     matricula.getEstudiantes().setMatriculas(null);
+        // });
+
+        entity.setGenero(catalogosService.findFirstByDescription(entity.getGenero().getDescripcion()));
+        entity.setEtnia(catalogosService.findFirstByDescription(entity.getEtnia().getDescripcion()));
+        entity.setTipoEstudiante(catalogosService.findFirstByDescription(entity.getTipoEstudiante().getDescripcion()));
+        entity.setNivelInstruccion(catalogosService.findFirstByDescription(entity.getNivelInstruccion().getDescripcion()));
+        entity.setSituacionEconomica(catalogosService.findFirstByDescription(entity.getSituacionEconomica().getDescripcion()));
         return estudiantesRepository.save(entity);
     }
 

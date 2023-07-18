@@ -23,6 +23,8 @@ services:
       #   - JAR_FILE=./build/libs/cecy_backend-0.0.1-SNAPSHOT.jar
     ports:
       - "8080:8080"
+    volumes:
+      - .:/java_back
     # links:
     #   - cecy_db
     # volumes:

@@ -13,9 +13,11 @@ services:
   #     - postgres_data:/var/lib/psql/data
   cecy_api_js:
     build:
-      context: ../API-Cecy/
+      context: ../Api-Cecy/
     ports:
       - "3000:3000"
+    volumes:
+      - ../Api-Cecy:/api_cecy_js
     # depends_on:
     #   - cecy_db
   cecy_java_back:
