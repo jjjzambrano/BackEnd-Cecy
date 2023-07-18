@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
@@ -14,13 +13,10 @@ import cecy.cecy_backend.cecy_certificados.matriculas.Matriculas;
 import cecy.cecy_backend.cecy_certificados.prerequisitos.Prerequisitos;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinColumns;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
@@ -42,20 +38,24 @@ public class Estudiantes {
     private String direccion;
     private String numeroCelular;
     private String numeroConvencional;
+    private String clave;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    // @Enumerated(EnumType.STRING)
+    // private Role rol;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Catalogos genero;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
     private Catalogos tipoEstudiante;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Catalogos etnia;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Catalogos nivelInstruccion;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Catalogos situacionEconomica;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
