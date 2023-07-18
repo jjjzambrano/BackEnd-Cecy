@@ -36,7 +36,7 @@ public class AsistenciaController {
 
     @PostMapping("/")
     public Asistencia save(@RequestBody Asistencia entity){
-        entity.getDetalleAsistencia().forEach(detalleAsistencia -> detalleAsistencia.setEstado(catalogosService.findFirstByDescription((detalleAsistencia.getEstado().getDescripcion()))));
+        // entity.getDetalleAsistencia().forEach(detalleAsistencia -> detalleAsistencia.setEstado(catalogosService.findFirstByDescription((detalleAsistencia.getEstado().getDescripcion()))));
         return asistenciaService.save(entity);
     }
 

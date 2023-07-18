@@ -3,7 +3,8 @@ package cecy.cecy_backend.cecy_certificados.asistencia;
 import java.sql.Date;
 import java.util.List;
 
-import cecy.cecy_backend.cecy_certificados.detalleAsistencia.DetalleAsistencia;
+
+import cecy.cecy_backend.cecy_certificados.links.Links;
 import cecy.cecy_backend.cecy_certificados.observaciones.Observaciones;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -20,17 +21,21 @@ public class Asistencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String periodo;
     private Integer cursoId;
     private String evidenciaFotografica;
-    private String duracionClase;
     private Date fecha;
+    // private Float porcentajeAsistencia;
+    // private String observacion;
+
+    // @OneToMany(cascade = CascadeType.ALL)
+    // @JoinColumn(name = "asistencia_id")
+    // private List<DetalleAsistencia> detalleAsistencia;
+
+     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "asistencia_id")
+    private List<Observaciones> observaciones; 
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "asistencia_id")
-    private List<DetalleAsistencia> detalleAsistencia;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "asistencia_id")
-    private List<Observaciones> observaciones;
+    private List<Links> links;
 }
