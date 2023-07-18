@@ -66,10 +66,10 @@ public class ReporteService {
         for(Codigos codigos: reporte.getReportes()){
             String matricula = codigos.getMatriculas().getEstadoCurso().getDescripcion();
             cursoId =  codigos.getMatriculas().getCursoId();
-            if(matricula.equals("Aprobado")){
+            if(matricula.equals("aprobado")){
                 aprobado = aprobado+1;
             }
-            if(matricula.equals("Reprobado")){
+            if(matricula.equals("reprobado")){
                 reprobado = reprobado+1;
             }
         }
