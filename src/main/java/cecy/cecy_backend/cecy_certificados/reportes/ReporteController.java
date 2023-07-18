@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PatchMapping;
+import java.util.Map;
 
 
 import cecy.cecy_backend.cecy_certificados.matriculas.MatriculasService;
@@ -55,6 +57,11 @@ public class ReporteController {
     @DeleteMapping("/{id}/")
     public void deleteById(@PathVariable Long id){
         reporteService.deleteById(id);
+    }
+
+    @PatchMapping("/{id}/")
+    public Reporte updateReporteByFields(@PathVariable Long id, @RequestBody Map<String, Object> fields){
+        return  reporteService.updateReporteByFields(id,fields);
     }
     @GetMapping("/xls/{id}/")
     public ResponseEntity<byte[]> exportXls(@PathVariable Long id) throws JRException, FileNotFoundException {

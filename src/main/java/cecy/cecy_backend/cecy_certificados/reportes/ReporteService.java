@@ -9,10 +9,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.lang.reflect.Field;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
+import org.springframework.util.ReflectionUtils;
 
 import cecy.cecy_backend.cecy_certificados.codigos.Codigos;
 import cecy.cecy_backend.cecy_certificados.cursos.Curso;
@@ -30,6 +33,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+
 
 @Service
 public class ReporteService {
@@ -137,4 +141,18 @@ public class ReporteService {
     public byte[] exportXls(Long id) throws JRException {
         return exportToXls(id);
     }
-}
+
+    public Reporte updateReporteByFields(Long id, Map<String, Object> fields) {
+        Optional<Reporte> existingReport = entityRepository.findById(id);
+
+        if (existingReport.isPresent()) {
+            fields.forEach((key, value) -> {
+                Field field = ReflectionUtils.findField(Reporte.class, key);
+                field.setAccessible(true);
+                ReflectionUtils.setField(field, existingReport.get(), value);
+            });
+            return entityRepository.save(existingReport.get());
+        }
+        return null;
+    }
+}   
