@@ -17,6 +17,8 @@ import org.springframework.util.ResourceUtils;
 import cecy.cecy_backend.cecy_certificados.codigos.Codigos;
 import cecy.cecy_backend.cecy_certificados.cursos.Curso;
 import cecy.cecy_backend.cecy_certificados.cursos.CursoService;
+import cecy.cecy_backend.cecy_certificados.cursos.conexion.Categoria;
+import cecy.cecy_backend.cecy_certificados.cursos.conexion.Course;
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.CursoApiFeignService;
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.Planificacion;
 import net.sf.jasperreports.engine.JREmptyDataSource;
@@ -73,18 +75,21 @@ public class ReporteService {
         }
         
         
-        reportParameters.put("estudiantes_apro", aprobado);
-        reportParameters.put("estudiantes_repro", reprobado);
+        reportParameters.put("apro", aprobado);
+        reportParameters.put("repro", reprobado);
         reportParameters.put("total", aprobado+reprobado);
         Curso curso = cursoService.findById(cursoId);
+        Course course = planificationService.getCourseById(cursoId.intValue());
         Planificacion planificacion = planificationService.getPlanificationId(curso.getPlanificationId());
         reportParameters.put("nombre_curso", planificacion.getName());
-        //reportParameters.put("area_curso", curso);
+        
         reportParameters.put("docente", planificacion.getUser().getNames());
         reportParameters.put("fecha_inicio", planificacion.getStartDate());
         reportParameters.put("fecha_fin", planificacion.getFinishDate());
         reportParameters.put("nombre_instituto", "Instituto Tecnologico Yavirac");
-        
+        Categoria categoria = course.getCategory();
+        reportParameters.put("area_curso", categoria.getName());
+        reportParameters.put("codigo_curso",course.getAbbreviation());
         
 
         List<Map<String, Object>> dataList = new ArrayList<>();
