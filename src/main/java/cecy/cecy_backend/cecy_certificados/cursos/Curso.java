@@ -65,7 +65,7 @@ public class Curso {
     /*----------------------------------------------------------------*/
 
     @Column(name = "status_course")
-    private Boolean statusCourse;
+    private String statusCourse;
     
     /*INICIO DATOS DE PRUEBA PUEDEN BORRARLO SI NO LO VEN NECESARIO*/
     @Column(name = "matricula_id")
