@@ -7,6 +7,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -64,6 +67,27 @@ public class FileImagenCertificateService implements ImagenCertificateService{
         }catch(MalformedURLException e){
             throw new RuntimeException("Could not read file" + filename);
         }
-        
     }
+
+    public void delete(String filename){
+        try {
+            Path file = rootLocation.resolve(filename);
+            Files.delete(file);
+        } catch (IOException e){
+            throw new RuntimeException("Failed to delete file",e );
+        }
+    }
+
+    public List<String> getAllImageUrls() {
+        try {
+            return Files.walk(Paths.get(mediaLocation), 1)
+                    .filter(Files::isRegularFile)
+                    .map(path -> "/api/certificados/images/" + path.getFileName().toString())
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to get image URLs", e);
+        }
+    }
+
+
 }

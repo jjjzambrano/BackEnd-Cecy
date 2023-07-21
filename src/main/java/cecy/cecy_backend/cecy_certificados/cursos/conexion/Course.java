@@ -5,6 +5,13 @@ import lombok.Data;
 
 @Data
 public class Course {
+
+    public enum EstadosCurso {
+        aprobado,
+        cerrado
+    }
+
+
     private Integer id;
 
     private String abbreviation;
@@ -43,4 +50,6 @@ public class Course {
     private Area area;
     private Integer specialityId;
     private Especialidad speciality;
+    private EstadosCurso state;
+
 }
