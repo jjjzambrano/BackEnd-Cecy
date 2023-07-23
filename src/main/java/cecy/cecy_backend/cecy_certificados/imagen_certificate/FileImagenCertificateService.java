@@ -12,6 +12,9 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import java.io.File;
+
+
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -101,6 +104,21 @@ public class FileImagenCertificateService implements ImagenCertificateService{
             throw new RuntimeException("Failed to get image names", e);
         }
     }
+
+/*    public List<ImagenInfo> getAll(String baseUrl) {
+        try (Stream<Path> pathStream = Files.walk(rootLocation, 1)) {
+            return pathStream
+                    .filter(path -> !path.equals(rootLocation))
+                    .map(path -> {
+                        String imageName = rootLocation.relativize(path).toString();
+                        String url = baseUrl + "/media/" + imageName;
+                        return new ImagenInfo(imageName, url);
+                    })
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to get image names", e);
+        }
+    }*/
     public Optional<ImagenInfo> getImageByName(String imageName, String baseUrl) {
         try {
             Path file = rootLocation.resolve(imageName);

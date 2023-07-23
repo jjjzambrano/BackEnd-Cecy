@@ -45,6 +45,29 @@ public class ImagenCertificateController {
         return ResponseEntity.ok(imageInfoList);
     }
 
+/*    @GetMapping("/list")
+    public ResponseEntity<List<ImagenInfo>> getAllImages() {
+        List<ImagenInfo> images = fileImagenCertificateService.getAllImages();
+        return new ResponseEntity<>(images, HttpStatus.OK);
+    }*/
+
+
+    private void addFullImageUrl(List<ImagenInfo> images, HttpServletRequest request) {
+        String baseUrl = getBaseUrl(request);
+        for (ImagenInfo image : images) {
+            image.setUrl(baseUrl + image.getUrl());
+        }
+    }
+
+    private String getBaseUrl(HttpServletRequest request) {
+        String baseUrl = request.getScheme() + "://" + request.getServerName();
+        int port = request.getServerPort();
+        if ((port != 80) && (port != 443)) {
+            baseUrl += ":" + port;
+        }
+        return baseUrl;
+    }
+
     @GetMapping("/get-by-name/{imageName}")
     public ResponseEntity<?> getImageByName(@PathVariable String imageName, HttpServletRequest request) {
         String baseUrl = request.getRequestURL().toString().replace(request.getRequestURI(), "");
