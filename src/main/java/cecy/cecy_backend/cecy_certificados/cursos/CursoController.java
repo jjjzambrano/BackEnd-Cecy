@@ -36,9 +36,4 @@ public class CursoController {
     public Curso updateCourse(@PathVariable Integer id, @RequestBody Curso curso){
         return cursoService.updateById(id, curso);
     }
-
-    @GetMapping("/statusCourse/{term}/")
-    public List<Curso> findByStatusCourse(@PathVariable String term) {
-        return cursoService.findByStatusCourse(term);
-    }
 }

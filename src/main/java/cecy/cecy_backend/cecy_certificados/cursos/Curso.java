@@ -1,5 +1,6 @@
 package cecy.cecy_backend.cecy_certificados.cursos;
 
+import cecy.cecy_backend.cecy_certificados.cursos.conexion.Course;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.JsonNode;
 import jakarta.persistence.*;
@@ -64,8 +65,13 @@ public class Curso {
     /*PUEDEN AGREGAR SUS RELACIONES Y CAMPOS A ESTE MODELO MAPEADO DIRECTO ALA TABLA courses*/
     /*----------------------------------------------------------------*/
 
+    public enum EstadosCurso {
+        aprobado,
+        cerrado
+    }
+
     @Column(name = "status_course")
-    private String statusCourse;
+    private EstadosCurso statusCourse;
     
     /*INICIO DATOS DE PRUEBA PUEDEN BORRARLO SI NO LO VEN NECESARIO*/
     @Column(name = "matricula_id")

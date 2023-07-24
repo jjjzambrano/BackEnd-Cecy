@@ -41,7 +41,4 @@ public class CursoService {
         return cursoRepository.save(curso);
     }
 
-    public List<Curso> findByStatusCourse(String term) {
-        return cursoRepository.findByStatusCourse(term);
-    }
 }

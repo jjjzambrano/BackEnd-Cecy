@@ -5,5 +5,4 @@ import java.util.List;
 
 public interface CursoRepository extends CrudRepository<Curso, Long> {
     List<Curso> findAll();
-    List<Curso> findByStatusCourse(String tem);
 }
