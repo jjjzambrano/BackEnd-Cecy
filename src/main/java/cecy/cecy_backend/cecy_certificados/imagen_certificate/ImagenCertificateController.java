@@ -45,12 +45,6 @@ public class ImagenCertificateController {
         return ResponseEntity.ok(imageInfoList);
     }
 
-/*    @GetMapping("/list")
-    public ResponseEntity<List<ImagenInfo>> getAllImages() {
-        List<ImagenInfo> images = fileImagenCertificateService.getAllImages();
-        return new ResponseEntity<>(images, HttpStatus.OK);
-    }*/
-
 
     private void addFullImageUrl(List<ImagenInfo> images, HttpServletRequest request) {
         String baseUrl = getBaseUrl(request);
@@ -82,28 +76,37 @@ public class ImagenCertificateController {
     }
 
     @PutMapping("/update-by-name/{imageName}")
-    public ResponseEntity<String> updateImageByName(
+    public ResponseEntity<UpdateImageResponse> updateImageByName(
             @PathVariable String imageName,
             @RequestParam("file") MultipartFile file) {
         boolean updated = fileImagenCertificateService.updateImageByName(imageName, file);
 
         if (updated) {
-            return ResponseEntity.ok("Imagen con el nombre '" + imageName + "' fue actualizada exitosamente.");
+            UpdateImageResponse response = new UpdateImageResponse(
+                    "Imagen con el nombre '" + imageName + "' fue actualizada exitosamente.",
+                    true
+            );
+            return ResponseEntity.ok(response);
         } else {
-            String errorMessage = "Imagen con el nombre '" + imageName + "' no fue encontrada.";
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
+            UpdateImageResponse response = new UpdateImageResponse(
+                    "Imagen con el nombre '" + imageName + "' no fue encontrada.",
+                    false
+            );
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
     }
 
     @DeleteMapping("/delete-by-name/{imageName}")
-    public ResponseEntity<String> deleteImageByName(@PathVariable String imageName) {
+    public ResponseEntity<DeleteImageResponse> deleteImageByName(@PathVariable String imageName) {
         boolean deleted = fileImagenCertificateService.deleteImageByName(imageName);
 
+        DeleteImageResponse response;
         if (deleted) {
-            return ResponseEntity.ok("Imagen con el nombre '" + imageName + "' fue borrada exitosamente.");
+            response = new DeleteImageResponse("Imagen con el nombre '" + imageName + "' fue borrada exitosamente.", true);
+            return ResponseEntity.ok(response);
         } else {
-            String errorMessage = "Imagen con el nombre '" + imageName + "' no fue encontrada.";
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
+            response = new DeleteImageResponse("Imagen con el nombre '" + imageName + "' no fue encontrada.", false);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
     }
 }

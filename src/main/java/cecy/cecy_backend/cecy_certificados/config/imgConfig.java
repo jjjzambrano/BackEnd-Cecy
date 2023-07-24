@@ -11,7 +11,7 @@ public class imgConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry){
         WebMvcConfigurer.super.addResourceHandlers(registry);
         registry.addResourceHandler("/media/**")
-                .addResourceLocations("classpath:/static/");
+                .addResourceLocations("classpath:/images/");
 
     }
 }
