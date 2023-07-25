@@ -1,21 +1,15 @@
 package cecy.cecy_backend.cecy_certificados.matriculas;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import cecy.cecy_backend.cecy_certificados.asistencia.Asistencia;
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
 import cecy.cecy_backend.cecy_certificados.estudiantes.Estudiantes;
 import cecy.cecy_backend.cecy_certificados.form_inscription.FormInscription;
-import cecy.cecy_backend.cecy_certificados.observaciones.Observaciones;
-import jakarta.persistence.CascadeType;
+ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -41,9 +35,6 @@ public class Matriculas {
     private Float promedio;
     private Float porcentajeAsistencia;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "matriculas_id")
-    private List<Observaciones> observaciones = new ArrayList<>();
 
     // con observaciones - rechazado - aceptado
     @ManyToOne(cascade = CascadeType.ALL)

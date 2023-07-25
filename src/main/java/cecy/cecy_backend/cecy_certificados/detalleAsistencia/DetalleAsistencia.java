@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
 import cecy.cecy_backend.cecy_certificados.matriculas.Matriculas;
-import cecy.cecy_backend.cecy_certificados.observaciones.Observaciones;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

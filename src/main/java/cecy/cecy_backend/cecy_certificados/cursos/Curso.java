@@ -6,6 +6,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "courses")
@@ -84,5 +87,4 @@ public class Curso {
     private Integer notasId;
 
     /*FIN DATOS DE PRUEBA*/
-
 }
