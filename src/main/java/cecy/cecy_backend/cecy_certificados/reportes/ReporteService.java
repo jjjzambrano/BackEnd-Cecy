@@ -93,7 +93,7 @@ public class ReporteService {
         reportParameters.put("nombre_instituto", "Instituto Tecnologico Yavirac");
         Categoria categoria = course.getCategory();
         reportParameters.put("area_curso", categoria.getName());
-        reportParameters.put("codigo_curso",course.getAbbreviation());
+        reportParameters.put("codigo_curso",planificacion.getCodeCourse());
         
 
         List<Map<String, Object>> dataList = new ArrayList<>();
