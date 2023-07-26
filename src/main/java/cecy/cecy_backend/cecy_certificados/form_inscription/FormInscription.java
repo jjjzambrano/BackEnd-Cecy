@@ -3,7 +3,6 @@ package cecy.cecy_backend.cecy_certificados.form_inscription;
 import java.util.List;
 
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
-import cecy.cecy_backend.cecy_certificados.observaciones.Observaciones;
 import cecy.cecy_backend.cecy_certificados.prerequisitos.Prerequisitos;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -28,7 +27,7 @@ public class FormInscription {
     @ManyToOne(cascade = CascadeType.ALL)
     private Catalogos state;
     // foreign key catalogue
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Catalogos publicity;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "form_inscription_id")

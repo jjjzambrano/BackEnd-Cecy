@@ -37,11 +37,13 @@ public class Matriculas {
 
 
     // con observaciones - rechazado - aceptado
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
+    // @ManyToOne(cascade = CascadeType.PERSIST)
     private Catalogos estadoMatricula;
 
     // aprobado - reprobado
-    @ManyToOne(cascade = CascadeType.ALL)
+    // @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne()
     private Catalogos estadoCurso;
 
     // asistencias
