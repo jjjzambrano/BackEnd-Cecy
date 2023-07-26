@@ -20,11 +20,14 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+// @Data
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-
+@Getter
+@Setter
 public class Matriculas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,13 +40,13 @@ public class Matriculas {
 
 
     // con observaciones - rechazado - aceptado
-    @ManyToOne()
-    // @ManyToOne(cascade = CascadeType.PERSIST)
+    // @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
     private Catalogos estadoMatricula;
 
     // aprobado - reprobado
-    // @ManyToOne(cascade = CascadeType.PERSIST)
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
+    // @ManyToOne()
     private Catalogos estadoCurso;
 
     // asistencias
