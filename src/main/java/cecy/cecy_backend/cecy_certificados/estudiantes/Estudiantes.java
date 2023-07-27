@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
@@ -13,6 +14,7 @@ import cecy.cecy_backend.cecy_certificados.matriculas.Matriculas;
 import cecy.cecy_backend.cecy_certificados.prerequisitos.Prerequisitos;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,10 +22,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+// @Data
+
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Matriculas.class)
+@Getter
+@Setter
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Matriculas.class)
 public class Estudiantes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,7 +53,7 @@ public class Estudiantes {
     @ManyToOne(cascade = CascadeType.MERGE)
     private Catalogos genero;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Catalogos tipoEstudiante;
 
     @ManyToOne(cascade = CascadeType.MERGE)
@@ -65,7 +72,8 @@ public class Estudiantes {
     @ManyToOne()
     private Empresas empresaId;
 
-    @OneToMany(mappedBy = "estudiantes", cascade = CascadeType.ALL, orphanRemoval = true)
+    // @JsonIgnore
+    @OneToMany(mappedBy = "estudiantes", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     // @JsonManagedReference
     // @JoinTable(name = "estudiantes_matriculas", joinColumns =
     // {@JoinColumn(name="estudiantes_id")}, inverseJoinColumns =

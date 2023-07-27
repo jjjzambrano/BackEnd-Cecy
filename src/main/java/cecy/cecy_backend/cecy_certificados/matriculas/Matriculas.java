@@ -1,6 +1,7 @@
 package cecy.cecy_backend.cecy_certificados.matriculas;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -9,7 +10,8 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
 import cecy.cecy_backend.cecy_certificados.estudiantes.Estudiantes;
 import cecy.cecy_backend.cecy_certificados.form_inscription.FormInscription;
- import jakarta.persistence.CascadeType;
+import cecy.cecy_backend.cecy_certificados.observaciones.Observaciones;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -40,7 +42,9 @@ public class Matriculas {
 
 
     // con observaciones - rechazado - aceptado
-    // @ManyToOne()
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Observaciones> observaciones = new ArrayList<>();
+    
     @ManyToOne(cascade = CascadeType.ALL)
     private Catalogos estadoMatricula;
 
