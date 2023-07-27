@@ -18,7 +18,7 @@ import org.springframework.util.ResourceUtils;
 import org.springframework.util.ReflectionUtils;
 
 import cecy.cecy_backend.cecy_certificados.codigos.Codigos;
-import cecy.cecy_backend.cecy_certificados.cursos.Curso;
+
 import cecy.cecy_backend.cecy_certificados.cursos.CursoService;
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.Categoria;
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.Course;
@@ -59,9 +59,9 @@ public class ReporteService {
 
     public JasperPrint getReporte(Long id) {
 
-        Map<String, Object> reportParameters = new HashMap<String, Object>();
-        Reporte reporte = findById(id);
-        Long cursoId = new Long(0);
+       Map<String, Object> reportParameters = new HashMap<String, Object>();
+     Reporte reporte = findById(id);
+       Long cursoId = new Long(0);
         int aprobado = 0;
         int reprobado = 0;
         if (reporte.getId() == null)
@@ -69,7 +69,7 @@ public class ReporteService {
             
         for(Codigos codigos: reporte.getReportes()){
             String matricula = codigos.getMatriculas().getEstadoCurso().getDescripcion();
-            cursoId =  codigos.getMatriculas().getCursoId();
+           cursoId =  codigos.getMatriculas().getCursoId();
             if(matricula.equals("aprobado")){
                 aprobado = aprobado+1;
             }
@@ -79,12 +79,12 @@ public class ReporteService {
         }
         
         
-        reportParameters.put("apro", aprobado);
+       reportParameters.put("apro", aprobado);
         reportParameters.put("repro", reprobado);
         reportParameters.put("total", aprobado+reprobado);
-        Curso curso = cursoService.findById(cursoId);
         Course course = planificationService.getCourseById(cursoId.intValue());
-        Planificacion planificacion = planificationService.getPlanificationId(curso.getPlanificationId());
+        Planificacion planificacion = planificationService.getPlanificationId(course.getPlanificationId());
+       
         reportParameters.put("nombre_curso", planificacion.getName());
         
         reportParameters.put("docente", planificacion.getUser().getNames());
@@ -92,10 +92,10 @@ public class ReporteService {
         reportParameters.put("fecha_fin", planificacion.getFinishDate());
         reportParameters.put("nombre_instituto", "Instituto Tecnologico Yavirac");
         Categoria categoria = course.getCategory();
-        reportParameters.put("area_curso", categoria.getName());
+       reportParameters.put("area_curso", categoria.getName());
         reportParameters.put("codigo_curso",planificacion.getCodeCourse());
         
-
+        
         List<Map<String, Object>> dataList = new ArrayList<>();
         
         for (Codigos codigos : reporte.getReportes()) {

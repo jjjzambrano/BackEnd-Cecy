@@ -18,6 +18,7 @@ import cecy.cecy_backend.cecy_certificados.codigos.Codigos;
 import cecy.cecy_backend.cecy_certificados.codigos.CodigosService;
 import cecy.cecy_backend.cecy_certificados.cursos.Curso;
 import cecy.cecy_backend.cecy_certificados.cursos.CursoService;
+import cecy.cecy_backend.cecy_certificados.cursos.conexion.Course;
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.CursoApiFeignService;
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.Planificacion;
 import cecy.cecy_backend.cecy_certificados.estudiantes.Estudiantes;
@@ -34,7 +35,7 @@ public class CertificadosService {
     @Autowired
     EstudiantesService customerPerson;
     @Autowired
-    CursoService customerCourse;
+    CursoApiFeignService customerCourse;
     @Autowired
     CertificadosRepository entityRepository;
     @Autowired
@@ -70,7 +71,7 @@ public class CertificadosService {
             if (codigos.getCertificado().getTipoCertificado().getFirmas().size() == 2) {
                 Estudiantes persona = customerPerson.findById(codigos.getMatriculas().getEstudiantes().getId());
                 reportParameters.put("nombres_completos", persona.getNombres() + " " + persona.getApellidos());
-                Curso curso = customerCourse.findById(codigos.getMatriculas().getCursoId());
+                Course curso = customerCourse.getCourseById(codigos.getMatriculas().getCursoId().intValue());
                 Planificacion planificacion = planificationService.getPlanificationId(curso.getPlanificationId());
                 reportParameters.put("curso_nombre", planificacion.getName());
                 try {
@@ -147,7 +148,7 @@ public class CertificadosService {
             if (codigos.getCertificado().getTipoCertificado().getFirmas().size() == 2) {
                 Estudiantes persona = customerPerson.findById(codigos.getMatriculas().getEstudiantes().getId());
                 reportParameters.put("nombres_completos", persona.getNombres() + " " + persona.getApellidos());
-                Curso curso = customerCourse.findById(codigos.getMatriculas().getCursoId());
+                 Course curso = customerCourse.getCourseById(codigos.getMatriculas().getCursoId().intValue());
                 Planificacion planificacion = planificationService.getPlanificationId(curso.getPlanificationId());
                 reportParameters.put("curso_nombre", planificacion.getName());
                 try {
@@ -223,7 +224,7 @@ public class CertificadosService {
             if (codigos.getCertificado().getTipoCertificado().getFirmas().size() == 3) {
                 Estudiantes persona = customerPerson.findById(codigos.getMatriculas().getEstudiantes().getId());
                 reportParameters.put("nombres_completos", persona.getNombres() + " " + persona.getApellidos());
-                Curso curso = customerCourse.findById(codigos.getMatriculas().getCursoId());
+                 Course curso = customerCourse.getCourseById(codigos.getMatriculas().getCursoId().intValue());
                 Planificacion planificacion = planificationService.getPlanificationId(curso.getPlanificationId());
                 reportParameters.put("curso_nombre", planificacion.getName());
                 try {

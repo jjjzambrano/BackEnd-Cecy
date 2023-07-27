@@ -8,7 +8,8 @@ public class Course {
 
     public enum EstadosCurso {
         aprobado,
-        cerrado
+        cerrado,
+        terminado
     }
 
 

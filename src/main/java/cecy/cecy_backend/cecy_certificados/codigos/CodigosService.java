@@ -34,8 +34,8 @@ public class CodigosService {
         existingCodigos.setCodigo(codigoRequest.getCodigo());
         existingCodigos.setMatriculas(codigoRequest.getMatriculas());
         existingCodigos.setCertificado(codigoRequest.getCertificado());
-        if(codigoRequest.getCertificado().getTipoCertificado()== null){
-        }
+        //if(codigoRequest.getCertificado().getTipoCertificado()== null){
+        //}
         return entityRepository.save(existingCodigos);
     }
 
