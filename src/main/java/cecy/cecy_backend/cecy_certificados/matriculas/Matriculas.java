@@ -3,6 +3,7 @@ package cecy.cecy_backend.cecy_certificados.matriculas;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -27,7 +28,7 @@ import lombok.Setter;
 
 // @Data
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Getter
 @Setter
 public class Matriculas {
@@ -61,11 +62,11 @@ public class Matriculas {
     // private List<Asistencia> asistencias = new ArrayList<>();
 
     // estudiante
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "estudiantes_id")
-    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+    // @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 
-    // @JsonBackReference
     // @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     Estudiantes estudiantes;
 

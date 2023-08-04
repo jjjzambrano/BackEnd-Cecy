@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
@@ -72,9 +73,9 @@ public class Estudiantes {
     @ManyToOne()
     private Empresas empresaId;
 
+    @JsonManagedReference
     // @JsonIgnore
     @OneToMany(mappedBy = "estudiantes", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    // @JsonManagedReference
     // @JoinTable(name = "estudiantes_matriculas", joinColumns =
     // {@JoinColumn(name="estudiantes_id")}, inverseJoinColumns =
     // {@JoinColumn(name="matriculas_id")})
