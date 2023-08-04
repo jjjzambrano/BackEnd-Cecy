@@ -2,12 +2,10 @@ package cecy.cecy_backend.cecy_certificados.matriculas;
 
 import java.util.List;
 
-import org.hibernate.boot.model.source.internal.hbm.ManyToOneAttributeColumnsAndFormulasSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cecy.cecy_backend.cecy_certificados.catalogos.CatalogosRepository;
-import cecy.cecy_backend.cecy_certificados.catalogos.CatalogosService;
 
 @Service
 public class MatriculasService {

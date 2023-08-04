@@ -35,6 +35,7 @@ public class Matriculas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long cursoId;
+    private String cursoNombre;
     private Float nota1;
     private Float nota2;
     private Float promedio;
