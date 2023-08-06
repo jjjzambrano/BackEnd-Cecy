@@ -2,8 +2,11 @@ package cecy.cecy_backend.cecy_certificados.estudiantes;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -31,7 +34,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Matriculas.class)
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Estudiantes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -73,12 +76,12 @@ public class Estudiantes {
     @ManyToOne()
     private Empresas empresaId;
 
-    @JsonManagedReference
+    @JsonBackReference
     // @JsonIgnore
     @OneToMany(mappedBy = "estudiantes", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     // @JoinTable(name = "estudiantes_matriculas", joinColumns =
     // {@JoinColumn(name="estudiantes_id")}, inverseJoinColumns =
     // {@JoinColumn(name="matriculas_id")})
-    private List<Matriculas> matriculas = new ArrayList<>();
+    private Set<Matriculas> matriculas = new HashSet<>();
 
 }

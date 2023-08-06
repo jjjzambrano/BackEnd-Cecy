@@ -6,6 +6,8 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import cecy.cecy_backend.cecy_certificados.catalogos.Catalogos;
@@ -62,10 +64,12 @@ public class Matriculas {
     // private List<Asistencia> asistencias = new ArrayList<>();
 
     // estudiante
-    @JsonBackReference
+    @JsonManagedReference
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "estudiantes_id")
-    // @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+    // @ManyToOne()
+
+    @JoinColumn(name = "estudiantes_id", referencedColumnName = "id")
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 
     // @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     Estudiantes estudiantes;
