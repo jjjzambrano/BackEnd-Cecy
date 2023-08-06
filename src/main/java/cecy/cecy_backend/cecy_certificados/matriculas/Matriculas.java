@@ -3,6 +3,8 @@ package cecy.cecy_backend.cecy_certificados.matriculas;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.boot.model.source.internal.hbm.ManyToOneAttributeColumnsAndFormulasSource;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -30,7 +32,7 @@ import lombok.Setter;
 
 // @Data
 @Entity
-// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Matriculas.class)
 @Getter
 @Setter
 public class Matriculas {
@@ -64,12 +66,12 @@ public class Matriculas {
     // private List<Asistencia> asistencias = new ArrayList<>();
 
     // estudiante
-    @JsonManagedReference
-    @ManyToOne(fetch = FetchType.LAZY)
+    // @JsonManagedReference
+    @ManyToOne(fetch = FetchType.EAGER)
     // @ManyToOne()
 
     @JoinColumn(name = "estudiantes_id", referencedColumnName = "id")
-    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+    // @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 
     // @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     Estudiantes estudiantes;

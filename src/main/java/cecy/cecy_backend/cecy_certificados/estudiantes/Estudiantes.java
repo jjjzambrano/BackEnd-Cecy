@@ -9,6 +9,7 @@ import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -34,7 +35,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Estudiantes.class)
 public class Estudiantes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -76,9 +77,9 @@ public class Estudiantes {
     @ManyToOne()
     private Empresas empresaId;
 
-    @JsonBackReference
-    // @JsonIgnore
+    // @JsonBackReference
     @OneToMany(mappedBy = "estudiantes", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    // @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     // @JoinTable(name = "estudiantes_matriculas", joinColumns =
     // {@JoinColumn(name="estudiantes_id")}, inverseJoinColumns =
     // {@JoinColumn(name="matriculas_id")})

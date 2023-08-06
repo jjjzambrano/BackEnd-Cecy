@@ -1,5 +1,8 @@
 package cecy.cecy_backend.cecy_certificados.codigos;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import cecy.cecy_backend.cecy_certificados.certificados.Certificados;
 import cecy.cecy_backend.cecy_certificados.matriculas.Matriculas;
 import jakarta.persistence.CascadeType;
@@ -15,6 +18,8 @@ import lombok.Data;
 
 @Data
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+
 public class Codigos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
