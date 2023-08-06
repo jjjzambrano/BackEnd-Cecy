@@ -16,8 +16,6 @@ import org.springframework.util.ResourceUtils;
 
 import cecy.cecy_backend.cecy_certificados.codigos.Codigos;
 import cecy.cecy_backend.cecy_certificados.codigos.CodigosService;
-import cecy.cecy_backend.cecy_certificados.cursos.Curso;
-import cecy.cecy_backend.cecy_certificados.cursos.CursoService;
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.Course;
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.CursoApiFeignService;
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.Planificacion;
@@ -63,8 +61,8 @@ public class CertificadosService {
         Map<String, Object> reportParameters = new HashMap<String, Object>();
         Codigos codigos = codigosService.findById(id);
         JasperPrint reportJasperPrint = null;
-        String patternStart = "dd, MMMM";
-        String patternFinish = "dd, MMMM, yyyy";
+        String patternStart = "dd MMMM";
+        String patternFinish = "dd MMMM yyyy";
         Locale locale = new Locale("es", "EC");
         SimpleDateFormat fromUser = new SimpleDateFormat("yyyy-MM-dd");
         if (codigos.getCertificado().getTipoCertificado().getTipo().equals("Cecy")){

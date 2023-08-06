@@ -23,7 +23,7 @@
 		<band height="592">
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 			<image hAlign="Center" vAlign="Middle" onErrorType="Icon" evaluationTime="Report">
-				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="-120" y="-20" width="894" height="611" uuid="8dc2ffa8-ccb9-4cfe-80d8-c30f3fae1fc2"/>
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="-84" y="-19" width="894" height="611" uuid="8dc2ffa8-ccb9-4cfe-80d8-c30f3fae1fc2"/>
 				<imageExpression><![CDATA["classpath:jrxml/modeloCecy.png"]]></imageExpression>
 			</image>
 			<textField>
@@ -70,28 +70,28 @@
 				<imageExpression><![CDATA[$P{firma2}]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="23" y="273" width="737" height="67" uuid="af41b441-db45-4813-b581-1fd3847ebb59"/>
+				<reportElement x="78" y="273" width="683" height="67" uuid="af41b441-db45-4813-b581-1fd3847ebb59"/>
 				<textElement>
 					<font fontName="Calibri" size="20"/>
 				</textElement>
-				<text><![CDATA[Por haber aprobado el curso de                                                                    ,                       efectuado del                                            , con una duración de           horas.]]></text>
+				<text><![CDATA[Por haber aprobado el curso de                                                           , efectuado del                                   , con una duración de        horas.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="281" y="272" width="298" height="29" uuid="042aff55-69cd-4148-b083-75cb3bbfeb23"/>
+				<reportElement x="349" y="272" width="348" height="29" uuid="042aff55-69cd-4148-b083-75cb3bbfeb23"/>
 				<textElement textAlignment="Center">
 					<font fontName="Calibri" size="20" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{curso_nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="149" y="300" width="220" height="24" uuid="f7d52420-76bf-4196-abcc-281c362e6d54"/>
+				<reportElement x="208" y="300" width="220" height="24" uuid="f7d52420-76bf-4196-abcc-281c362e6d54"/>
 				<textElement>
 					<font fontName="Calibri" size="18"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{fecha_curso}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="600" y="300" width="64" height="24" uuid="3254cebf-cfe0-45b0-aa8d-784e0aebbf8f"/>
+				<reportElement x="591" y="299" width="64" height="24" uuid="3254cebf-cfe0-45b0-aa8d-784e0aebbf8f"/>
 				<textElement>
 					<font fontName="Calibri" size="18"/>
 				</textElement>
@@ -132,11 +132,11 @@
 				</jr:QRCode>
 			</componentElement>
 			<image onErrorType="Icon">
-				<reportElement x="75" y="65" width="133" height="85" uuid="5e173f42-eb9f-4491-8029-7353ec900c18"/>
+				<reportElement x="105" y="65" width="133" height="85" uuid="5e173f42-eb9f-4491-8029-7353ec900c18"/>
 				<imageExpression><![CDATA["classpath:jrxml/Cecy.png"]]></imageExpression>
 			</image>
-			<image hAlign="Center">
-				<reportElement x="515" y="68" width="120" height="79" uuid="0549ddfc-8840-457b-8c9e-c9bda9fc3bcc"/>
+			<image hAlign="Center" onErrorType="Icon">
+				<reportElement x="545" y="68" width="120" height="79" uuid="0549ddfc-8840-457b-8c9e-c9bda9fc3bcc"/>
 				<imageExpression><![CDATA["classpath:jrxml/Yavirac.png"]]></imageExpression>
 			</image>
 			<staticText>

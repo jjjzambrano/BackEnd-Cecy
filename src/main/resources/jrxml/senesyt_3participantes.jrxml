@@ -27,10 +27,10 @@
 		<band splitType="Stretch"/>
 	</background>
 	<pageHeader>
-		<band height="572" splitType="Stretch">
+		<band height="590" splitType="Stretch">
 			<image hAlign="Center" vAlign="Middle" onErrorType="Icon" evaluationTime="Page">
-				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="-28" y="-20" width="800" height="590" uuid="2f091788-2fc4-4805-ad4f-208877421f1e"/>
-				<imageExpression><![CDATA["classpath:jrxml/modeloSenesyt.png"]]></imageExpression>
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="-28" y="-72" width="800" height="590" uuid="2f091788-2fc4-4805-ad4f-208877421f1e"/>
+				<imageExpression><![CDATA["modeloSenesyt.png"]]></imageExpression>
 			</image>
 			<textField>
 				<reportElement x="130" y="220" width="490" height="30" uuid="ef540315-6751-4fd6-81f5-aff90df6f3f8"/>
@@ -58,7 +58,7 @@
 				<textElement>
 					<font size="18"/>
 				</textElement>
-				<text><![CDATA[Por haber aprobado el curso de                                                                  , efectuado en el Centro Histórico de Quito del                                               , con una duración de             horas.]]></text>
+				<text><![CDATA[Por haber aprobado el curso de                                                                  , efectuado en el Centro Histórico de Quito del                                               , con una duración de      horas.]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="249" y="270" width="320" height="24" uuid="d8cdcc14-17ba-43bd-9c73-53f4eeeb1ba7"/>
@@ -113,7 +113,7 @@
 				<imageExpression><![CDATA[$P{firma3}]]></imageExpression>
 			</image>
 			<image hAlign="Center" onErrorType="Blank">
-				<reportElement x="230" y="480" width="150" height="50" uuid="e7319a8a-4166-4214-98dd-1d1a06b0f7fb"/>
+				<reportElement x="330" y="501" width="150" height="50" uuid="e7319a8a-4166-4214-98dd-1d1a06b0f7fb"/>
 				<imageExpression><![CDATA[""]]></imageExpression>
 			</image>
 			<staticText>
@@ -152,6 +152,13 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{hora}]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="460" y="491" width="272" height="70" uuid="bbf62273-f042-48cf-8aaa-1c34eb60fbe6"/>
+				<imageExpression><![CDATA["logos.png"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="760" y="-30" width="20" height="620" forecolor="rgba(0, 0, 0, 0.0)" backcolor="#20857A" uuid="06894eef-4fed-400c-bf15-5515ff7930eb"/>
+			</rectangle>
 		</band>
 	</pageHeader>
 </jasperReport>
