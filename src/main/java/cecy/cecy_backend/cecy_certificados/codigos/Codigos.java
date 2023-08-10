@@ -26,7 +26,7 @@ public class Codigos {
     private Long id;
     private String codigo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Matriculas matriculas;
 
     @OneToOne(cascade = CascadeType.ALL)
