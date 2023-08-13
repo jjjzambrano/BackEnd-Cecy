@@ -30,7 +30,7 @@
 		<band height="590" splitType="Stretch">
 			<image hAlign="Center" vAlign="Middle" onErrorType="Icon" evaluationTime="Page">
 				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="-28" y="-72" width="800" height="590" uuid="2f091788-2fc4-4805-ad4f-208877421f1e"/>
-				<imageExpression><![CDATA["modeloSenesyt.png"]]></imageExpression>
+				<imageExpression><![CDATA["classpath:jrxml/modeloSenesyt.png"]]></imageExpression>
 			</image>
 			<textField>
 				<reportElement x="130" y="220" width="490" height="30" uuid="ef540315-6751-4fd6-81f5-aff90df6f3f8"/>
@@ -54,14 +54,14 @@
 				<textFieldExpression><![CDATA[$P{participante2}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-11" y="268" width="761" height="51" uuid="c823fb7c-df8d-4315-9a0f-054bf0db7ea8"/>
+				<reportElement x="7" y="268" width="761" height="51" uuid="c823fb7c-df8d-4315-9a0f-054bf0db7ea8"/>
 				<textElement>
 					<font size="18"/>
 				</textElement>
-				<text><![CDATA[Por haber aprobado el curso de                                                                  , efectuado en el Centro Histórico de Quito del                                               , con una duración de      horas.]]></text>
+				<text><![CDATA[Por haber aprobado el curso de                                                                  , efectuado en el Centro Histórico de Quito del                                   , con una duración de      horas.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="249" y="270" width="320" height="24" uuid="d8cdcc14-17ba-43bd-9c73-53f4eeeb1ba7"/>
+				<reportElement x="267" y="270" width="320" height="24" uuid="d8cdcc14-17ba-43bd-9c73-53f4eeeb1ba7"/>
 				<textElement textAlignment="Center">
 					<font size="16" isBold="true"/>
 				</textElement>
@@ -75,7 +75,7 @@
 				<textFieldExpression><![CDATA[$P{tipo_participante1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="292" y="422" width="180" height="28" uuid="9f03e5e0-25d7-43df-8c0c-1e7c2fe89e36"/>
+				<reportElement x="292" y="422" width="180" height="48" uuid="9f03e5e0-25d7-43df-8c0c-1e7c2fe89e36"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font size="18"/>
 				</textElement>
@@ -102,7 +102,7 @@
 				<textFieldExpression><![CDATA[$P{participante3}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="502" y="421" width="180" height="30" uuid="2a4ce980-9b2b-47d6-8794-916a33f6bfba"/>
+				<reportElement x="502" y="421" width="180" height="49" uuid="2a4ce980-9b2b-47d6-8794-916a33f6bfba"/>
 				<textElement textAlignment="Center">
 					<font size="18"/>
 				</textElement>
@@ -125,7 +125,7 @@
 				<textFieldExpression><![CDATA[$P{codigo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="230" y="293" width="219" height="24" uuid="41e91723-815f-49cd-b725-9d509e114a03"/>
+				<reportElement x="248" y="293" width="219" height="24" uuid="41e91723-815f-49cd-b725-9d509e114a03"/>
 				<textElement>
 					<font size="16"/>
 				</textElement>
@@ -146,7 +146,7 @@
 				</jr:QRCode>
 			</componentElement>
 			<textField>
-				<reportElement x="630" y="291" width="80" height="23" uuid="5a7e72fe-02a4-4431-a5d3-4a1b8856eb9f"/>
+				<reportElement x="593" y="291" width="80" height="23" uuid="5a7e72fe-02a4-4431-a5d3-4a1b8856eb9f"/>
 				<textElement>
 					<font size="18"/>
 				</textElement>
@@ -154,7 +154,7 @@
 			</textField>
 			<image>
 				<reportElement x="460" y="491" width="272" height="70" uuid="bbf62273-f042-48cf-8aaa-1c34eb60fbe6"/>
-				<imageExpression><![CDATA["logos.png"]]></imageExpression>
+				<imageExpression><![CDATA["classpath:jrxml/logos.png"]]></imageExpression>
 			</image>
 			<rectangle>
 				<reportElement x="760" y="-30" width="20" height="620" forecolor="rgba(0, 0, 0, 0.0)" backcolor="#20857A" uuid="06894eef-4fed-400c-bf15-5515ff7930eb"/>
