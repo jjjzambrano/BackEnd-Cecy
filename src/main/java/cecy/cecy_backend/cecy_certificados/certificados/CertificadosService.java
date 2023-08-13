@@ -253,6 +253,7 @@ public class CertificadosService {
                         participanteIndex = 1;
                         reportParameters.put("participante1", participante.getFirma().getNombres() + " " + participante.getFirma().getApellidos());
                         reportParameters.put("tipo_participante1", participante.getRol());
+                        reportParameters.put("firma1","classpath:images/"+ participante.getFirma().getFirma());
                         try {
                             SimpleDateFormat simpleDateFormartStart = new SimpleDateFormat(patternStart,locale);
                            String fechaInicio = simpleDateFormartStart.format(fromUser.parse(planificacion.getStartDate()));
