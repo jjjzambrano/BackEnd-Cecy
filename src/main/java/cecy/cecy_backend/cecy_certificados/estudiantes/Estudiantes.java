@@ -51,6 +51,7 @@ public class Estudiantes {
     private String numeroCelular;
     private String numeroConvencional;
     private String clave;
+    private String rol;
 
     // @Enumerated(EnumType.STRING)
     // private Role rol;
