@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="enviroment" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8ff848a7-d518-4441-896d-c57904e20cc4">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="instalation" class="java.lang.String"/>
+	<field name="theoric" class="java.lang.String"/>
+	<field name="practice" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="544" height="15" backcolor="#C8DCF4" uuid="11ee4d12-005f-4de9-ba61-83573329597f">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="0">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="259" height="15" uuid="1f8e5fcf-21f5-499d-a594-b5f7c22f777f">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box padding="1">
+						<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Instalaciones]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="259" y="0" width="131" height="15" uuid="b3965d60-d128-4915-ab17-b8e27d0294d9"/>
+					<box padding="1">
+						<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Fase teórica]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="390" y="0" width="154" height="15" uuid="2d4f4685-8a52-412d-8c6c-330732be5460">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<box padding="1">
+						<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Fase práctica]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="0" y="0" width="259" height="15" uuid="30fb9a04-5949-4f19-abf4-76acab73368a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4ca3f8d-a34a-4944-a9b6-9efee3c2120b"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="1">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{instalation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="259" y="0" width="131" height="15" uuid="aa2fae04-b397-4e9b-b711-05710f109261">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="39464c4d-a9d3-40e1-9fec-922cc9690a73"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="1">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{theoric}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="0" width="154" height="15" uuid="bf0a184d-da65-4d17-ac8a-515313655cd3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="717967da-0793-43e7-aea8-0bbcbf93d0d1"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="1">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{practice}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

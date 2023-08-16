@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="design" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="96ad35dd-144a-4c2a-8fb6-020ea9221ac2">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="requireTechniques" class="java.lang.String"/>
+	<parameter name="requireGeneral" class="java.lang.String"/>
+	<parameter name="object" class="java.lang.String"/>
+	<parameter name="strategy" class="java.lang.String"/>
+	<parameter name="practiceHours" class="java.lang.String"/>
+	<parameter name="theoricHours" class="java.lang.String"/>
+	<parameter name="headerFirst" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="headerSecond" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="evaluationDiagnostic" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="evaluationFormative" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="evaluationFinal" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="enviroment" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="bibliography" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="382" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="551" height="71" backcolor="#C8DCF4" uuid="bae4ad3b-cbd2-47df-be13-368ec0d4ec9b"/>
+				<staticText>
+					<reportElement x="160" y="10" width="239" height="30" uuid="e9ef6105-6c5e-4b8c-909c-75d3d258d1bf"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[DIRECCIÓN DE CALIFICACIÓN Y RECONOCIMIENTO FORMULARIO DE DISEÑO CURRICULAR - CAPACITACIÓN CONTINUA -]]></text>
+				</staticText>
+				<image>
+					<reportElement x="448" y="10" width="97" height="50" uuid="f8e06996-7aaf-42b3-96e3-d8a1eeb48028"/>
+					<imageExpression><![CDATA["classpath:jrxml/Yavirac.png"]]></imageExpression>
+				</image>
+				<image>
+					<reportElement x="10" y="10" width="120" height="50" uuid="cd62bbe0-fa77-4ff2-bbd0-8440507d0887"/>
+					<imageExpression><![CDATA["classpath:jrxml/logo-secretaria-educacion.png"]]></imageExpression>
+				</image>
+			</frame>
+			<staticText>
+				<reportElement x="0" y="80" width="280" height="14" uuid="3872f963-3e12-4717-8b88-8c0f075384a3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Identificación del curso:]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="-20" y="94" width="595" height="22" uuid="30f5c220-c1e2-48aa-b85a-e255c77da8d2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{headerFirst}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["classpath:componentsReportDesign/headerFirst.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="-20" y="116" width="595" height="22" uuid="7f0d26b6-f124-4c5f-a3e2-fe2213e6a5bb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{headerSecond}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["classpath:componentsReportDesign/headerSecond.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="138" width="280" height="14" uuid="5bed3f43-0340-4e3c-b7f3-9ce8d9d5cb55">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Requisitos mínimos de entrada al Curso.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="152" width="80" height="30" uuid="d5799d5d-5ed1-4ff9-aaea-4eb1ac061edf"/>
+				<text><![CDATA[Técnicos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="182" width="80" height="30" uuid="605c123f-d5a0-4abd-bbc7-9995063243b9"/>
+				<text><![CDATA[Generales: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="152" width="471" height="30" uuid="82633dec-193b-4d4a-abfa-592d4e72c10e"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{requireTechniques}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="182" width="471" height="30" uuid="9199c1fb-7c4d-4c0e-b597-e44bf0bcd815"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{requireGeneral}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="212" width="280" height="14" uuid="17133968-3b2a-470a-9e5c-d395fba5ba34">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Objetivo del Curso.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="226" width="551" height="30" uuid="24aebfd8-9f7f-4362-a4c9-563759396fe7"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{object}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="256" width="280" height="14" uuid="5660baf0-1e65-443f-9d97-7841d1d1f4da">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Estrategias de enseñanza - aprendizaje]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="270" width="551" height="30" uuid="dbdee2ea-3d88-41ec-921f-7052bca2a1d8"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strategy}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="229" splitType="Stretch">
+			<subreport>
+				<reportElement x="-20" y="0" width="594" height="22" uuid="cb0dc033-3c82-415d-8d7e-53b103d52576">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{evaluationDiagnostic}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["classpath:componentsReportDesign/evaluationDiagnostic.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="-20" y="44" width="593" height="22" uuid="aa4e9484-b044-4336-b618-f6854acc75e9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{evaluationFinal}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["classpath:componentsReportDesign/evaluationDiagnostic.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="-20" y="22" width="593" height="22" uuid="b332745f-5195-4aed-81f9-192e50d36d56">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{evaluationFormative}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["classpath:componentsReportDesign/evaluationDiagnostic.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="70" width="280" height="14" uuid="14bcd091-3a58-4ad9-844f-bfc4d5c822a5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Entorno de Aprendizaje]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="-20" y="84" width="593" height="22" uuid="15c6502c-7b65-4134-aabe-3f9bbfa7a18d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{enviroment}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["classpath:componentsReportDesign/enviroment.jasper"]]></subreportExpression>
+			</subreport>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="117" width="180" height="30" backcolor="#C8DCF4" uuid="1f07892c-2935-4364-a0a6-828d05c2b759">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box padding="0">
+					<pen lineWidth="0.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="180" height="30" uuid="52bc67b1-d899-4101-a780-d008faf82945"/>
+					<box padding="1">
+						<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Carga horaria:]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement x="180" y="117" width="139" height="15" uuid="98aee420-145b-41de-b33e-bed198c95861">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="1">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+				</box>
+				<text><![CDATA[Horas prácticas: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="132" width="139" height="15" uuid="40451549-ef7a-45f3-aeee-e361a7a37d45">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="1">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+				</box>
+				<text><![CDATA[Horas teóricas:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="319" y="117" width="232" height="15" uuid="bedbbe21-a825-4d7e-a8c1-986a7b759101">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="1">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{practiceHours}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="319" y="132" width="232" height="15" uuid="fdba0885-507b-4519-a4d5-4e320797355d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="1">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+				</box>
+				<textFieldExpression><![CDATA[$P{theoricHours}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="150" width="280" height="14" uuid="d95f0b8b-f58f-4f4f-8215-972c3db90d75">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Bibliografía:]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="-20" y="164" width="593" height="22" uuid="93ed733e-44a2-4a97-b52f-e9f9512e828e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{bibliography}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["classpath:componentsReportDesign/bibliography.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="149" splitType="Stretch">
+			<staticText>
+				<reportElement x="130" y="20" width="300" height="14" uuid="d9372cd6-b68b-424e-91df-c46ce9142085">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Firma del responsable del Diseño Curricular]]></text>
+			</staticText>
+			<line>
+				<reportElement x="180" y="19" width="200" height="1" uuid="c7b9df85-1307-4ca9-bf75-63f63b50226f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="130" y="60" width="130" height="14" uuid="25e9f5be-55c4-4e2e-ab56-2b064b332366">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Cédula No.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="40" width="130" height="14" uuid="5a3e234f-f9a9-4131-8e2b-6174a8299895">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Nombre y Apellido:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="80" width="130" height="14" uuid="06244873-16c7-4336-b3b4-f80b884809a2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Índice Dactilar:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="260" y="54" width="171" height="1" uuid="c5ecc271-d140-49aa-bbba-9765293bc62d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="260" y="73" width="171" height="1" uuid="ebfaf107-77d2-43c3-b5c2-ff3916b69099">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="260" y="94" width="171" height="1" uuid="be8b94bd-1b81-4e0d-b1c8-55ce2efe15b6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="119" width="551" height="15" uuid="2e52e114-d648-4c9e-9bb0-3ac9092f1bd8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="1">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nota: En el caso de disponer sólo en archivos digitales, se puede insertar las firmas de responsabilidad como imagen en las celdas correspondientes. ]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

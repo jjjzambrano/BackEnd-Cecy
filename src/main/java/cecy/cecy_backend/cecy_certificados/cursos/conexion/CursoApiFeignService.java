@@ -4,10 +4,9 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.List;
+import cecy.cecy_backend.cecy_certificados.cursos.conexion.reportDto.CourseReportDto;
 
-//@FeignClient(name = "nodeApi", url = "http://cecy_api_js:3000/api/v1")
-@FeignClient(name = "nodeApi", url = "http://localhost:3000/api/v1")
+import java.util.List;@FeignClient(name = "nodeApi", url = "http://localhost:3000/api/v1")
 public interface CursoApiFeignService {
     @GetMapping("/courses")
     List<Course> getCoursesAll(); /* Aqui te trae todos los cursos */
@@ -26,4 +25,13 @@ public interface CursoApiFeignService {
 
     @GetMapping("/courses/find/instructor/{id}")
     List<DetallePlanificacion> getCoursesByInstructor(@PathVariable("id") Integer id);
+
+    @GetMapping("/reporte/{id}")
+    CourseReportDto getPlanificationReportById(@PathVariable("id") Integer id);
+
+    @GetMapping("/reporte/{id}")
+    CourseReportDto getDesignReportById(@PathVariable("id") Integer id);
 }
+
+
+//@FeignClient(name = "nodeApi", url = "http://cecy_api_js:3000/api/v1")

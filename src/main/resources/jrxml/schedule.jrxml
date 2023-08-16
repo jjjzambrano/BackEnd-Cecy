@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="schedule" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="41ef3d19-c7dd-4ccd-bbff-078f44065aff">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="startedTime" class="java.lang.String"/>
+	<field name="endedTime" class="java.lang.String"/>
+	<field name="days" class="java.lang.String"/>
+	<field name="workday" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="230" y="0" width="100" height="15" uuid="448d855f-6f06-480f-b96a-c5a2cf48ad75">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Horarios]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="18" width="544" height="15" backcolor="#C8DCF4" uuid="3c28ef32-b30e-4afe-83a3-dfbeb53edd27">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="15" uuid="26ef036c-e6b1-4c76-9405-c0e251201f9e">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box padding="1">
+						<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+					</box>
+					<text><![CDATA[Hora inicio]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="100" y="0" width="100" height="15" uuid="28010250-34d3-4635-8fa3-a05c3d15e4d3">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box padding="1">
+						<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+					</box>
+					<text><![CDATA[Hora fin]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="430" y="0" width="114" height="15" uuid="b1d61f99-9c02-46b4-9c5f-5c1503d1ffe0">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box padding="1">
+						<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+					</box>
+					<text><![CDATA[Jornada]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="200" y="0" width="230" height="15" uuid="371feff4-524d-45d7-9908-f91434961387"/>
+					<box padding="1">
+						<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+					</box>
+					<text><![CDATA[Dias]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="15" uuid="61c28ab4-f1b7-45ae-a082-30a740e78362">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ac42ce12-0c9b-41aa-bad9-9b62280cbd6a"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{startedTime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="15" uuid="d6f4b46d-2f0c-4a73-929c-3f7796a5ac1b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c4538575-03a8-475d-8e7a-7e4f9e7c92bb"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{endedTime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="230" height="15" uuid="76986b9a-4d3b-43eb-b669-ae26cb219fb9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ba75bba5-1e5e-426a-ad82-17dcf3b92268"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{days}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="114" height="15" uuid="448ad00a-f2cc-4c72-bef5-648f2566a7f1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="60812d78-4d77-475a-9fc1-a546fb13f07c"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{workday}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

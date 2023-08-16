@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import cecy.cecy_backend.cecy_certificados.cursos.conexion.reportDto.CourseReportDto;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -37,5 +39,10 @@ public class CursoApiFeignController {
     @GetMapping("/courses/find/instructor/{id}")
     public List<DetallePlanificacion> getCoursesInstructor(@PathVariable Integer id){
         return cursoApiFeignService.getCoursesByInstructor(id);
+    }
+
+    @GetMapping("/reporte/{id}")
+    CourseReportDto getPlanificationReportById(@PathVariable("id") Integer id){
+        return cursoApiFeignService.getPlanificationReportById(id);
     }
 }
