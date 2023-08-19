@@ -31,6 +31,11 @@ public class CodigosController {
         return codigosService.findById(id);
     }
 
+    @GetMapping("findByMatriculaId/{id}/")
+    public Codigos findByMatriculaId(@PathVariable int id){
+        return codigosService.findByMatriculaId(id);
+    }
+
     @PostMapping("/")
     public Codigos save(@RequestBody Codigos entity){
         return codigosService.save(entity);

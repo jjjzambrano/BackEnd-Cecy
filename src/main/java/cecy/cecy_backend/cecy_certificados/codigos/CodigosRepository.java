@@ -6,4 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface CodigosRepository extends CrudRepository<Codigos, Long> {
      
     public List<Codigos> findAll();
+
+    public Codigos findFirstByMatriculasId(int id);
 }

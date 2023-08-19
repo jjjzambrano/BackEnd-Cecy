@@ -52,4 +52,8 @@ public class CodigosService {
         }
         return null;
     }
+
+    public Codigos findByMatriculaId(int id){
+        return entityRepository.findFirstByMatriculasId(id);
+    }
 }

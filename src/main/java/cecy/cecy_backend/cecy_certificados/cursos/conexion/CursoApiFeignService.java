@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-//@FeignClient(name = "nodeApi", url = "http://cecy_api_js:3000/api/v1")
-@FeignClient(name = "nodeApi", url = "http://localhost:3000/api/v1")
+@FeignClient(name = "nodeApi", url = "http://backend-cecy-cecy_api_js-1:3000/api/v1")
+// @FeignClient(name = "nodeApi", url = "http://localhost:3000/api/v1")
 public interface CursoApiFeignService {
     @GetMapping("/courses")
     List<Course> getCoursesAll(); /* Aqui te trae todos los cursos */
