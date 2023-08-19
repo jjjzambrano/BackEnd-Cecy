@@ -8,8 +8,8 @@ import cecy.cecy_backend.cecy_certificados.cursos.conexion.reportDto.CourseRepor
 
 import java.util.List;
 
-@FeignClient(name = "nodeApi", url = "http://backend-cecy-cecy_api_js-1:3000/api/v1")
-// @FeignClient(name = "nodeApi", url = "http://localhost:3000/api/v1")
+//@FeignClient(name = "nodeApi", url = "http://backend-cecy-cecy_api_js-1:3000/api/v1")
+@FeignClient(name = "nodeApi", url = "http://localhost:3000/api/v1")
 public interface CursoApiFeignService {
     @GetMapping("/courses")
     List<Course> getCoursesAll(); /* Aqui te trae todos los cursos */
