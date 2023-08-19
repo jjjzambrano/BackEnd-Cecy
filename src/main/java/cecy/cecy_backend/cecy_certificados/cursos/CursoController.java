@@ -5,17 +5,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import cecy.cecy_backend.cecy_certificados.cursos.conexion.Course;
+
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.CursoApiFeignService;
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.reportDto.CourseReportDto;
-import cecy.cecy_backend.cecy_certificados.reportes.ReporteService;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperPrint;
 
 import java.io.FileNotFoundException;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpHeaders;
@@ -63,17 +61,25 @@ public class CursoController {
     }
 
     @GetMapping("/reporte/design/{id}")
-    public ResponseEntity<byte[]> getFacturaReporte(@PathVariable Integer id) throws JRException {
+    public ResponseEntity<byte[]> getReportDesign(@PathVariable Integer id) throws JRException {
         JasperPrint reporte = cursoService.getReporteDesign(id);
-
         if (reporte == null)
             return new ResponseEntity<byte[]>(null, null, HttpStatus.NOT_FOUND);
-
         HttpHeaders headers = new HttpHeaders();
-        // set the PDF format
         headers.setContentType(MediaType.APPLICATION_PDF);
         headers.setContentDispositionFormData("filename", "main.pdf");
-        // create the report in PDF format
+        return new ResponseEntity<byte[]>(JasperExportManager.exportReportToPdf(reporte), headers, HttpStatus.OK);
+
+    }
+
+    @GetMapping("/reporte/need/{id}")
+    public ResponseEntity<byte[]> getReportNeed(@PathVariable Integer id) throws JRException {
+        JasperPrint reporte = cursoService.getReporteNeed(id);
+        if (reporte == null)
+            return new ResponseEntity<byte[]>(null, null, HttpStatus.NOT_FOUND);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData("filename", "main.pdf");
         return new ResponseEntity<byte[]>(JasperExportManager.exportReportToPdf(reporte), headers, HttpStatus.OK);
 
     }

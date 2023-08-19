@@ -17,22 +17,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ResourceUtils;
-
-import cecy.cecy_backend.cecy_certificados.codigos.Codigos;
-import cecy.cecy_backend.cecy_certificados.cursos.conexion.Categoria;
-import cecy.cecy_backend.cecy_certificados.cursos.conexion.Course;
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.CursoApiFeignService;
-import cecy.cecy_backend.cecy_certificados.cursos.conexion.Planificacion;
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.reportDto.CourseReportDto;
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.reportDto.EnvironmentDto;
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.reportDto.EvaluationDto;
 import cecy.cecy_backend.cecy_certificados.cursos.conexion.reportDto.ScheduleDto;
-import cecy.cecy_backend.cecy_certificados.reportes.Reporte;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -121,7 +113,7 @@ public class CursoService {
         try {
             reportJasperPrint = JasperFillManager.fillReport(
                     JasperCompileManager.compileReport(
-                            ResourceUtils.getFile("classpath:jrxml/needs.jrxml")
+                            ResourceUtils.getFile("classpath:componentNeed/needs.jrxml")
                                     .getAbsolutePath()) // path of the jasper report
                     , reportParameters // dynamic parameters
                     , new JREmptyDataSource());
@@ -134,38 +126,17 @@ public class CursoService {
     public JasperPrint getReporteDesign(Integer id) {
         CourseReportDto curso = cursoApiFeignService.getDesignReportById(id);
 
-        // CourseReportDto datos = planification.get(0);
-
         Map<String, Object> reportParameters = new HashMap<String, Object>();
 
-        // reportParameters.put("nameCourse", curso.getNameCourse());
-        // reportParameters.put("modality", curso.getModality());
-        // reportParameters.put("duration", curso.getDuration());
-        // reportParameters.put("participantTypes", curso.getParticipantTypes());
-        // reportParameters.put("area", curso.getDuration());
-        // reportParameters.put("duration", curso.getDuration());
+        reportParameters.put("nameCourse", curso.getNameCourse());
+        reportParameters.put("area", curso.getArea());
+        reportParameters.put("especiality", curso.getSpeciality());
+        reportParameters.put("participantTypes", curso.getParticipantTypes());
+        reportParameters.put("modality", curso.getModality());
+        reportParameters.put("duration", curso.getDuration());
 
-        List<Map<String, Object>> headerFirstData = new ArrayList<>();
 
-        Map<String, Object> data = new HashMap<>();
-        data.put("nameCourse", curso.getNameCourse());
-        data.put("area", curso.getArea());
-        data.put("especiality", curso.getSpeciality());
-        headerFirstData.add(data);
-
-        reportParameters.put("headerFirst", new JRBeanCollectionDataSource(headerFirstData));
-
-        List<Map<String, Object>> headerSecondData = new ArrayList<>();
-
-        Map<String, Object> dataheaderSecond = new HashMap<>();
-        dataheaderSecond.put("participantTypes", curso.getParticipantTypes());
-        dataheaderSecond.put("modality", curso.getModality());
-        dataheaderSecond.put("duration", curso.getDuration());
-        headerSecondData.add(dataheaderSecond);
-
-        reportParameters.put("headerSecond", new JRBeanCollectionDataSource(headerSecondData));
-
-        reportParameters.put("requireTechnique", curso.getRequireTechnique());
+        reportParameters.put("requireTechniques", curso.getRequireTechnique());
         reportParameters.put("requireGeneral", curso.getRequireGeneral());
         reportParameters.put("object", curso.getObject());
         reportParameters.put("strategy", curso.getStrategy());
@@ -207,9 +178,9 @@ public class CursoService {
 
         Map<String, Object> enviroment = new HashMap<>();
         for (EnvironmentDto dataEnviroment : curso.getEnviroment()) {
-            enviroment.put("technique", dataEnviroment.getInstallation());
-            enviroment.put("instrument", dataEnviroment.getPracticalPhase());
-            enviroment.put("instrument", dataEnviroment.getTheoreticalPhase());
+            enviroment.put("instalation", dataEnviroment.getInstallation());
+            enviroment.put("practice", dataEnviroment.getPracticalPhase());
+            enviroment.put("theoric", dataEnviroment.getTheoreticalPhase());
             enviromentData.add(enviroment);
         }
 
@@ -220,7 +191,7 @@ public class CursoService {
 
         List<Map<String, Object>> bibliography = new ArrayList<>();
 
-        for (String cita : curso.getJustify()) {
+        for (String cita : curso.getBibliography()) {
             Map<String, Object> bibliographydata = new HashMap<>();
             bibliographydata.put("bibliography", cita);
             bibliography.add(bibliographydata);
@@ -231,7 +202,7 @@ public class CursoService {
         try {
             reportJasperPrint = JasperFillManager.fillReport(
                     JasperCompileManager.compileReport(
-                            ResourceUtils.getFile("classpath:componentsReportDesign/design.jrxml")
+                            ResourceUtils.getFile("classpath:componentsReportDesign/reportDesign.jrxml")
                                     .getAbsolutePath()) // path of the jasper report
                     , reportParameters // dynamic parameters
                     , new JREmptyDataSource());
@@ -240,6 +211,7 @@ public class CursoService {
         }
         return reportJasperPrint;
     }
+
 
     public byte[] exportToXls(Integer id, String type) throws JRException {
         ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
@@ -259,5 +231,6 @@ public class CursoService {
     public byte[] exportXls(Integer id, String type) throws JRException {
         return exportToXls(id, type);
     }
+
 
 }

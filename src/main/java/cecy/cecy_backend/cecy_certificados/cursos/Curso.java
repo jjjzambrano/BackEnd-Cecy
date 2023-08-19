@@ -1,13 +1,8 @@
 package cecy.cecy_backend.cecy_certificados.cursos;
 
-import cecy.cecy_backend.cecy_certificados.cursos.conexion.Course;
-import com.fasterxml.jackson.annotation.JsonAlias;
-import com.fasterxml.jackson.databind.JsonNode;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @Entity
