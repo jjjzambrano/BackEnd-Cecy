@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="evaluationDiagnostic" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="4941e53d-95d3-44c3-819f-a892b10176a0">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="technique" class="java.lang.String"/>
+	<field name="instrument" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="544" height="30" backcolor="#C8DCF4" uuid="b296543c-3b56-4d51-a0bd-638614ed2a25">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="544" height="15" uuid="c5145e93-26c3-4b53-9201-a6222ae4ec7f">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<box padding="1">
+						<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Evaluación proceso formativo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="15" width="280" height="15" uuid="0c2d94d1-5a06-47f6-a91b-8fb355e6bf11"/>
+					<box padding="1">
+						<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Técnica]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="280" y="15" width="264" height="15" uuid="d265f81f-ea75-42de-b6b3-ad80438df92e"/>
+					<box padding="1">
+						<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Instrumento]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="0" y="0" width="280" height="15" uuid="e5bfc6d9-d545-43dc-9a1f-71bc4647e6d6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="34a8175e-59c5-47be-9196-11fdb6b53e2e"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="1">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{technique}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="264" height="15" uuid="024264d7-7e1b-4da1-befb-5080aa61a820">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fc8a53c9-640f-4358-943d-c4e175cd371a"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box padding="1">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#C7C7C7"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{instrument}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

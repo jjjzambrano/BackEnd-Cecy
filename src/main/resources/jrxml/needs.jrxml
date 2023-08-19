@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="needs" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f7683c66-2e72-430f-93ef-a1c4b3ab4a97">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="codeCourse" class="java.lang.String"/>
+	<parameter name="teacher" class="java.lang.String"/>
+	<parameter name="nameCourse" class="java.lang.String"/>
+	<parameter name="type" class="java.lang.String"/>
+	<parameter name="modality" class="java.lang.String"/>
+	<parameter name="justify" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="duration" class="java.lang.String"/>
+	<parameter name="startedDate" class="java.lang.String"/>
+	<parameter name="endedDate" class="java.lang.String"/>
+	<parameter name="participantRegister" class="java.lang.String"/>
+	<parameter name="summary" class="java.lang.String"/>
+	<parameter name="project" class="java.lang.String"/>
+	<parameter name="participantTypes" class="java.lang.String"/>
+	<parameter name="schedule" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="252" splitType="Stretch">
+			<staticText>
+				<reportElement x="107" y="77" width="340" height="15" uuid="dc0035b5-d8dd-4f9d-a351-0447714bb9bd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[INSTITUTO TECNOLÓGICO SUPERIOR YAVIRAC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="92" width="340" height="20" uuid="e62fbf50-1a9b-44c2-bd59-e52c2fa6837d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[INFORME DE NECESIDAD DEL CURSO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="0" width="110" height="15" uuid="d83e6028-0eff-44e9-b14c-af7ff25ba93c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Código del curso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="120" width="150" height="14" uuid="09f2b3a7-343d-4a1d-a0da-15cd731b6e96"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nombre del Docente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="140" width="150" height="14" uuid="69d41e19-fd57-404a-85e6-31a5ecce0aae"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nombre del Curso:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="160" width="150" height="14" uuid="ef67241e-7011-4e20-9903-50c2a9383cbf"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tipo de curso:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="180" width="150" height="14" uuid="17d255d4-d7dd-4672-8c31-330939443cc5"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Modalidad del curso:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="470" y="0" width="90" height="15" uuid="e73126e3-483e-4c96-b68b-14e65fd11cb4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{codeCourse}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="120" width="340" height="14" uuid="3bbc6e2c-c170-4a4c-85e3-5ceb49e29936"/>
+				<textFieldExpression><![CDATA[$P{teacher}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="140" width="340" height="14" uuid="f4f2a20b-8c60-4ae9-894f-fb6d54aca513"/>
+				<textFieldExpression><![CDATA[$P{nameCourse}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="160" width="340" height="14" uuid="ee48fc43-e4b4-45ab-8cba-e4523ecfeb5d"/>
+				<textFieldExpression><![CDATA[$P{type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="180" width="340" height="14" uuid="5b644dce-f953-4181-addb-c317e5f8f20e"/>
+				<textFieldExpression><![CDATA[$P{modality}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="1" y="225" width="549" height="13" uuid="bbf13352-dddd-4dcc-847b-a7c9991e8765"/>
+				<dataSourceExpression><![CDATA[$P{schedule}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["classpath:jrxml/schedule.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="210" width="150" height="14" uuid="bcf028e0-4ce7-4e0a-bf55-b5c9d0fcc28b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Duración del Curso:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="210" width="400" height="14" uuid="91700246-1470-4a2c-a6f7-a9c769e82c96">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{duration}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="120" height="50" uuid="e6d82276-5346-479c-85cf-b48d65c486d1"/>
+				<imageExpression><![CDATA["classpath:jrxml/logo-secretaria-educacion.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="227" y="0" width="97" height="50" uuid="ac8c095f-2958-4fce-8618-f107d2f1bbe3"/>
+				<imageExpression><![CDATA["classpath:jrxml/Yavirac.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="176" splitType="Stretch">
+			<staticText>
+				<reportElement x="30" y="10" width="150" height="14" uuid="f999dbba-f741-4be8-928e-7364eac7c25c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Fecha de Iniciación:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="70" width="150" height="20" uuid="e14bd4d9-cc69-4793-9b3b-232933d6fee3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Resumen:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="30" width="150" height="14" uuid="4ad0c259-157b-4b94-86cc-a0c36935d819">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Fecha de fnalización:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="50" width="150" height="14" uuid="5a06738f-91d5-4aee-a2af-7fe6d76655e0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Participantes a ser inscritos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="10" width="370" height="14" uuid="2e39dc0e-c35a-4346-bab9-33fdc9285ceb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{startedDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="30" width="370" height="14" uuid="5339bd21-447c-4b7c-bea3-3340da41fc5e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{endedDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="50" width="370" height="14" uuid="59f0cc50-ee93-46e5-b48b-c59734933589">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{participantRegister}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="90" width="150" height="20" uuid="06c95799-9485-4321-839b-ba78e84def96">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Proyecto:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="70" width="400" height="20" uuid="df31dd41-90fc-406e-9797-044c504218b2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{summary}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="90" width="400" height="20" uuid="02b6165e-cb98-42b5-b934-b3494591cb1b"/>
+				<textFieldExpression><![CDATA[$P{project}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="115" width="210" height="27" uuid="49fb593d-1d97-4fbf-a101-03bb3e7ce72e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Indicar a que población se encuentra
+dirigido el curso: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="210" y="115" width="340" height="27" uuid="48cc9c66-906c-40d2-be5c-ce0bb1d783ba">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{participantTypes}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="185" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="130" width="549" height="35" uuid="cd43111e-9268-4060-9917-f45fb1a56962"/>
+				<box padding="1">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nota: Documento que deberá ser aprobado por parte del Órgano Colegiado Superior (OCS) y del Vicerrector del Instituto, tal como lo indica la normativa y el Acuerdo 118 (Instructivo de Capacitación - Certificación por Competencias Laborales SENESCYT), en el caso que sea un registro digital, se adjuntan las firmas de responsabilidad como fotografías en las celdas correspondientes ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="47" width="180" height="1" uuid="960a4c79-59d7-4385-9166-544fb625760b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="1" y="50" width="180" height="14" uuid="800a63bb-c590-49fd-b7a5-10222a55a487">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[REPRESENTANTE DEL OCS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="97" width="180" height="1" uuid="fcf4cc5a-ad92-44de-99e7-a34614ed6c95">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="1" y="100" width="180" height="14" uuid="730f04eb-5f2f-43e3-ad15-90e725f5109e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[VICERRECTOR ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="310" y="47" width="180" height="1" uuid="a5e5c36c-c4cf-4f17-86bd-afadf417b990">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="310" y="50" width="180" height="14" uuid="dd83e5ab-3acd-4c2c-a652-c7377792e5fc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<line>
+				<reportElement x="310" y="97" width="180" height="1" uuid="073556a3-2aad-4352-8f60-a3e515b068a4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="310" y="100" width="180" height="14" uuid="9155793c-f645-4b4f-a852-f3084f9c155b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="23">
+			<subreport>
+				<reportElement x="1" y="3" width="549" height="17" uuid="b2b653c1-32e7-4841-9d60-43fd905bfc48"/>
+				<dataSourceExpression><![CDATA[$P{justify}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["classpath:jrxml/justifies.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>
