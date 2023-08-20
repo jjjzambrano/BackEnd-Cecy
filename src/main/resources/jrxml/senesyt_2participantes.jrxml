@@ -107,7 +107,7 @@
 				<textElement>
 					<font size="18"/>
 				</textElement>
-				<text><![CDATA[Por haber aprobado el curso de                                                                  , efectuado en el Centro Histórico de Quito del                                   , con una duración de      horas.]]></text>
+				<text><![CDATA[Por haber aprobado el curso de                                                                  , efectuado en el Centro Histórico de Quito del                                           , con una duración de         horas.]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="267" y="270" width="320" height="24" uuid="201d9357-186e-4e04-8877-5b8300f573a5"/>
@@ -117,14 +117,14 @@
 				<textFieldExpression><![CDATA[$P{curso_nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="248" y="293" width="219" height="24" uuid="9f93b889-0d4a-41f2-b01e-d48943987de3"/>
+				<reportElement x="246" y="293" width="219" height="24" uuid="9f93b889-0d4a-41f2-b01e-d48943987de3"/>
 				<textElement>
 					<font size="16"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{fecha_curso}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="593" y="291" width="80" height="23" uuid="6eef5106-7cd5-498a-8293-dda33a0fcdcd"/>
+				<reportElement x="632" y="291" width="80" height="23" uuid="6eef5106-7cd5-498a-8293-dda33a0fcdcd"/>
 				<textElement>
 					<font size="18"/>
 				</textElement>

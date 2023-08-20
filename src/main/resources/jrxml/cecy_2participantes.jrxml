@@ -74,10 +74,10 @@
 				<textElement>
 					<font fontName="Calibri" size="20"/>
 				</textElement>
-				<text><![CDATA[Por haber aprobado el curso de                                                           , efectuado del                                   , con una duración de        horas.]]></text>
+				<text><![CDATA[Por haber aprobado el curso de                                                           , efectuado del                                      , con una duración de       horas.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="349" y="272" width="348" height="29" uuid="042aff55-69cd-4148-b083-75cb3bbfeb23"/>
+				<reportElement x="353" y="272" width="348" height="29" uuid="042aff55-69cd-4148-b083-75cb3bbfeb23"/>
 				<textElement textAlignment="Center">
 					<font fontName="Calibri" size="20" isBold="false"/>
 				</textElement>
@@ -91,7 +91,7 @@
 				<textFieldExpression><![CDATA[$P{fecha_curso}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="591" y="299" width="64" height="24" uuid="3254cebf-cfe0-45b0-aa8d-784e0aebbf8f"/>
+				<reportElement x="606" y="299" width="64" height="24" uuid="3254cebf-cfe0-45b0-aa8d-784e0aebbf8f"/>
 				<textElement>
 					<font fontName="Calibri" size="18"/>
 				</textElement>
@@ -125,12 +125,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{fecha_certificado}]]></textFieldExpression>
 			</textField>
-			<componentElement>
-				<reportElement x="350" y="511" width="94" height="62" uuid="57915c63-24d4-4ccc-a6ee-ef4dc4ceeb62"/>
-				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<jr:codeExpression><![CDATA[$P{Qr}]]></jr:codeExpression>
-				</jr:QRCode>
-			</componentElement>
 			<image onErrorType="Icon">
 				<reportElement x="105" y="65" width="133" height="85" uuid="5e173f42-eb9f-4491-8029-7353ec900c18"/>
 				<imageExpression><![CDATA["classpath:jrxml/Cecy.png"]]></imageExpression>
@@ -146,6 +140,12 @@
 				</textElement>
 				<text><![CDATA[Confieren el presente certificado a: ]]></text>
 			</staticText>
+			<componentElement>
+				<reportElement x="330" y="490" width="113" height="81" uuid="af09e7f8-57e0-4392-9fa6-b07f05621e24"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA[$P{Qr}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
 		</band>
 	</pageHeader>
 </jasperReport>

@@ -58,7 +58,7 @@
 				<textElement>
 					<font size="18"/>
 				</textElement>
-				<text><![CDATA[Por haber aprobado el curso de                                                                  , efectuado en el Centro Histórico de Quito del                                   , con una duración de      horas.]]></text>
+				<text><![CDATA[Por haber aprobado el curso de                                                                  , efectuado en el Centro Histórico de Quito del                                        , con una duración de        horas.]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="267" y="270" width="320" height="24" uuid="d8cdcc14-17ba-43bd-9c73-53f4eeeb1ba7"/>
@@ -146,7 +146,7 @@
 				</jr:QRCode>
 			</componentElement>
 			<textField>
-				<reportElement x="593" y="291" width="80" height="23" uuid="5a7e72fe-02a4-4431-a5d3-4a1b8856eb9f"/>
+				<reportElement x="615" y="291" width="80" height="23" uuid="5a7e72fe-02a4-4431-a5d3-4a1b8856eb9f"/>
 				<textElement>
 					<font size="18"/>
 				</textElement>
